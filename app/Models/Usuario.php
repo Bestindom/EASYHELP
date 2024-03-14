@@ -31,4 +31,9 @@ class Usuario extends Authenticatable
     {
         return $this->belongsTo(Comedor::class, 'id');
     }
+
+    public function admin(): BelongsTo
+    {
+        return $this->belongsTo(Admin::class, 'id');
+    }
 }
