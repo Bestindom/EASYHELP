@@ -21,7 +21,7 @@ class UsuarioController extends Controller
         // $usuario->username = "ealbuja2";
         // $usuario->password = \bcrypt("pepe");
 
-        // $usuario->save();º
+        // $usuario->save();
 
         return view('auth.login');
     }
@@ -37,7 +37,7 @@ class UsuarioController extends Controller
             Auth::login($user);
             $response = redirect('/main');
         } else {
-            $request->session()->flash('error','Usuario o contraseña incorrectos');
+            $request->session()->flash('error', 'Usuario o contraseña incorrectos');
             $response = redirect('/login')->withInput();
         }
 
