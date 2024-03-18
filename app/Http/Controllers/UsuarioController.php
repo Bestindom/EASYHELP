@@ -18,8 +18,9 @@ class UsuarioController extends Controller
     {
         // $usuario = new Usuario();
 
-        // $usuario->username = "ealbuja2";
+        // $usuario->username = "ealbuja";
         // $usuario->password = \bcrypt("pepe");
+        // $usuario->type_id = 1;
 
         // $usuario->save();
 
@@ -35,7 +36,7 @@ class UsuarioController extends Controller
 
         if ($user != null && Hash::check($user_password, $user->password)) {
             Auth::login($user);
-            $response = redirect('/main');
+            $response = redirect('/testing');
         } else {
             $request->session()->flash('error', 'Usuario o contraseña incorrectos');
             $response = redirect('/login')->withInput();

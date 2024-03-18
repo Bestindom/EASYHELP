@@ -1,5 +1,5 @@
 @extends('layouts.main')
 
 @section('contenido')
-{{ Auth::user()->Admin->id }}
+   <p>{{ Auth::user()->admin->user_id}}</p>
 @endsection
