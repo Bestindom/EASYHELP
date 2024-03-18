@@ -24,7 +24,7 @@
 
                         <div class="row mb-3">
                             <div class="col-sm-12 d-flex flex-row-reverse">
-                                <a href="{{ url('login') }}" class="btn btn-secondary float-right ms-1">Cancel</a>
+                                <a href="{{ url('/') }}" class="btn btn-secondary float-right ms-1">Cancel</a>
                                 <button type="submit" class="btn btn-primary float-right">Accept</button>
                             </div>
                         </div>

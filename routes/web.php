@@ -24,8 +24,8 @@ Route::post('/login', [UsuarioController::class, 'login']);
 Route::get('/logout', [UsuarioController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('main', function () {
+    Route::get('testing', function () {
 
-        return view('principal');
+        return view('Users.users');
     });
 });
