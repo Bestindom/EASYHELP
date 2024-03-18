@@ -38,7 +38,7 @@ class Usuario extends Authenticatable
         return $this->hasOne(Admin::class, 'user_id');
     }
 
-    public function types(): BelongsTo
+    public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class, 'type_id');
     }

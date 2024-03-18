@@ -17,6 +17,12 @@
                 </tr>
                 </thead>
                 <tbody>
+                    <tr v-for="user in users">
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.type }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -31,6 +37,26 @@ import * as bootstrap from 'bootstrap'
 import axios from 'axios';
 
 export default {
+    data() {
+        return {
+            users: [],
+        }
+    },
+    methods: {
+        selectUsers()
+        {
+            const me = this
+            axios
+                .get('/EASYHELP/public/api/user')
+                .then(response => {
+                    console.log(response.data);
+                    me.users = response.data
+                })
+        },
+    },
+    created() {
+        this.selectUsers()
+    },
 }
 </script>
 <style>
