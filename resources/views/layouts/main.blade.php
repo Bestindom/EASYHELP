@@ -14,6 +14,21 @@
 
 <body>
 
+    
+
+    <div class="login">
+
+        <div class="login-title">
+            @yield('text')
+        </div>
+
+        <div class="row justify-content-center login-form">
+            @yield('form')
+        </div>
+        <div class="login-img">
+            @yield('background-image')
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
             <a class="nav-link active" aria-current="page" href="{{ url('/') }}">AUTOEVALUACIÓN</a>
@@ -60,21 +75,6 @@
             </div>
         </div>
     </nav>
-
-    <div class="login">
-
-        <div class="login-title">
-            @yield('text')
-        </div>
-
-        <div class="row justify-content-center login-form">
-            @yield('form')
-        </div>
-        <div class="login-img">
-            @yield('background-image')
-        </div>
-    </div>
-
 </body>
 
 </html>
