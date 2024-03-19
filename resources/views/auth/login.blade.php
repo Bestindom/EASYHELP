@@ -1,37 +1,45 @@
 @extends('layouts.main')
 
+@section('title', 'Login')
+
+
 @section('contenido')
+    <div class="login">
+        <div class="login-title">
+            <h1 class="logo"><span class="logo1">Easy</span><span class="logo2">Help</span></h1>
+        </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header bg-secondary text-light">
-                    Login
-                </div>
-                <div class="card-body">
-                    <form action="{{ action([App\Http\Controllers\UsuarioController::class, 'login']) }}" method="POST">
-                        @csrf
-                        <div class="form-floating row mb-3">                            
-                            <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" autofocus >
-                            <label for="username">Username</label>
+        <div class="row justify-content-center login-form">
+            <div class="col-md-6 login-container">
+                <form action="{{ action([App\Http\Controllers\UsuarioController::class, 'login']) }}" method="POST">
+                    @csrf
+                    <div class="col-md-6 form-container">
+                        <div class="form row mb-3 justify-content-center">
+                            <input type="text" class="form-control login-input" id="username" name="username"
+                                value="{{ old('username') }}" placeholder="Introduce nombre de usuario o email" autofocus>
                         </div>
 
-                        <div class="form-floating row mb-3">                            
-                            <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}">
-                            <label for="password">Password</label>
+                        <div class="form row mb-3 justify-content-center">
+                            <input type="password" class="form-control login-input" id="password" name="password"
+                                value="{{ old('password') }}" placeholder="Contraseña">
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-sm-12 d-flex flex-row-reverse">
-                                <a href="{{ url('/') }}" class="btn btn-secondary float-right ms-1">Cancel</a>
-                                <button type="submit" class="btn btn-primary float-right">Accept</button>
+                        <div class="form-check mb-3 justify-content-center">
+                            <input class="form-check-input" type="checkbox" id="mantener-sesion" name="mantener_sesion">
+                            <label class="form-check-label" for="mantener-sesion">
+                                Mantener sesión
+                            </label>
+                        </div>
+
+                        <div class="row mb-3 login-button-container">
+                            <div class="col-md-6 d-flex justify-content-center login-button">
+                                <img src="{{ asset('img/repartidor.png') }}">
+                                <button type="submit" class="btn btn-primary float-right">Log In</button>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection
