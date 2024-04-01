@@ -10,6 +10,8 @@
     </title>
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
@@ -63,6 +65,8 @@
 
     @yield('contenido')
 
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>
