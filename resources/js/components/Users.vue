@@ -28,7 +28,7 @@
                                 <button type="submit" class="btn btn-sm btn-secondary" @click="editUser(user)">
                                     <i class="bi bi-pencil-square"></i> Edit
                                 </button>
-                                <button type="submit" class="btn btn-sm btn-danger" @click="confirmDelete(cicle)">
+                                <button type="submit" class="btn btn-sm btn-danger" @click="confirmDelete(user)">
                                     <i class="bi bi-trash"></i> Delete
                                 </button>
                             </div>
@@ -39,9 +39,28 @@
         </div>
     </div>
 
+    <!-- Delete Modal -->
 
-
-
+    <div class="modal" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to delete <strong>{{ user.username }}</strong>?</p>
+                <span v-if="isError" class="badge text-bg-danger">{{ messageError }}</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" @click="deleteUser()">
+                    <i class="bi bi-trash"></i> Accept
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Insert/Update Modal -->
@@ -65,8 +84,9 @@
                             <label for="password">Password</label>
                         </div>
                         <div class="form-floating row mb-3">
-                            <option v-for="type in user_types" :key="U" value=""></option>
-                            <input type="text" class="form-control" id="type" name="type" v-model="user.type">
+                            <select class="form-select" id="type" name="type" v-model="user.type">
+                                <option v-for="type in types" :value="type.id"> {{ type.name }} </option>
+                            </select>
                             <label for="type">Type</label>
                         </div>
                     </form>
@@ -99,7 +119,7 @@ export default {
             users: [],
             myModal: {},
             user: {},
-            user_types: [],
+            types: [],
             messageError: '',
             isError: false,
             insert: false
@@ -146,9 +166,42 @@ export default {
                     me.users = response.data
                 })
         },
+        selectTypes()
+        {
+            const me = this
+            axios
+                .get('type')
+                .then(response => {
+                    console.log(response.data);
+                    me.types = response.data
+                })
+        },
+        confirmDelete(user)
+        {
+            this.isError = false
+            this.user = user
+            this.myModal = new bootstrap.Modal('#deleteModal')
+            this.myModal.show()
+        },
+        deleteUser()
+        {
+            const me = this
+            axios
+                .delete('user/' + me.user.id)
+                .then(response => {
+                    me.selectUsers()
+                    me.myModal.hide()
+                })
+                .catch(error => {
+                    me.isError = true
+                    console.log(error)
+                    me.messageError = error.response.data.error
+                })
+        }
     },
     created() {
         this.selectUsers()
+        this.selectTypes()
     },
 }
 </script>
