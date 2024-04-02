@@ -16,7 +16,7 @@ use App\Http\Controllers\UsuarioController;
 
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('landing');
 });
 
 Route::get('/login', [UsuarioController::class, 'showLogin'])->name('login');
