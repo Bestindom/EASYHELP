@@ -1,31 +1,24 @@
-mapboxgl.accessToken =
-    "pk.eyJ1IjoiamlhamllMTIiLCJhIjoiY2x1aGZkN3Q1MGYxMjJpbnBwZWFrbTB2aSJ9.Xyzq7WQrgVz5BBlgBK3dvg";
-// const map = new mapboxgl.Map({
-//     container: "map",
-//     style: "mapbox://styles/mapbox/dark-v11", // Estilo del mapa
-//     center: [2.1734, 41.3851], // Coordenadas de Barcelona [longitud, latitud]
-//     zoom: 12, // Zoom inicial
-// });
+let map;
+window.addEventListener("DOMContentLoaded", showMap);
 
-const bounds = [
-    [2.032, 41.317], // Coordenadas sudoeste de Barcelona
-    [2.229, 41.468]  // Coordenadas noreste de Barcelona
-];
+function showMap() {
+    mapboxgl.accessToken =
+        "pk.eyJ1IjoiamlhamllMTIiLCJhIjoiY2x1aGZkN3Q1MGYxMjJpbnBwZWFrbTB2aSJ9.Xyzq7WQrgVz5BBlgBK3dvg";
+    map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11", // Estilo del mapa
+        center: [2.1734, 41.3851], // Coordenadas de Barcelona [longitud, latitud]
+        zoom: 12, // Zoom inicial
+        maxBounds: [
+            [0.5, 40.25], // Coordenadas sudoeste de Cataluña
+            [3.4, 42.5], // Coordenadas noreste de Cataluña
+        ],
+    });
+    window.addEventListener("click", addMark);
+}
 
-const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/standard', // Estilo del mapa
-    center: [2.1734, 41.3851], // Coordenadas de Barcelona [longitud, latitud]
-    maxBounds: bounds, // Límites del mapa
-    zoom: 10 // Zoom inicial
-});
-
-// mapbox://styles/mapbox/standard
-// mapbox://styles/mapbox/streets-v12
-// mapbox://styles/mapbox/outdoors-v12
-// mapbox://styles/mapbox/light-v11
-// mapbox://styles/mapbox/dark-v11
-// mapbox://styles/mapbox/satellite-v9
-// mapbox://styles/mapbox/satellite-streets-v12
-// mapbox://styles/mapbox/navigation-day-v1
-// mapbox://styles/mapbox/navigation-night-v1
+function addMark() {
+    const marker1 = new mapboxgl.Marker()
+        .setLngLat([2.13974, 41.383605])
+        .addTo(map);
+}
