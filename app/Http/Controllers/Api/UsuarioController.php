@@ -17,7 +17,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $users = Usuario::all();
+        $users = Usuario::with(['type' , 'rider'])->get();
 
         return UsuarioResource::collection($users);
     }
@@ -30,7 +30,29 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new Usuario();
+
+        $user->username = $request->input('username');
+        $user->password = $request->input('password');
+        $user->type = $request->input('type_id');
+
+
+        try
+        {
+            $user->save();
+            // $request->session()->flash('mensaje', 'Resgistro agg correctamente');
+            $response = (new UsuarioResource($user))
+                        ->response()
+                        ->setStatusCode(201);
+        }
+        catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+        }
+
+        return $response;
     }
 
     /**
@@ -39,9 +61,10 @@ class UsuarioController extends Controller
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuario)
+    public function show(Usuario $user)
     {
-        //
+        $user = Usuario::with('type')->find($user->id);
+        return new UsuarioResource($user);
     }
 
     /**
