@@ -33,8 +33,8 @@ class UsuarioController extends Controller
         $user = new Usuario();
 
         $user->username = $request->input('username');
-        $user->password = $request->input('password');
-        $user->type = $request->input('type_id');
+        $user->password = \bcrypt($request->input('password'));
+        $user->type_id = $request->input('type');
 
 
         try
@@ -87,6 +87,19 @@ class UsuarioController extends Controller
      */
     public function destroy(Usuario $usuario)
     {
-        //
+        try
+        {
+            $usuario->delete();
+            $response = \response()
+                        ->json(['mensaje' => 'Resgistro eliminado correctamente'], 200);
+        }
+        catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+        }
+
+        return $response;
     }
 }

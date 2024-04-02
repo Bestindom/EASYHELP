@@ -36,7 +36,7 @@
                     <li class="form-control me-2">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                            {{ Auth::user()->nom }} {{ Auth::user()->cognom }}
+                            {{ Auth::user()->username }}
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ url('/logout') }}">
