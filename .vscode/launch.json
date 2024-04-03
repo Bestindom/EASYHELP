@@ -8,7 +8,7 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "chrome",
-            "url": "http://localhost:80/EASYHELP/public/",
+            "url": "http://localhost:80/EASYHELP/public/map",
             "webRoot": "${workspaceFolder}"
         },
         {

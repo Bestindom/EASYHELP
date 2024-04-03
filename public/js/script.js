@@ -1,4 +1,5 @@
 let map;
+
 window.addEventListener("DOMContentLoaded", showMap);
 
 function showMap() {
@@ -14,11 +15,30 @@ function showMap() {
             [3.4, 42.5], // Coordenadas noreste de Cataluña
         ],
     });
-    window.addEventListener("click", addMark);
-}
 
-function addMark() {
-    const marker1 = new mapboxgl.Marker()
-        .setLngLat([2.13974, 41.383605])
-        .addTo(map);
+    map.on("dblclick", function (e) {
+        // Prevenir el zoom por defecto
+        e.preventDefault();
+
+        // Pedir confirmación al usuario
+        const confirmar = window.confirm(
+            "¿Deseas añadir una marca en esta ubicación?"
+        );
+
+        // Si el usuario confirma, añadir la marca
+        if (confirmar) {
+            // Obtiene las coordenadas del lugar donde se hizo doble clic
+            const lngLat = e.lngLat;
+
+            // Crea un marcador en la ubicación del clic
+            new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
+
+            // Guarda las coordenadas en variables o en una base de datos si es necesario
+            const latitud = lngLat.lat;
+            const longitud = lngLat.lng;
+
+            // Haz lo que necesites con las coordenadas (por ejemplo, imprimir en la consola)
+            console.log(latitud, longitud);
+        }
+    });
 }
