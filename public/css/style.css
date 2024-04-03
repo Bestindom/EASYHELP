@@ -54,3 +54,64 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Estilos para dispositivos de pantalla grande (computadoras) */
+@media only screen and (min-width: 768px) {
+    /* Estilos para el contenedor principal */
+    .registroUsuario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    /* Estilos para el encabezado */
+    .registroUsuario h3 {
+        font-size: 3em;
+    }
+
+    /* Estilos para el párrafo */
+    .registroUsuario p {
+        font-size: 1.5em;
+        margin: 20px 0;
+    }
+
+    /* Estilos para los botones */
+    .registroUsuario a {
+        font-size: 1.5em;
+        width: 300px;
+        margin: 10px;
+    }
+}
+
+/* Estilos para dispositivos de pantalla pequeña (teléfonos móviles) */
+@media only screen and (max-width: 767px) {
+    /* Estilos para cada sección en dispositivos móviles */
+    .registroUsuario {
+        padding: 20px;
+        text-align: center;
+        height: 100vh; /* Ocupa toda la pantalla */
+        overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede la altura de la pantalla */
+        margin-bottom: 0; /* Elimina el margen inferior */
+    }
+
+    /* Estilos para los botones en dispositivos móviles */
+    .registroUsuario a {
+        font-size: 1.2em;
+        margin: 10px;
+        margin-bottom: 20px; /* Ajusta el margen inferior de los botones */
+    }
+}
