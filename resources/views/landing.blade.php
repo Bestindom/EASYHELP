@@ -55,5 +55,18 @@
             </div>
         </div>
     </nav>
+
+    <div>
+        <h3>Ayudemos Facil y rapido</h3>
+        <p>Con EasyHelp podrás encontrar la mejor solución a tus problemas de forma rápida y sencilla</p>
+        <a href="{{ url('/login') }}" class="btn btn-primary">Iniciar Sesión</a>
+        <a href="{{ url('/register') }}" class="btn btn-primary">Registrarse</a>
+    </div>
+
+    <footer class="bg-primary text-white text-center p-3">
+        <p>EasyHelp - 2021</p>
+    </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>
