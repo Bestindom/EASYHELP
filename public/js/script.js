@@ -25,13 +25,28 @@ function showMap() {
             "¿Deseas añadir una marca en esta ubicación?"
         );
 
-        // Si el usuario confirma, añadir la marca
+        // Si el usuario confirma, añadir la marca con popup
         if (confirmar) {
             // Obtiene las coordenadas del lugar donde se hizo doble clic
             const lngLat = e.lngLat;
 
             // Crea un marcador en la ubicación del clic
-            new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
+            const marker = new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
+
+            // Crea un popup asociado al marcador
+
+            const popupContent = `
+                <h1>McDonald's</h1>
+                <button type="button" class="btn btn-light">Light</button>
+                <img src="img/repartidor.png" alt="Imagen">
+            `;
+
+            const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+                popupContent
+            );
+
+            // Añade el popup al marcador
+            marker.setPopup(popup);
 
             // Guarda las coordenadas en variables o en una base de datos si es necesario
             const latitud = lngLat.lat;
