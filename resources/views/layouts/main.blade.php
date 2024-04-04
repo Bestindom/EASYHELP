@@ -22,18 +22,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Datos Maestros
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ url('alumne') }}">Admin</a></li>
-                            <li><a class="dropdown-item" href="{{ url('cicle') }}">Profes</a></li>
-                            <li><a class="dropdown-item" href="{{ url('cicle') }}">Alumnos</a></li>
-                            {{-- <li><a class="dropdown-item" href="{{ url('/login')}}">Login</a></li> --}}
-                        </ul>
-                    </li>
 
                 </ul>
                 <form class="d-flex" role="search">
@@ -42,7 +30,7 @@
                             <li class="form-control me-2">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->nom }} {{ Auth::user()->cognom }}
+                                    {{ Auth::user()->username }}
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ url('/logout') }}">
