@@ -119,16 +119,24 @@ body {
     text-align: center; /* Alinea horizontalmente el texto */
     position: absolute; /* Utilizamos posición absoluta */
     top: 65%; /* Sitúa el elemento a la mitad de la altura del viewport */
-    margin-left: 22%;
-    margin-right: 10%; 
+    margin-right: 0%;
+    margin-left: 25%;
     padding: 10px 20px;
     font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+   left: 30%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 300px;
+    height: 55px;
+    border-radius: 30px;
+    background-color: #219EBC;
+    color: #FFFDFD;
+    border: 1px solid #000000;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    box-shadow: 2px 2px 0px 0px #035177;
 }
 
 .registroUsuario .btn + .btn {
@@ -136,6 +144,7 @@ body {
     margin-left: 0; /* Elimina el margen izquierdo para evitar superposición */
     margin-right: 10%; /* Ajusta el margen derecho */
 }
+
 
 .registroUsuario .btn:hover {
     background-color: #0056b3;
@@ -160,4 +169,7 @@ body {
     padding: 20px; /* Añade espacio interno */
     box-sizing: border-box; /* Incluye el padding en el ancho total */
     background-color: #f0f0f0; /* Color de fondo */
+}
+.btn {
+   
 }
