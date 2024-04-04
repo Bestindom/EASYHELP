@@ -88,7 +88,7 @@ label.form-check-label {
     margin-top: 50px;
 }
 
-.btn {
+.btn.btn-primary.login {
     width: 300px;
     height: 55px;
     border-radius: 30px;
@@ -100,6 +100,9 @@ label.form-check-label {
     font-optical-sizing: auto;
     font-style: normal;
     box-shadow: 2px 2px 0px 0px #035177;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #marker {
@@ -111,6 +114,11 @@ label.form-check-label {
     cursor: pointer;
 }
 
-.mapboxgl-popup {
-    max-width: 200px;
+.mapboxgl-popup-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
 }
