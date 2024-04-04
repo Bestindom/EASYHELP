@@ -2,6 +2,30 @@
     <div>
         <div id="map" style="width: 100%; height: 100vh"></div>
     </div>
+
+
+    <!-- Insert Modal -->
+
+    <div class="modal" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to delete</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" @click="deleteUser()">
+                    <i class="bi bi-trash"></i> Accept
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+
 </template>
 <script>
 let map;
@@ -31,6 +55,8 @@ function showMap() {
             "¿Deseas añadir una marca en esta ubicación?"
         );
 
+        // showConfirm();
+
         // Si el usuario confirma, añadir la marca con popup
         if (confirmar) {
             // Obtiene las coordenadas del lugar donde se hizo doble clic
@@ -58,13 +84,61 @@ function showMap() {
             const latitud = lngLat.lat;
             const longitud = lngLat.lng;
 
+            insertPoint(latitud, longitud)
             // Haz lo que necesites con las coordenadas (por ejemplo, imprimir en la consola)
             console.log(latitud, longitud);
         }
     });
 }
 
+
+import * as bootstrap from 'bootstrap'
+import axios from 'axios';
+
 export default {
+    data() {
+        return {
+            points: [],
+            point: {},
+            myModal: {}
+        }
+    },
+    methods: {
+        showConfirm()
+        {
+            this.myModal = new bootstrap.Modal('#userModal')
+            this.myModal.show()
+        },
+        insertPoint(latitud, longitud)
+        {
+            point =
+            {
+                latitud: latitud,
+                longitud:longitud
+            }
+
+            const me = this
+            axios
+                .post('point', me.point)
+                .then(response => {
+                    me.selectPoints()
+                    me.myModal.hide()
+                })
+        },
+        selectPoints()
+        {
+            const me = this
+            axios
+                .get('point')
+                .then(response => {
+                    console.log('mis puas: ' + response.data);
+                    me.points = response.data
+                })
+        },
+    },
+    created() {
+        this.selectPoints()
+    },
 
 };
 </script>
