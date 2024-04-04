@@ -4,5 +4,5 @@
 
 @section('contenido')
     <div id='maps'></div>
-    <div id="users"></div>
+    {{-- <div id="users"></div> --}}
 @endsection
