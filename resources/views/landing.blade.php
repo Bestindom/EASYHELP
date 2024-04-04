@@ -65,16 +65,11 @@
     <div class="queEsContainer">
         <h1>QUE ES EASY HELP??? </h1>
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at dolore est? Exercitationem modi atque vero qui in consectetur
-           quis facilis, ex alias nesciunt dolorem amet molestias voluptate dolor illum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-           Reiciendis voluptates quas cumque repudiandae itaque, commodi cupiditate atque doloribus amet libero magnam, autem quisquam accusamus, 
-           illum impedit quis quaerat voluptatum sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis praesentium rerum 
-           natus voluptate tenetur, at voluptatem doloremque iste, dolores iure labore, rem inventore illo esse nisi ratione enim nostrum?
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at dolore est? Exercitationem modi atque vero qui in consectetur
-           quis facilis, ex alias nesciunt dolorem amet molestias voluptate dolor illum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-           Reiciendis voluptates quas cumque repudiandae itaque, commodi cupiditate atque doloribus amet libero magnam, autem quisquam accusamus, 
-           illum impedit quis quaerat voluptatum sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis praesentium rerum 
-           natus voluptate tenetur, at voluptatem doloremque iste, dolores iure labore, rem inventore illo esse nisi ratione enim nostrum?</p>
+            En EasyHelp, nos dedicamos a empoderar a las personas para que dediquen su tiempo a repartir comida y marcar la diferencia en la vida de quienes más lo necesitan.
+            Visualizamos un mundo donde la solidaridad sea una parte esencial de la vida diaria, generando un ciclo de ayuda mutua que fortalezca nuestra sociedad.
+            Nuestros valores fundamentales son la solidaridad, la empatía, la innovación y la resiliencia. Creemos en el poder de estos valores para impulsar nuestro trabajo y crear un impacto positivo en la comunidad.
+            ¿Por qué nosotros? En EasyHelp, ofrecemos una plataforma para que cada individuo experimente la satisfacción de hacer una diferencia real en la vida de los demás. Únete a nuestra comunidad y descubre cómo tu tiempo y esfuerzo pueden marcar una diferencia tangible en el mundo.
+        </p>
     </div>
     <div class="estadisticasContainer">
         <h1>AHORA MISMO CONTAMOS CON:</h1>
