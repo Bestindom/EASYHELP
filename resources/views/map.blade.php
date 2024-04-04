@@ -3,5 +3,6 @@
 @section('title', 'Map')
 
 @section('contenido')
-    <div id='map' style='width: 100%; height: 100vh;'></div>
+    <div id='maps'></div>
+    <div id="users"></div>
 @endsection
