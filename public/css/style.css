@@ -64,54 +64,66 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Evita el desplazamiento horizontal */
 }
 
-/* Estilos para dispositivos de pantalla grande (computadoras) */
-@media only screen and (min-width: 768px) {
-    /* Estilos para el contenedor principal */
-    .registroUsuario {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-
-    /* Estilos para el encabezado */
-    .registroUsuario h3 {
-        font-size: 3em;
-    }
-
-    /* Estilos para el párrafo */
-    .registroUsuario p {
-        font-size: 1.5em;
-        margin: 20px 0;
-    }
-
-    /* Estilos para los botones */
-    .registroUsuario a {
-        font-size: 1.5em;
-        width: 300px;
-        margin: 10px;
-    }
+/* Estilos para contenedores */
+.container {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    max-width: 100%; /* Ancho máximo igual al ancho de la pantalla */
+    padding: 20px;
+    text-align: center;
 }
 
-/* Estilos para dispositivos de pantalla pequeña (teléfonos móviles) */
+/* Estilos para registroUsuario */
+.registroUsuario {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registroUsuario h3 {
+    font-size: 2em;
+}
+
+.registroUsuario p {
+    font-size: 1.2em;
+}
+
+.registroUsuario a {
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+/* Estilos específicos para dispositivos móviles */
 @media only screen and (max-width: 767px) {
-    /* Estilos para cada sección en dispositivos móviles */
-    .registroUsuario {
-        padding: 20px;
-        text-align: center;
-        height: 100vh; /* Ocupa toda la pantalla */
-        overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede la altura de la pantalla */
-        margin-bottom: 0; /* Elimina el margen inferior */
+    .container {
+        font-size: 0.8em; /* Letra más pequeña en dispositivos móviles */
     }
 
-    /* Estilos para los botones en dispositivos móviles */
-    .registroUsuario a {
-        font-size: 1.2em;
-        margin: 10px;
-        margin-bottom: 20px; /* Ajusta el margen inferior de los botones */
+    .registroUsuario {
+        font-size: 1.5em; /* Tamaño de letra más grande en registroUsuario */
     }
+}
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.statistic {
+    width: calc(33.33% - 20px); /* Tamaño de cada columna */
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+.statistic h2 {
+    font-size: 1.5em;
+}
+
+.statistic p {
+    font-size: 1.2em;
+    margin-top: 10px;
 }

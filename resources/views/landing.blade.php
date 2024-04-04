@@ -62,7 +62,7 @@
         <a href="{{ url('/login') }}" class="btn btn-primary">Iniciar Sesión</a>
         <a href="{{ url('/register') }}" class="btn btn-primary">Registrarse</a>
     </div>
-    <div class="quesomos">
+    <div class="container">
         <h1>QUE ES EASY HELP??? </h1>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at dolore est? Exercitationem modi atque vero qui in consectetur
@@ -76,19 +76,22 @@
            illum impedit quis quaerat voluptatum sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis praesentium rerum 
            natus voluptate tenetur, at voluptatem doloremque iste, dolores iure labore, rem inventore illo esse nisi ratione enim nostrum?</p>
     </div>
-    <div class="estadisticas">
+    <div class="container">
         <h1>AHORA MISMO CONTAMOS CON:</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at dolore est? Exercitationem modi atque vero qui in consectetur
-           quis facilis, ex alias nesciunt dolorem amet molestias voluptate dolor illum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-           Reiciendis voluptates quas cumque repudiandae itaque, commodi cupiditate atque doloribus amet libero magnam, autem quisquam accusamus, 
-           illum impedit quis quaerat voluptatum sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis praesentium rerum 
-           natus voluptate tenetur, at voluptatem doloremque iste, dolores iure labore, rem inventore illo esse nisi ratione enim nostrum?
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at dolore est? Exercitationem modi atque vero qui in consectetur
-           quis facilis, ex alias nesciunt dolorem amet molestias voluptate dolor illum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-           Reiciendis voluptates quas cumque repudiandae itaque, commodi cupiditate atque doloribus amet libero magnam, autem quisquam accusamus, 
-           illum impedit quis quaerat voluptatum sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis praesentium rerum 
-           natus voluptate tenetur, at voluptatem doloremque iste, dolores iure labore, rem inventore illo esse nisi ratione enim nostrum?</p>
+        <div class="statistics">
+            <div class="statistic">
+                <h2>Riders</h2>
+                <p>Aquí irá un número aleatorio</p>
+            </div>
+            <div class="statistic">
+                <h2>Proveedores</h2>
+                <p>Aquí irá un número aleatorio</p>
+            </div>
+            <div class="statistic">
+                <h2>Usuarios Totales</h2>
+                <p>Aquí irá un número aleatorio</p>
+            </div>
+        </div>
     </div>
     <footer class="bg-primary text-white text-center p-3">
         <p>EasyHelp - 2021</p>
