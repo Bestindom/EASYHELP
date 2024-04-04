@@ -85,6 +85,17 @@ body {
         margin-top: 10px;
         margin-bottom: 10px; /* Añade espacio inferior */
     }
+    .estadisticasContainer {
+        flex-direction: column; /* Cambia la dirección de la distribución */
+        align-items: center; /* Centra los elementos en el eje horizontal */
+    }
+
+    .estadisticasContainer .statistic {
+        flex-basis: 100%; /* Establece el ancho completo para que las estadísticas ocupen toda la pantalla */
+    }
+    .estadisticasContainer h1{
+        margin-left: 40px;
+    }
 }
 
 .registroUsuario h3 {
@@ -139,4 +150,14 @@ body {
     padding: 20px; /* Añade espacio alrededor del contenido */
     max-width: 800px; /* Establece el ancho máximo del contenedor */
     box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.estadisticasContainer .statistic {
+    flex-basis: calc(33.33% - 20px); /* Establece el ancho de cada estadística */
+    text-align: center; /* Centra el contenido */
+    margin: 10px; /* Añade margen entre las estadísticas */
+    border: 1px solid #ccc; /* Añade un borde */
+    padding: 20px; /* Añade espacio interno */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    background-color: #f0f0f0; /* Color de fondo */
 }
