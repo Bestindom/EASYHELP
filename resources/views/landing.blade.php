@@ -59,10 +59,10 @@
     <div class="registroUsuario">
         <h3>Ayudemos Facil y rapido</h3>
         <p>Con EasyHelp podrás encontrar la mejor solución a tus problemas de forma rápida y sencilla</p>
-        <a href="{{ url('/login') }}" class="btn btn-primary">Iniciar Sesión</a>
-        <a href="{{ url('/register') }}" class="btn btn-primary">Registrarse</a>
+        <a href="{{ url('/login') }}" class="btn btn-primary inicioSesion">Iniciar Sesión</a>
+        <a href="{{ url('/register') }}" class="btn btn-primary registro">Registrarse</a>
     </div>
-    <div class="container">
+    <div class="queEsContainer">
         <h1>QUE ES EASY HELP??? </h1>
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur at dolore est? Exercitationem modi atque vero qui in consectetur
@@ -76,7 +76,7 @@
            illum impedit quis quaerat voluptatum sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae blanditiis praesentium rerum 
            natus voluptate tenetur, at voluptatem doloremque iste, dolores iure labore, rem inventore illo esse nisi ratione enim nostrum?</p>
     </div>
-    <div class="container">
+    <div class="estadisticasContainer">
         <h1>AHORA MISMO CONTAMOS CON:</h1>
         <div class="statistics">
             <div class="statistic">

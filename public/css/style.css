@@ -55,75 +55,88 @@ body {
     background-size: cover;
 }
 
-
-
-
-
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilos para contenedores */
-.container {
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    max-width: 100%; /* Ancho máximo igual al ancho de la pantalla */
-    padding: 20px;
-    text-align: center;
-}
-
-/* Estilos para registroUsuario */
-.registroUsuario {
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
+.registroUsuario,
+.queEsContainer,
+.estadisticasContainer {
+    height: 100vh; /* Ocupar toda la altura de la pantalla */
+    width: 100%; /* Ocupar todo el ancho disponible */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-.registroUsuario h3 {
-    font-size: 2em;
-}
-
-.registroUsuario p {
-    font-size: 1.2em;
-}
-
-.registroUsuario a {
-    font-size: 1.2em;
-    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Estilos específicos para dispositivos móviles */
 @media only screen and (max-width: 767px) {
-    .container {
+    .registroUsuario,
+    .queEsContainer,
+    .estadisticasContainer {
         font-size: 0.8em; /* Letra más pequeña en dispositivos móviles */
     }
-
     .registroUsuario {
-        font-size: 1.5em; /* Tamaño de letra más grande en registroUsuario */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .registroUsuario .btn {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px; /* Añade espacio inferior */
     }
 }
-.statistics {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+
+.registroUsuario h3 {
+    margin: 0; /* Eliminamos el margen para evitar desplazamientos */
+    font-size: 2.5em; /* Ajusta el tamaño de la fuente según sea necesario */
+    text-align: center; /* Alinea horizontalmente el texto */
+    position: absolute; /* Utilizamos posición absoluta */
+    top: 30%; /* Sitúa el elemento a la mitad de la altura del viewport */
 }
 
-.statistic {
-    width: calc(33.33% - 20px); /* Tamaño de cada columna */
-    background-color: #f9f9f9;
-    padding: 20px;
+.registroUsuario p {
+    text-align: center; /* Alinea horizontalmente el texto */
+    margin-top: 20px; /* Ajusta el espacio entre el título y el párrafo */
+    text-align: center; /* Alinea horizontalmente el texto */
+    position: absolute; /* Utilizamos posición absoluta */
+    top: 40%; /* Sitúa el elemento a la mitad de la altura del viewport */  
+}
+
+.registroUsuario .btn {
+    margin-top: 20px; /* Ajusta el espacio entre el párrafo y los botones */
+    text-align: center; /* Alinea horizontalmente el texto */
+    position: absolute; /* Utilizamos posición absoluta */
+    top: 65%; /* Sitúa el elemento a la mitad de la altura del viewport */
+    margin-left: 22%;
+    margin-right: 10%; 
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registroUsuario .btn + .btn {
+    margin-top: 20px; /* Ajusta el espacio entre los botones en pantalla grande */
+    margin-left: 0; /* Elimina el margen izquierdo para evitar superposición */
+    margin-right: 10%; /* Ajusta el margen derecho */
+}
+
+.registroUsuario .btn:hover {
+    background-color: #0056b3;
+}
+
+.queEsContainer p {
     text-align: center;
 }
 
-.statistic h2 {
-    font-size: 1.5em;
-}
-
-.statistic p {
-    font-size: 1.2em;
-    margin-top: 10px;
+.queEsContainer {
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Añade espacio alrededor del contenido */
+    max-width: 800px; /* Establece el ancho máximo del contenedor */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
