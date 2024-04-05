@@ -123,7 +123,7 @@ body {
     margin-left: 25%;
     padding: 10px 20px;
     font-size: 18px;
-   left: 30%;
+    left: 30%;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 300px;
@@ -169,4 +169,5 @@ body {
     padding: 20px; /* Añade espacio interno */
     box-sizing: border-box; /* Incluye el padding en el ancho total */
     background-color: #f0f0f0; /* Color de fondo */
+
 }
