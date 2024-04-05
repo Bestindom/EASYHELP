@@ -57,7 +57,7 @@
     </nav>
 
     <div class="registroUsuario">
-        <h3>Ayudemos Facil y rapido</h3>
+        <h3>Ayudemos Facil y rapidoo</h3>
         <p>Con EasyHelp podrás encontrar la mejor solución a tus problemas de forma rápida y sencilla</p>
         <a href="{{ url('/login') }}" class="btn btn-primary inicioSesion">Iniciar Sesión</a>
         <a href="{{ url('/register') }}" class="btn btn-primary registro">Registrarse</a>
