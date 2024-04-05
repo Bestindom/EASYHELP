@@ -29,3 +29,7 @@ Route::middleware(['auth'])->group(function () {
         return view('Users.users');
     });
 });
+
+Route::get('/map', function() {
+    return view('auth.map');
+});
