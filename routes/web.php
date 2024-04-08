@@ -30,6 +30,10 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/map', function() {
-    return view('map');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/map', function () {
+        $user = Auth::user();
+
+        return view('map', compact('user'));
+    });
 });

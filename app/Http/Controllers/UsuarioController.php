@@ -18,7 +18,7 @@ class UsuarioController extends Controller
     {
         // $usuario = new Usuario();
 
-        // $usuario->username = "ealbuja";
+        // $usuario->username = "jiajie";
         // $usuario->password = \bcrypt("pepe");
         // $usuario->type_id = 1;
 
