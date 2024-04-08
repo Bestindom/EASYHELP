@@ -1,10 +1,32 @@
 <template>
-    <div>
-        <div id="map" style="width: 100%; height: 100vh"></div>
+    <div id="map" style="width: 100%; height: 100vh"></div>
+
+    <div class="modal" tabindex="-1" id="infoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Añadir Púa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeModal"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-floating">
+                        <input type="text" class="form-control" id="name" placeholder="McDonald's">
+                        <label for="floatingInputValue">Nombre</label>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="addMark">Aceptar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
+
+
 <script>
 let map;
+
 
 window.addEventListener("DOMContentLoaded", showMap);
 
@@ -13,59 +35,105 @@ function showMap() {
         "pk.eyJ1IjoiamlhamllMTIiLCJhIjoiY2x1aGZkN3Q1MGYxMjJpbnBwZWFrbTB2aSJ9.Xyzq7WQrgVz5BBlgBK3dvg";
     map = new mapboxgl.Map({
         container: "map",
-        style: "mapbox://styles/mapbox/streets-v11", // Estilo del mapa
-        center: [2.1734, 41.3851], // Coordenadas de Barcelona [longitud, latitud]
-        zoom: 12, // Zoom inicial
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [2.1734, 41.3851],
+        zoom: 12,
         maxBounds: [
-            [0.5, 40.25], // Coordenadas sudoeste de Cataluña
-            [3.4, 42.5], // Coordenadas noreste de Cataluña
+            [0.5, 40.25],
+            [3.4, 42.5],
         ],
     });
 
-    map.on("dblclick", function (e) {
-        // Prevenir el zoom por defecto
-        e.preventDefault();
-
-        // Pedir confirmación al usuario
-        const confirmar = window.confirm(
-            "¿Deseas añadir una marca en esta ubicación?"
-        );
-
-        // Si el usuario confirma, añadir la marca con popup
-        if (confirmar) {
-            // Obtiene las coordenadas del lugar donde se hizo doble clic
-            const lngLat = e.lngLat;
-
-            // Crea un marcador en la ubicación del clic
-            const marker = new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
-
-            // Crea un popup asociado al marcador
-
-            const popupContent = `
-                <h1>McDonald's</h1>
-                <button type="button" class="btn btn-light">Light</button>
-                <img src="img/repartidor.png" alt="Imagen">
-            `;
-
-            const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-                popupContent
-            );
-
-            // Añade el popup al marcador
-            marker.setPopup(popup);
-
-            // Guarda las coordenadas en variables o en una base de datos si es necesario
-            const latitud = lngLat.lat;
-            const longitud = lngLat.lng;
-
-            // Haz lo que necesites con las coordenadas (por ejemplo, imprimir en la consola)
-            console.log(latitud, longitud);
-        }
-    });
+    map.on("dblclick", addMarks);
 }
 
-export default {
+function addMarks(e) {
+    const infoModal = document.getElementById("infoModal");
+    const closeModalButton = document.getElementById("closeModal");
+    const addMarkButton = document.getElementById("addMark");
 
-};
+    e.preventDefault();
+
+    infoModal.style.display = "flex";
+
+    closeModalButton.addEventListener("click", function () {
+        infoModal.style.display = "none";
+        addMarkButton.removeEventListener("click", confirmAddMark);
+    });
+
+    function confirmAddMark() {
+        infoModal.style.display = "none";
+
+        const lngLat = e.lngLat;
+
+        const marker = new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
+
+        const inputName = document.getElementById("name");
+        const name = inputName.value;
+
+        const popupContent = addPopupContent(name);
+
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
+
+        marker.setPopup(popup);
+
+        deletePopup(popup, marker);
+
+        const latitud = lngLat.lat;
+        const longitud = lngLat.lng;
+
+        console.log(latitud, longitud);
+        inputName.value = "";
+        addMarkButton.removeEventListener("click", confirmAddMark);
+    }
+
+    addMarkButton.removeEventListener("click", confirmAddMark);
+    addMarkButton.addEventListener("click", confirmAddMark);
+}
+
+function addPopupContent(name) {
+    const popupContent = `
+        <h1>${name}</h1>
+        <img src="img/repartidor.png" alt="Imagen">
+        <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
+    `;
+    return popupContent;
+}
+
+function deletePopup(popup, marker) {
+    popup.on("open", function () {
+        const deleteButton = document.getElementById("remove");
+        deleteButton.addEventListener("click", function () {
+            marker.remove();
+            popup.remove();
+        });
+    });
+}
+export default {};
 </script>
-<style></style>
+
+
+<style>
+.mapboxgl-popup-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+}
+
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    width: 500px;
+}
+
+.modal-content {
+    height: 500px;
+}
+</style>
