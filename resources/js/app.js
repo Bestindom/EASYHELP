@@ -5,4 +5,4 @@ import users from "./components/Users.vue";
 import maps from "./components/Maps.vue";
 
 createApp(users).mount("#users");
-createApp(maps).mount("#maps");
+createApp(maps).mount("#map");

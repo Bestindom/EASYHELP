@@ -1,6 +1,4 @@
 <template>
-    <div id="map" style="width: 100%; height: 100vh"></div>
-
     <div class="modal" tabindex="-1" id="infoModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -25,94 +23,136 @@
 
 
 <script>
-let map;
 
 
-window.addEventListener("DOMContentLoaded", showMap);
+import * as bootstrap from 'bootstrap'
+import axios from 'axios';
 
-function showMap() {
-    mapboxgl.accessToken =
-        "pk.eyJ1IjoiamlhamllMTIiLCJhIjoiY2x1aGZkN3Q1MGYxMjJpbnBwZWFrbTB2aSJ9.Xyzq7WQrgVz5BBlgBK3dvg";
-    map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/mapbox/streets-v11",
-        center: [2.1734, 41.3851],
-        zoom: 12,
-        maxBounds: [
-            [0.5, 40.25],
-            [3.4, 42.5],
-        ],
-    });
+export default {
+    data() {
+        return {
+            points: [],
+            point: {},
+            myModal: {},
 
-    map.on("dblclick", addMarks);
-}
+        }
+    },
+    methods: {
+        showMap() {
+            const me = this
 
-function addMarks(e) {
-    const infoModal = document.getElementById("infoModal");
-    const closeModalButton = document.getElementById("closeModal");
-    const addMarkButton = document.getElementById("addMark");
+            mapboxgl.accessToken =
+                "pk.eyJ1IjoiamlhamllMTIiLCJhIjoiY2x1aGZkN3Q1MGYxMjJpbnBwZWFrbTB2aSJ9.Xyzq7WQrgVz5BBlgBK3dvg";
+            me.map = new mapboxgl.Map({
+                container: "map",
+                style: "mapbox://styles/mapbox/streets-v11",
+                center: [2.1734, 41.3851],
+                zoom: 12,
+                maxBounds: [
+                    [0.5, 40.25],
+                    [3.4, 42.5],
+                ],
+            });
 
-    e.preventDefault();
+            me.map.on("dblclick", me.addMarks);
+        },
+        addMarks(e) {
+            const infoModal = document.getElementById("infoModal");
+            const closeModalButton = document.getElementById("closeModal");
+            const addMarkButton = document.getElementById("addMark");
 
-    infoModal.style.display = "flex";
+            e.preventDefault();
 
-    closeModalButton.addEventListener("click", function () {
-        infoModal.style.display = "none";
-        addMarkButton.removeEventListener("click", confirmAddMark);
-    });
+            infoModal.style.display = "flex";
 
-    function confirmAddMark() {
-        infoModal.style.display = "none";
+            closeModalButton.addEventListener("click", function () {
+                infoModal.style.display = "none";
+                addMarkButton.removeEventListener("click", confirmAddMark);
+            });
 
-        const lngLat = e.lngLat;
+            function confirmAddMark() {
+                infoModal.style.display = "none";
 
-        const marker = new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
+                const lngLat = e.lngLat;
 
-        const inputName = document.getElementById("name");
-        const name = inputName.value;
+                const marker = new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
 
-        const popupContent = addPopupContent(name);
+                const inputName = document.getElementById("name");
+                const name = inputName.value;
 
-        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
+                const popupContent = addPopupContent(name);
 
-        marker.setPopup(popup);
+                const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
 
-        deletePopup(popup, marker);
+                marker.setPopup(popup);
 
-        const latitud = lngLat.lat;
-        const longitud = lngLat.lng;
+                deletePopup(popup, marker);
 
-        console.log(latitud, longitud);
-        inputName.value = "";
-        addMarkButton.removeEventListener("click", confirmAddMark);
-    }
+                const latitud = lngLat.lat;
+                const longitud = lngLat.lng;
 
-    addMarkButton.removeEventListener("click", confirmAddMark);
-    addMarkButton.addEventListener("click", confirmAddMark);
-}
+                console.log(latitud, longitud);
+                inputName.value = "";
+                addMarkButton.removeEventListener("click", confirmAddMark);
+            }
 
-function addPopupContent(name) {
-    const popupContent = `
-        <h1>${name}</h1>
-        <img src="img/repartidor.png" alt="Imagen">
-        <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
-    `;
-    return popupContent;
-}
+            addMarkButton.removeEventListener("click", confirmAddMark);
+            addMarkButton.addEventListener("click", confirmAddMark);
+        },
+        showConfirm() {
+            this.myModal = new bootstrap.Modal('#userModal')
+            this.myModal.show()
+        },
+        addPopupContent(name) {
+            const popupContent = `
+                <h1>${name}</h1>
+                <img src="img/repartidor.png" alt="Imagen">
+                <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
+            `;
+            return popupContent;
+        },
+        deletePopup(popup, marker) {
+            popup.on("open", function () {
+                const deleteButton = document.getElementById("remove");
+                deleteButton.addEventListener("click", function () {
+                    marker.remove();
+                    popup.remove();
+                });
+            });
+        },
 
-function deletePopup(popup, marker) {
-    popup.on("open", function () {
-        const deleteButton = document.getElementById("remove");
-        deleteButton.addEventListener("click", function () {
-            marker.remove();
-            popup.remove();
-        });
-    });
-}
-export default {};
+        insertPoint(latitud, longitud) {
+            point =
+            {
+                latitud: latitud,
+                longitud: longitud
+            }
+
+            const me = this
+            axios
+                .post('point', me.point)
+                .then(response => {
+                    me.selectPoints()
+                    me.myModal.hide()
+                })
+        },
+        selectPoints() {
+            const me = this
+            axios
+                .get('point')
+                .then(response => {
+                    console.log('mis puas: ' + response.data);
+                    me.points = response.data
+                })
+        },
+    },
+    created() {
+        this.showMap()
+        this.selectPoints()
+    },
+
+};
 </script>
-
-
 <style>
 .mapboxgl-popup-content {
     display: flex;
