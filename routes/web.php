@@ -15,7 +15,7 @@ use App\Http\Controllers\UsuarioController;
 */
 
 
-Route::get('/', function () {
+Route::get('/landing', function () {
     return view('landing');
 });
 
@@ -36,7 +36,7 @@ Route::get('/providers', function() {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/map', function () {
-        $user = Auth::user();
+        // $user = Auth::user();
 
         return view('map', compact('user'));
     });
