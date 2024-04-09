@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/providers', function() {
     return view('providers');
+} );
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/map', function () {
