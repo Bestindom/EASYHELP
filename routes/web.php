@@ -16,7 +16,7 @@ use App\Http\Controllers\UsuarioController;
 
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('landing');
 });
 
 Route::get('/login', [UsuarioController::class, 'showLogin'])->name('login');
@@ -29,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
         return view('Users.users');
     });
 });
+
+Route::get('/providers', function() {
+    return view('providers');
+} );
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/map', function () {
