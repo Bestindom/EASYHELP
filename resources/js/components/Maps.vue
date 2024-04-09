@@ -56,7 +56,7 @@ export default {
 
             me.map.on("dblclick", me.addMarks);
         },
-        addMarks(e) {
+        addMarks(e, map) {
             const infoModal = document.getElementById("infoModal");
             const closeModalButton = document.getElementById("closeModal");
             const addMarkButton = document.getElementById("addMark");
@@ -70,23 +70,23 @@ export default {
                 addMarkButton.removeEventListener("click", confirmAddMark);
             });
 
-            function confirmAddMark() {
+            const confirmAddMark = () =>  {
                 infoModal.style.display = "none";
 
                 const lngLat = e.lngLat;
 
-                const marker = new mapboxgl.Marker().setLngLat(lngLat).addTo(map);
+                const marker = new mapboxgl.Marker().setLngLat(lngLat).addTo(this.map);
 
                 const inputName = document.getElementById("name");
                 const name = inputName.value;
 
-                const popupContent = addPopupContent(name);
+                const popupContent = this.addPopupContent(name);
 
                 const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
 
                 marker.setPopup(popup);
 
-                deletePopup(popup, marker);
+                this.deletePopup(popup, marker);
 
                 const latitud = lngLat.lat;
                 const longitud = lngLat.lng;
