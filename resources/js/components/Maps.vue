@@ -34,7 +34,9 @@ export default {
             points: [],
             point: {},
             myModal: {},
-
+            latitud:'hola',
+            longitud:'',
+            map: null
         }
     },
     methods: {
@@ -88,20 +90,21 @@ export default {
 
                 this.deletePopup(popup, marker);
 
+                this.latitud = lngLat.lat;
+                this.longitud = lngLat.lng;
                 const latitud = lngLat.lat;
                 const longitud = lngLat.lng;
 
-                console.log(latitud, longitud);
+                this.insertPoint();
+
+                console.log('mis lat y long: ' + this.latitud + ' ' + this.longitud);
+
                 inputName.value = "";
                 addMarkButton.removeEventListener("click", confirmAddMark);
             }
 
             addMarkButton.removeEventListener("click", confirmAddMark);
             addMarkButton.addEventListener("click", confirmAddMark);
-        },
-        showConfirm() {
-            this.myModal = new bootstrap.Modal('#userModal')
-            this.myModal.show()
         },
         addPopupContent(name) {
             const popupContent = `
@@ -120,20 +123,20 @@ export default {
                 });
             });
         },
-
-        insertPoint(latitud, longitud) {
-            point =
-            {
-                latitud: latitud,
-                longitud: longitud
-            }
-
+        insertPoint() {
             const me = this
+
+            me.point =
+            {
+                latitud: me.latitud,
+                longitud: me.longitud
+            }
+            console.log('INSERT: ' + me.point.longitud)
+            console.log('longitud: ' + me.longitud)
             axios
                 .post('point', me.point)
                 .then(response => {
                     me.selectPoints()
-                    me.myModal.hide()
                 })
         },
         selectPoints() {
@@ -141,8 +144,13 @@ export default {
             axios
                 .get('point')
                 .then(response => {
-                    console.log('mis puas: ' + response.data);
                     me.points = response.data
+                    console.log('mis puas: ' + me.points);
+                    for (let i = 0; i < me.points.length; i++) {
+                        new mapboxgl.Marker()
+                            .setLngLat([me.points[i].longitud, me.points[i].latitud]) // Establecer la posición del marcador
+                            .addTo(me.map); // Añadir el marcador al mapa
+                    }
                 })
         },
     },
