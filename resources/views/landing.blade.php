@@ -12,6 +12,8 @@
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
             <a class="nav-link active" aria-current="page" href="{{ url('/') }}">AUTOEVALUACIÓN</a>
+            <br><br>
+            <a class="nav-link" aria-current="page" href="{{ url('/providers') }}">Providers</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @if (Auth::check() && Auth::user()->rol->tipus == 'Administrador')
