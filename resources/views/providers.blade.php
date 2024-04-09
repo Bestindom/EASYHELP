@@ -56,14 +56,18 @@
         </div>
     </nav>
 
-    <form>
-        <select class="form-select" multiple aria-label="Multiple select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-    </form>
+    <div id="formProviderContainer">
+        <form>
+            <select class="form-select" multiple aria-label="Multiple select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </form>
+    </div>
     <footer class="bg-primary text-white text-center p-3">
         <p>EasyHelp - 2024</p>
     </footer>

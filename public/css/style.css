@@ -247,6 +247,6 @@ body {
   from {opacity: .4}
   to {opacity: 1}
 }
-#carouselExampleIndicators{
+#carouselExampleIndicators, #formProviderContainer{
     margin: 30%;
 }
