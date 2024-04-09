@@ -19,6 +19,29 @@
             </div>
         </div>
     </div>
+
+
+    <!-- delete modal -->
+    <div class="modal" tabindex="-1" id="infoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Añadir Púa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="closeModal"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-floating">
+                        <input type="text" class="form-control" id="name" placeholder="McDonald's">
+                        <label for="floatingInputValue">Nombre</label>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="addMark">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 
@@ -34,8 +57,8 @@ export default {
             points: [],
             point: {},
             myModal: {},
-            latitud:'hola',
-            longitud:'',
+            latitud: 'hola',
+            longitud: '',
             map: null
         }
     },
@@ -72,7 +95,7 @@ export default {
                 addMarkButton.removeEventListener("click", confirmAddMark);
             });
 
-            const confirmAddMark = () =>  {
+            const confirmAddMark = () => {
                 infoModal.style.display = "none";
 
                 const lngLat = e.lngLat;
@@ -147,9 +170,22 @@ export default {
                     me.points = response.data
                     console.log('mis puas: ' + me.points);
                     for (let i = 0; i < me.points.length; i++) {
-                        new mapboxgl.Marker()
+                        const marker = new mapboxgl.Marker()
                             .setLngLat([me.points[i].longitud, me.points[i].latitud]) // Establecer la posición del marcador
                             .addTo(me.map); // Añadir el marcador al mapa
+
+                        const popupContent = this.addPopupContent('BBDD');
+
+                        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
+
+                        marker.setPopup(popup);
+
+                        const deleteButton = document.getElementById("remove");
+                        deleteButton.addEventListener("click", function () {
+                            marker.remove();
+                            popup.remove();
+                        });
+
                     }
                 })
         },
