@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,800&display=swap');
+
+body {
+    background-color: #FFFBE8;
+    overflow: hidden;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-title {
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.row.login-form {
+    margin: 0;
+    margin-top: 50px;
+}
+
+.logo {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 70px;
+}
+
+.logo1 {
+    color: #FB8500;
+}
+
+.logo2 {
+    color: #FFB703;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-login {
+    width: 100%;
+}
+
+.form-control.login-input {
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #FFFBE8;
+    border: 2px solid #035177;
+}
+
+.input-container {
+    width: 300px;
+}
+
+.form-control.login-input::placeholder {
+    color: black;
+    font-weight: 600;
+}
+
+/* .row.mb-3.login-button-container {
+    width: 100%;
+} */
+
+#mantener-sesion {
+    background-color: #8ECAE6;
+}
+
+label.form-check-label {
+    font-weight: bold;
+}
+
+.login-button {
+    width: 100%;
+    height: 450px;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 50px;
+}
+
+.btn.btn-primary.login {
+    width: 300px;
+    height: 55px;
+    border-radius: 30px;
+    background-color: #219EBC;
+    color: #FFFDFD;
+    border: 1px solid #000000;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    box-shadow: 2px 2px 0px 0px #035177;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
