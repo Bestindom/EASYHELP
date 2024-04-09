@@ -35,7 +35,8 @@ export default {
             point: {},
             myModal: {},
             latitud:'hola',
-            longitud:''
+            longitud:'',
+            map: null
         }
     },
     methods: {
@@ -90,8 +91,8 @@ export default {
                 this.deletePopup(popup, marker);
 
                 this.latitud = lngLat.lat;
-                this.longitud = lngLat.lat;
-                const latitud = lngLat.lng;
+                this.longitud = lngLat.lng;
+                const latitud = lngLat.lat;
                 const longitud = lngLat.lng;
 
                 this.insertPoint();
@@ -143,8 +144,13 @@ export default {
             axios
                 .get('point')
                 .then(response => {
-                    console.log('mis puas: ' + response.data);
                     me.points = response.data
+                    console.log('mis puas: ' + me.points);
+                    for (let i = 0; i < me.points.length; i++) {
+                        new mapboxgl.Marker()
+                            .setLngLat([me.points[i].longitud, me.points[i].latitud]) // Establecer la posición del marcador
+                            .addTo(me.map); // Añadir el marcador al mapa
+                    }
                 })
         },
     },
