@@ -234,7 +234,7 @@ body {
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: #0056b3;
 }
 
 /* Fading animation */
@@ -246,4 +246,7 @@ body {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+#carouselExampleIndicators{
+    margin: 30%;
 }

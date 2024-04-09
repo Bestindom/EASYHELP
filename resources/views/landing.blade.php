@@ -89,36 +89,56 @@
         </div>
     </div>
 
-    <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ asset('img/imagen1.jpg') }}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ asset('img/imagen2.jpg') }}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ asset('img/imagen3.jpg') }}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    {{-- <div class="slideshow-container">
         <div class="mySlides fade">
           <div class="numbertext">1 / 3</div>
           <img src="{{ asset('img/imagen1.jpg') }}" style="width:100%">
         </div>
-      
         <div class="mySlides fade">
           <div class="numbertext">2 / 3</div>
           <img src="{{ asset('img/imagen2.jpg') }}" style="width:100%">
         </div>
-      
         <div class="mySlides fade">
           <div class="numbertext">3 / 3</div>
           <img src="{{ asset('img/imagen3.jpg') }}" style="width:100%">
         </div>
       
-        <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
       <br>
       
-      <!-- The dots/circles -->
       <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
+      </div> --}}
 
     <footer class="bg-primary text-white text-center p-3">
         <p>EasyHelp - 2024</p>
