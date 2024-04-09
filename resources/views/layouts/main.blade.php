@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,71 +10,43 @@
     </title>
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
-
-    
-
-    <div class="login">
-
-        <div class="login-title">
-            @yield('text')
-        </div>
-
-        <div class="row justify-content-center login-form">
-            @yield('form')
-        </div>
-        <div class="login-img">
-            @yield('background-image')
-        </div>
-    </div>
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
-            <a class="nav-link active" aria-current="page" href="{{ url('/') }}">AUTOEVALUACIÓN</a>
+            <a class="navbar-brand" href="{{ url('/') }}">EASYHELP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    @if (Auth::check() && Auth::user()->rol->tipus == 'Administrador')
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Datos Maestros
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ url('alumne') }}">Admin</a></li>
-                                <li><a class="dropdown-item" href="{{ url('cicle') }}">Profes</a></li>
-                                <li><a class="dropdown-item" href="{{ url('cicle') }}">Alumnos</a></li>
-                                {{-- <li><a class="dropdown-item" href="{{ url('/login')}}">Login</a></li> --}}
-                            </ul>
-                        </li>
+                <ul class="navbar-nav ms-auto">
+                    @if (Auth::check())
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ Auth::user()->username }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{{ url('/logout') }}"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="{{ url('/login') }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                    </li>
                     @endif
                 </ul>
-                <form class="d-flex" role="search">
-                    <ul class="navbar-nav me-2">
-                        @if (Auth::check())
-                            <li class="form-control me-2">
-                                <a class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->nom }} {{ Auth::user()->cognom }}
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ url('/logout') }}">
-                                        <i class="bi bi-box-arrow-left"></i>Logout
-                                    </a>
-                                </div>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link font-weight-bold" href="{{ url('/login') }}">
-                                    <i class="bi bi-box-arrow-in-right"></i> Login
-                                </a>
-                            </li>
-                        @endif
-                    </ul>
-                </form>
             </div>
         </div>
     </nav>
+    @yield('contenido')
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
 </html>

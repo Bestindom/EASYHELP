@@ -1,7 +1,10 @@
-import './bootstrap';
-import './main';
 
-import {createApp} from 'vue'
-import Users from './components/Users.vue'
+import "./bootstrap";
 
-createApp(Users).mount('#users')
+
+import { createApp } from "vue";
+import users from "./components/Users.vue";
+import maps from "./components/Maps.vue";
+
+createApp(users).mount("#users");
+createApp(maps).mount("#map");
