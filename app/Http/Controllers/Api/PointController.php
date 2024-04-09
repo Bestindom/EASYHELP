@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Usuario;
+use App\Models\Point;
 use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\UsuarioResource;
+use App\Http\Resources\PointResource;
 use Illuminate\Database\QueryException;
 
-class UsuarioController extends Controller
+
+class PointController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +19,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $users = Usuario::with(['type' , 'rider'])->get();
+        $points = Point::all();
 
-        return UsuarioResource::collection($users);
+        return PointResource::collection($points);
     }
 
     /**
@@ -31,18 +32,17 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new Usuario();
+        $point = new Point();
 
-        $user->username = $request->input('username');
-        $user->password = $request->input('password');
-        $user->type = $request->input('type_id');
+        $point->latitud = $request->input('latitud');
+        $point->longitud = $request->input('longitud');
 
 
         try
         {
-            $user->save();
+            $point->save();
             // $request->session()->flash('mensaje', 'Resgistro agg correctamente');
-            $response = (new UsuarioResource($user))
+            $response = (new PointResource($point))
                         ->response()
                         ->setStatusCode(201);
         }
@@ -59,23 +59,22 @@ class UsuarioController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\Point  $point
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $user)
+    public function show(Point $point)
     {
-        $user = Usuario::with('type')->find($user->id);
-        return new UsuarioResource($user);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\Point  $point
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Point $point)
     {
         //
     }
@@ -83,14 +82,14 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  \App\Models\Point  $point
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Point $point)
     {
         try
         {
-            $usuario->delete();
+            $point->delete();
             $response = \response()
                         ->json(['mensaje' => 'Resgistro eliminado correctamente'], 200);
         }
@@ -100,5 +99,7 @@ class UsuarioController extends Controller
             $response = \response()
                         ->json(['error' => $mensaje], 400);
         }
+
+        return $response;
     }
 }
