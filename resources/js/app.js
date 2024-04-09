@@ -1,4 +1,6 @@
+
 import "./bootstrap";
+
 
 import { createApp } from "vue";
 import users from "./components/Users.vue";

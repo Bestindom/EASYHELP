@@ -15,9 +15,6 @@
 </head>
 
 <body>
-
-    
-    
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">EASYHELP</a>
@@ -46,8 +43,6 @@
             </div>
         </div>
     </nav>
-    
-
     @yield('contenido')
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
