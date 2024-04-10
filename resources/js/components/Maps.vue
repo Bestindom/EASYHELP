@@ -22,18 +22,18 @@
 
 
     <!-- delete modal -->
-    <div class="modal" tabindex="-1" id="infoModal">
+    <div class="modal" tabindex="-1" id="deleteModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Añadir Púa</h5>
+                    <h5 class="modal-title">Delete point</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         id="closeModal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="form-floating">
                         <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Nombre</label>
+                        <label for="floatingInputValue">Numero de Manús</label>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -90,7 +90,7 @@ export default {
 
             infoModal.style.display = "flex";
 
-            closeModalButton.addEventListener("click", function () {
+            closeModalButton.addEventListener("click", () => {
                 infoModal.style.display = "none";
                 addMarkButton.removeEventListener("click", confirmAddMark);
             });
@@ -174,16 +174,12 @@ export default {
                             .setLngLat([me.points[i].longitud, me.points[i].latitud]) // Establecer la posición del marcador
                             .addTo(me.map); // Añadir el marcador al mapa
 
-                        const popupContent = this.addPopupContent('BBDD');
-
-                        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
-
-                        marker.setPopup(popup);
-
-                        const deleteButton = document.getElementById("remove");
-                        deleteButton.addEventListener("click", function () {
-                            marker.remove();
-                            popup.remove();
+                        // Agrega un evento de clic a cada marcador
+                        marker.getElement().addEventListener('click', () => {
+                            // Abre el deleteModal
+                            const deleteModal = document.getElementById('deleteModal');
+                            const deleteModalInstance = new bootstrap.Modal(deleteModal);
+                            deleteModalInstance.show();
                         });
 
                     }
