@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.principal')
 
 @section('contenido')
     <div class="registroUsuario">
@@ -60,7 +60,4 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-    <footer class="bg-primary text-white text-center p-3">
-        <p>EasyHelp - 2024</p>
-    </footer>
 @endsection
