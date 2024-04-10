@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 
 @section('contenido')
-    <div class="container-fluid registroUsuario" id="contenedor1">
+    <div class="registroUsuario" id="contenedor1">
         <h3>Ayudemos Facil y rapido</h3>
         <p>Con EasyHelp podrás encontrar la mejor solución a tus problemas de forma rápida y sencilla</p>
         <a href="{{ url('/login') }}" class="btn btn-primary inicioSesion">Iniciar Sesión</a>
@@ -21,7 +21,7 @@
             esfuerzo pueden marcar una diferencia tangible en el mundo.
         </p>
     </div>
-    <div class="container-fluid estadisticasContainer" id="contenedor3">
+    <div class="estadisticasContainer" id="contenedor3">
         <h1>AHORA MISMO CONTAMOS CON:</h1>
         <div class="statistics">
             <div class="statistic">
@@ -39,14 +39,12 @@
         </div>
     </div>
 
-    <div class="container-fluid carousel-slide" id="contenedor4">
+    <div class="carousel" id="contenedor4">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#contenedor4" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#contenedor4" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#contenedor4" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#contenedor4" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#contenedor4" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#contenedor4" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -59,13 +57,11 @@
                 <img src="{{ asset('img/imagen3.jpg') }}" class="d-block w-100" alt="...">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#contenedor4"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#contenedor4" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#contenedor4"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#contenedor4" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>

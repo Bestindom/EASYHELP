@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,800&display=swap');
 
 html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -17,6 +17,10 @@ body {
 .container {
     width: 100%;
     max-width: 100vw;
+}
+
+.container-fluid.show {
+    transform: translateX(0);
 }
 
 footer {
@@ -192,8 +196,4 @@ div[id^="contenedor"] {
     background-color: #f0f0f0;
     /* Color de fondo */
 
-}
-
-.carouel-slide {
-    height: 100vh;
 }

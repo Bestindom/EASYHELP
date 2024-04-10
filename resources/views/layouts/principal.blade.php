@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container" style="width: 100%">
+        <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">EASYHELP</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -53,8 +53,8 @@
             <p>EasyHelp - 2024</p>
         </div>
     </footer>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
 </body>
 
 </html>
