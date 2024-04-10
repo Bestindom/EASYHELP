@@ -45,6 +45,9 @@
     </nav>
     @yield('contenido')
 
+    <footer class="bg-primary text-white text-center p-3">
+        <p>EasyHelp - 2024</p>
+    </footer>
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
