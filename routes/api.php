@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UsuarioController;
 use App\Http\Controllers\Api\PointController;
+use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\Api\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('user', UsuarioController::class);
 Route::apiResource('point', PointController::class);
+Route::apiResource('type', TypeController::class);
+Route::apiResource('provider', ProviderController::class);

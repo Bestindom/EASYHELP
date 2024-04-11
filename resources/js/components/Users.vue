@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-floating row mb-3">
                             <select class="form-select" id="type" name="type" v-model="user.type">
-                                <option v-for="type in types" :value="type.id"> {{ type.name }} </option>
+                                <option v-for="type in types" :value=type.id> {{ type.name }} </option>
                             </select>
                             <label for="type">Type</label>
                         </div>
@@ -105,6 +105,30 @@
         </div>
     </div>
 
+    
+    <!-- Insert Provider -->
+
+    <div class="modal" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to delete <strong>{{ user.username }}</strong>?</p>
+                <span v-if="isError" class="badge text-bg-danger">{{ messageError }}</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" @click="deleteUser()">
+                    <i class="bi bi-trash"></i> Accept
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+
    
 </template>
 
@@ -112,13 +136,16 @@
 
 import * as bootstrap from 'bootstrap'
 import axios from 'axios';
+import Providers from './Providers.vue';
 
 export default {
     data() {
         return {
             users: [],
-            myModal: {},
             user: {},
+            providers: [],
+            provider: {},
+            myModal: {},
             types: [],
             messageError: '',
             isError: false,
@@ -148,12 +175,16 @@ export default {
                 .post('user', me.user)
                 .then(response => {
                     me.selectUsers()
-                    me.myModal.hide()
                 })
                 .catch(error => {
                     me.isError = true
                     console.log(error)
                     me.messageError = error.response.data.error
+                })
+                .post('provider', me.provider)
+                .then(response => {
+                    me.selectUsers()
+                    me.myModal.hide()
                 })
         },
         selectUsers()

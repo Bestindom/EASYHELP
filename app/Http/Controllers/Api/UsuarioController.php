@@ -34,8 +34,8 @@ class UsuarioController extends Controller
         $user = new Usuario();
 
         $user->username = $request->input('username');
-        $user->password = $request->input('password');
-        $user->type = $request->input('type_id');
+        $user->password = \bcrypt($request->input('password'));
+        $user->type_id = $request->input('type');
 
 
         try
