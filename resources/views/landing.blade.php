@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.principal')
 
 @section('contenido')
     <div class="registroUsuario">
