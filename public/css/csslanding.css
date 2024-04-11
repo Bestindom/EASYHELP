@@ -6,21 +6,18 @@ html {
 
 body {
     background-color: #FFFBE8;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
 }
 
 .navbar-expand-lg {
     height: 8vh !important;
     position: fixed;
     width: 100%;
-}
-
-.container {
-    width: 100%;
-    max-width: 100vw;
-}
-
-.container-fluid.show {
-    transform: translateX(0);
 }
 
 footer {
@@ -33,26 +30,187 @@ div[id^="contenedor"] {
     padding: 0;
 }
 
-#contenedor1 {
-    background-color: #fb8500;
+.container {
+    width: 100%;
+    max-width: 100vw;
 }
 
-.registroUsuario,
-.queEsContainer,
-.estadisticasContainer {
-    height: 100vh;
-    /* Ocupar toda la altura de la pantalla */
-    width: 100%;
-    /* Ocupar todo el ancho disponible */
+.container-fluid {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden; 
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    margin: 0;
+}
+
+.container-fluid.show {
+    transform: translateX(0);
+}
+
+#contenedor1 {
+    background-color: #8ecae6;
+}
+
+.landing-text, .landing-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-text {
+    flex-direction: column;
+    gap: 30px;
+}
+
+.landing-text h3 {
+    margin: 0;
+    font-size: 50px;
+}
+
+.landing-text p {
+    margin: 0;
+    font-size: 30px;
+}
+
+.landing-buttons {
+    gap: 20px;
+}
+
+.btn.landing-button {
+    width: 300px;
+    height: 55px;
+    border-radius: 30px;
+    background-color: #219EBC;
+    color: #FFFDFD;
+    border: 1px solid #000000;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    box-shadow: 2px 2px 0px 0px #035177;
+    display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
+    margin-top: 60px;
 }
 
-.registroUsuario a {
+.btn.landing-button:hover {
+    background-color: #0056b3;
+}
+
+#contenedor2{
+    background-color: #219ebc;
+}
+
+.mision {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.mision-text, .mision-image {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mision-text h5{
+    font-size: 50px;
+}
+
+.mision-image {
+    margin-right: 300px;
+}
+.mision img {
+    width: 100%;
+}
+
+#contenedor3 {
+    background-color: #FFFBE8;
+}
+
+.vision {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.vision-text, .vision-image {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vision-text h5{
+    font-size: 50px;
+}
+
+.vision-image {
+    margin-left: 300px;
+}
+.vision img {
+    width: 100%;
+}
+
+#contenedor4 {
+    background-color: red;
+}
+
+.valores {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.valores-text, .valores-image {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.valores-text h5{
+    font-size: 50px;
+}
+
+.valores-image {
+    margin-right: 300px;
+}
+.valores img {
+    width: 100%;
+}
+
+.estadisticasContainer .statistic {
+    flex-basis: calc(33.33% - 20px);
+    /* Establece el ancho de cada estadística */
     text-align: center;
+    /* Centra el contenido */
+    margin: 10px;
+    /* Añade margen entre las estadísticas */
+    border: 1px solid #ccc;
+    /* Añade un borde */
+    padding: 20px;
+    /* Añade espacio interno */
+    box-sizing: border-box;
+    /* Incluye el padding en el ancho total */
+    background-color: #f0f0f0;
+    /* Color de fondo */
+
 }
 
 /* Estilos específicos para dispositivos móviles */
@@ -95,41 +253,11 @@ div[id^="contenedor"] {
     }
 }
 
-.registroUsuario h3 {
-    margin: 0;
-    /* Eliminamos el margen para evitar desplazamientos */
-    font-size: 2.5em;
-    /* Ajusta el tamaño de la fuente según sea necesario */
-    text-align: center;
-    /* Alinea horizontalmente el texto */
-    position: absolute;
-    /* Utilizamos posición absoluta */
-    top: 30%;
-    /* Sitúa el elemento a la mitad de la altura del viewport */
-}
-
-.registroUsuario p {
-    text-align: center;
-    /* Alinea horizontalmente el texto */
+/* .registroUsuario .btn {
     margin-top: 20px;
-    /* Ajusta el espacio entre el título y el párrafo */
     text-align: center;
-    /* Alinea horizontalmente el texto */
     position: absolute;
-    /* Utilizamos posición absoluta */
-    top: 40%;
-    /* Sitúa el elemento a la mitad de la altura del viewport */
-}
-
-.registroUsuario .btn {
-    margin-top: 20px;
-    /* Ajusta el espacio entre el párrafo y los botones */
-    text-align: center;
-    /* Alinea horizontalmente el texto */
-    position: absolute;
-    /* Utilizamos posición absoluta */
     top: 65%;
-    /* Sitúa el elemento a la mitad de la altura del viewport */
     margin-right: 0%;
     margin-left: 25%;
     padding: 10px 20px;
@@ -151,49 +279,13 @@ div[id^="contenedor"] {
     font-optical-sizing: auto;
     font-style: normal;
     box-shadow: 2px 2px 0px 0px #035177;
-}
+} */
 
-.registroUsuario .btn+.btn {
+
+/* .registroUsuario .btn+.btn {
     margin-top: 20px;
-    /* Ajusta el espacio entre los botones en pantalla grande */
     margin-left: 0;
-    /* Elimina el margen izquierdo para evitar superposición */
     margin-right: 10%;
-    /* Ajusta el margen derecho */
-}
+} */
 
 
-.registroUsuario .btn:hover {
-    background-color: #0056b3;
-}
-
-.queEsContainer p {
-    text-align: center;
-}
-
-.queEsContainer {
-    margin: 0 auto;
-    /* Centra el contenedor horizontalmente */
-    padding: 20px;
-    /* Añade espacio alrededor del contenido */
-    box-sizing: border-box;
-    /* Incluye el padding en el ancho total */
-}
-
-.estadisticasContainer .statistic {
-    flex-basis: calc(33.33% - 20px);
-    /* Establece el ancho de cada estadística */
-    text-align: center;
-    /* Centra el contenido */
-    margin: 10px;
-    /* Añade margen entre las estadísticas */
-    border: 1px solid #ccc;
-    /* Añade un borde */
-    padding: 20px;
-    /* Añade espacio interno */
-    box-sizing: border-box;
-    /* Incluye el padding en el ancho total */
-    background-color: #f0f0f0;
-    /* Color de fondo */
-
-}
