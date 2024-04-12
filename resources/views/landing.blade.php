@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-5 mision">
                     <div class="mision-image">
-                        <img src="{{ asset('img/foto-mision.jpeg') }}" </div>
+                        <img src="{{ asset('img/foto-mision.jpeg') }}">
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-5 vision">
                         <div class="vision-image">
-                            <img src="{{ asset('img/foto-vision.jpeg') }}" </div>
+                            <img src="{{ asset('img/foto-vision.jpeg') }}" >
                         </div>
                     </div>
                     <div class="col-7 vision">
@@ -72,7 +72,8 @@
                     </div>
                     <div class="col-5 valores">
                         <div class="valores-image">
-                            <img src="{{ asset('img/foto-vision.jpeg') }}"
+                            <img src="{{ asset('img/foto-vision.jpeg') }}">
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -100,32 +101,46 @@
         </div>
 
         <div class="carousel" id="contenedor6">
-            <div class="container-fluid">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#contenedor6" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#contenedor6" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#contenedor6" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('img/imagen1.jpg') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('img/imagen2.jpg') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('img/imagen3.jpg') }}" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#contenedor6" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#contenedor6" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
+          <div class="container-fluid">
+              <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#contenedor6" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button"  data-bs-target="#contenedor6" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button"  data-bs-target="#contenedor6" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button"  data-bs-target="#contenedor6" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button"  data-bs-target="#contenedor6" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                  <button type="button"  data-bs-target="#contenedor6" data-bs-slide-to="5" aria-label="Slide 6"></button>
+              </div>
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <img src="{{ asset('img/imagen1.jpg') }}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{{ asset('img/imagen2.jpg') }}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{{ asset('img/imagen3.jpg') }}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{{ asset('img/imagen4.jpg') }}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{{ asset('img/imagen5.jpg') }}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{{ asset('img/imagen6.jpg') }}" class="d-block w-100" alt="...">
+                  </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#contenedor6" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#contenedor6" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+      </div>
+      
+
     @endsection

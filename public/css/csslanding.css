@@ -252,7 +252,19 @@ div[id^="contenedor"] {
         margin-left: 40px;
     }
 }
+.carousel {
+    width: 100%;
+    max-width: 700px; /* Ajusta el ancho máximo del carrusel según sea necesario */
+    margin: 0 auto; /* Centra el carrusel horizontalmente */
+}
 
+.carousel-item img {
+    max-width: 100%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
+    max-height: 700px; /* Establece la altura máxima de la imagen */
+    width: auto; /* Permite que el ancho se ajuste automáticamente */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    margin: 0 auto; /* Centra la imagen horizontalmente dentro del carrusel */
+}
 /* .registroUsuario .btn {
     margin-top: 20px;
     text-align: center;

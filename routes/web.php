@@ -15,7 +15,7 @@ use App\Http\Controllers\UsuarioController;
 */
 
 
-Route::get('/', function () {
+Route::get('/landing', function () {
     return view('landing');
 });
 
