@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Provider;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Resources\ProviderResource;
 
@@ -27,10 +28,11 @@ class ProviderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Usuario $usuario)
     {
         $provider = new Provider();
 
+        $provider->user_id = $usuario->id;
         $provider->menus = 0;
         $provider->street = 'Via Laietana';
         $provider->number = 13;

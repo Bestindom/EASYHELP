@@ -106,28 +106,6 @@
     </div>
 
     
-    <!-- Insert Provider -->
-
-    <div class="modal" tabindex="-1" id="deleteModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete User</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure to delete <strong>{{ user.username }}</strong>?</p>
-                <span v-if="isError" class="badge text-bg-danger">{{ messageError }}</span>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" @click="deleteUser()">
-                    <i class="bi bi-trash"></i> Accept
-                </button>
-            </div>
-            </div>
-        </div>
-    </div>
 
    
 </template>
@@ -136,7 +114,6 @@
 
 import * as bootstrap from 'bootstrap'
 import axios from 'axios';
-import Providers from './Providers.vue';
 
 export default {
     data() {
@@ -174,17 +151,28 @@ export default {
             axios
                 .post('user', me.user)
                 .then(response => {
+                    me.insertProvider()
                     me.selectUsers()
+                    me.myModal.hide()
                 })
                 .catch(error => {
                     me.isError = true
                     console.log(error)
                     me.messageError = error.response.data.error
                 })
-                .post('provider', me.provider)
+        },
+        insertProvider()
+        {
+            const me = this
+            axios
+                .post('provider', me.user)
                 .then(response => {
-                    me.selectUsers()
-                    me.myModal.hide()
+                    console.log('provider add')
+                })
+                .catch(error => {
+                    me.isError = true
+                    console.log(error)
+                    me.messageError = error.response.data.error
                 })
         },
         selectUsers()
