@@ -165,7 +165,7 @@ div[id^="contenedor"] {
 }
 
 #contenedor4 {
-    background-color: red;
+    background-color: #219ebc;
 }
 
 .valores {
@@ -307,6 +307,7 @@ div[id^="contenedor"] {
 #ticker-container {
     width: 100%; /* O ajusta el ancho según sea necesario */
     overflow: hidden;
+    
 }
 
 #ticker {
