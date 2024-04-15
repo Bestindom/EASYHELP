@@ -301,3 +301,30 @@ div[id^="contenedor"] {
 } */
 
 
+#ticker-container {
+    width: 100%; /* O ajusta el ancho según sea necesario */
+    overflow: hidden;
+}
+
+#ticker {
+    white-space: nowrap;
+    animation: ticker-slide 10s linear infinite; /* Controla la velocidad cambiando el valor de 20s */
+}
+
+.ticker-content {
+    display: inline-block;
+}
+
+.ticker-content span {
+    margin-right: 20px; /* Espacio entre cada marca */
+    display: inline-block;
+}
+
+@keyframes ticker-slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
