@@ -33,11 +33,13 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/providers', function() {
     return view('providers');
 } );
-
+Route::get('/riders', function() {
+    return view('riders');
+} );
 Route::middleware(['auth'])->group(function () {
     Route::get('/map', function () {
         // $user = Auth::user();
 
         return view('map');
-    });
+    })->name('map');
 });
