@@ -265,6 +265,9 @@ div[id^="contenedor"] {
     height: auto; /* Permite que la altura se ajuste automáticamente */
     margin: 0 auto; /* Centra la imagen horizontalmente dentro del carrusel */
 }
+.carousel-indicators [data-bs-target] {
+    background-color: #035177;
+}
 /* .registroUsuario .btn {
     margin-top: 20px;
     text-align: center;
