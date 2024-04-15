@@ -38,6 +38,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/map', function () {
         // $user = Auth::user();
 
-        return view('map', compact('user'));
+        return view('map');
     });
 });
