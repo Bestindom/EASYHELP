@@ -43,3 +43,7 @@ Route::middleware(['auth'])->group(function () {
         return view('map');
     })->name('map');
 });
+
+Route::get('/registro', function() {
+    return view('register');
+});
