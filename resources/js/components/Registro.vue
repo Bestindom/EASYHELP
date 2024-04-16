@@ -78,21 +78,21 @@ export default {
   border: 2px solid #035177;
 }
 .btn{
-    width: 300px;
-    height: 55px;
-    border-radius: 30px;
-    background-color: #219EBC;
-    color: #FFFDFD;
-    border: 1px solid #000000;
-    font-weight: bold;
-    font-family: "Nunito", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    box-shadow: 2px 2px 0px 0px #035177;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left:18%;
+  width: 300px;
+  height: 55px;
+  border-radius: 30px;
+  background-color: #219EBC;
+  color: #FFFDFD;
+  border: 1px solid #000000;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  box-shadow: 2px 2px 0px 0px #035177;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left:18%;
 }
 .carousel-control-prev, .carousel-control-next {
   position: absolute;
