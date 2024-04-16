@@ -11,12 +11,11 @@
         <h1>PROVIDERS</h1>
         <form>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            <img src="" alt="Imagen">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -25,12 +24,11 @@
         <h1>RIDERS</h1>
         <form>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            <img src="" alt="Imagen">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -39,12 +37,11 @@
         <h1>COMEDORES</h1>
         <form>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            <img src="" alt="Imagen">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -80,5 +77,45 @@ export default {
   background-color: #FFFBE8;
   border: 2px solid #035177;
 }
-
+.btn{
+    width: 300px;
+    height: 55px;
+    border-radius: 30px;
+    background-color: #219EBC;
+    color: #FFFDFD;
+    border: 1px solid #000000;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    box-shadow: 2px 2px 0px 0px #035177;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left:18%;
+}
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  text-align: center;
+  border: 0;
+  height: 50px;
+  width: 30px;
+  margin-top: 10%;
+  margin-left: 35%;
+  margin-right: 33%;
+}
+.carousel-control-next-icon,.carousel-control-prev-icon{
+  filter:invert(1)grayscale(100); 
+}
+placeholder{
+  font-weight: bold;
+}
 </style>
