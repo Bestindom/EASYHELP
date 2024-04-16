@@ -15,7 +15,7 @@
           </div>
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-            <img src="" alt="Imagen">
+            <img src="../../../public/img/provider.svg" alt="Imagen">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -28,7 +28,7 @@
           </div>
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-            <img src="" alt="Imagen">
+            <img src="../../../public/img/repartidor.png" alt="Imagen">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -41,7 +41,7 @@
           </div>
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-            <img src="" alt="Imagen">
+            <img src="../../../public/img/comedor.svg" alt="Imagen">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
