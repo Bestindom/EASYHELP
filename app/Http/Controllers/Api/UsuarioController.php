@@ -34,9 +34,8 @@ class UsuarioController extends Controller
         $user = new Usuario();
 
         $user->username = $request->input('username');
-        $user->password = $request->input('password');
-        $user->type = $request->input('type_id');
-
+        $user->password = \bcrypt($request->input('password'));
+        $user->type_id = $request->input('type');
 
         try
         {
@@ -75,9 +74,28 @@ class UsuarioController extends Controller
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Usuario $user)
     {
-        //
+        $user->username = $request->input('username');
+        $user->password = \bcrypt($request->input('password'));
+        $user->type_id = $request->input('type');
+
+        try
+        {
+            $user->save();
+            // $request->session()->flash('mensaje', 'Resgistro agg correctamente');
+            $response = (new UsuarioResource($user))
+                        ->response()
+                        ->setStatusCode(201);
+        }
+        catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+        }
+
+        return $response;
     }
 
     /**
@@ -86,11 +104,11 @@ class UsuarioController extends Controller
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Usuario $user)
     {
         try
         {
-            $usuario->delete();
+            $user->delete();
             $response = \response()
                         ->json(['mensaje' => 'Resgistro eliminado correctamente'], 200);
         }
@@ -100,5 +118,7 @@ class UsuarioController extends Controller
             $response = \response()
                         ->json(['error' => $mensaje], 400);
         }
+
+        return $response;
     }
 }
