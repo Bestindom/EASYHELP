@@ -118,4 +118,7 @@ export default {
 placeholder{
   font-weight: bold;
 }
+.carousel-indicators [data-bs-target] {
+    background-color: #035177;
+}
 </style>
