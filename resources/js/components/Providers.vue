@@ -1,13 +1,14 @@
 <template>
     <div>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div v-for="(item, index) in items" :key="index" class="col">   
+            <div v-for="(provider, index) in providers" :key="index" class="col">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">{{ item.title }}</h5>
-                        <p class="card-text">{{ item.menuCount }} menús</p>
+                        <h5 class="card-title">{{ provider.user_id + '. ' + provider.name }}</h5>
+                        <p class="card-text">{{ provider.menus }} menús</p>
                         <button @click="increment(index)">+</button>
-                        <button @click="decrement(index)">-</button>
+                        <button @click="decrement(index)">-</button><br>
+                        <h5 class="card-title">{{ provider.street }}</h5>
                     </div>
                 </div>
             </div>
@@ -19,21 +20,31 @@
 export default {
     data() {
         return {
-            items: [
-                { title: 'Jiajie', menuCount: 0 },
-                { title: 'Pizza', menuCount: 0 }
-            ]
+            providers: [],
+            menus: []
         };
     },
     methods: {
+        selectProviders() {
+            const me = this
+            axios
+                .get('provider')
+                .then(response => {
+                    console.log(response.data);
+                    me.providers = response.data
+                })
+        },
         increment(index) {
-            this.items[index].menuCount++;
+            this.providers[index].menus++;
         },
         decrement(index) {
-            if (this.items[index].menuCount > 0) {
-                this.items[index].menuCount--;
+            if (this.providers[index].menus > 0) {
+                this.providers[index].menus--;
             }
         }
+    },
+    created() {
+        this.selectProviders();
     }
 }
 </script>
