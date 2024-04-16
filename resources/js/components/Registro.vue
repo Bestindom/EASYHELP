@@ -11,12 +11,12 @@
         <h1>PROVIDERS</h1>
         <form>
           <div class="mb-3">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-            <img src="../../../public/img/provider.svg" alt="Imagen">
           </div>
+          <img src="../../../public/img/provider.svg" alt="Provider_Icon">
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -24,12 +24,12 @@
         <h1>RIDERS</h1>
         <form>
           <div class="mb-3">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-            <img src="../../../public/img/repartidor.png" alt="Imagen">
           </div>
+          <img src="../../../public/img/repartidor.png" alt="Rider_Icon">
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -37,12 +37,12 @@
         <h1>COMEDORES</h1>
         <form>
           <div class="mb-3">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-            <img src="../../../public/img/comedor.svg" alt="Imagen">
           </div>
+          <img src="../../../public/img/comedor.svg" alt="Comedor_Icon">
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -109,8 +109,8 @@ export default {
   height: 50px;
   width: 30px;
   margin-top: 10%;
-  margin-left: 35%;
-  margin-right: 33%;
+  margin-left: 32%;
+  margin-right: 24%;
 }
 .carousel-control-next-icon,.carousel-control-prev-icon{
   filter:invert(1)grayscale(100); 
@@ -119,6 +119,9 @@ placeholder{
   font-weight: bold;
 }
 .carousel-indicators [data-bs-target] {
-    background-color: #035177;
+  background-color: #035177;
+}
+img{
+  margin-left: 35%;
 }
 </style>
