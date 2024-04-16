@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\Provider;
-use App\Models\Usuario;
+use App\Models\Rider;
+use App\Clases\Utilitat;
 use Illuminate\Http\Request;
-use App\Http\Resources\ProviderResource;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\RiderResource;
+use Illuminate\Database\QueryException;
+use App\Models\Usuario;
 
-class ProviderController extends Controller
+class RiderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +19,9 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::all();
+        $riders = Rider::all();
 
-        return ProviderResource::collection($providers);
+        return RiderResource::collection($riders);
     }
 
     /**
@@ -28,24 +30,17 @@ class ProviderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Usuario $usuario)
+    public function store(Request $request)
     {
-        $provider = new Provider();
+        $rider = new Rider();
 
-        $provider->user_id = $request->input('id');
-        $provider->menus = 0;
-        $provider->street = 'Via Laietana';
-        $provider->number = 13;
-        $provider->province = 'Barcelona';
-        $provider->municipality = 'Barcelona';
-        $provider->cp = '08001';
-
+        $rider->user_id = $request->input('id');
+        $rider->menus = 0;
 
         try
         {
-            $provider->save();
-            // $request->session()->flash('mensaje', 'Resgistro agg correctamente');
-            $response = (new ProviderResource($provider))
+            $rider->save();
+            $response = (new RiderResource($rider))
                         ->response()
                         ->setStatusCode(201);
         }
@@ -62,10 +57,10 @@ class ProviderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Provider  $provider
+     * @param  \App\Models\Rider  $rider
      * @return \Illuminate\Http\Response
      */
-    public function show(Provider $provider)
+    public function show(Rider $rider)
     {
         //
     }
@@ -74,10 +69,10 @@ class ProviderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Provider  $provider
+     * @param  \App\Models\Rider  $rider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provider $provider)
+    public function update(Request $request, Rider $rider)
     {
         //
     }
@@ -85,10 +80,10 @@ class ProviderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Provider  $provider
+     * @param  \App\Models\Rider  $rider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provider $provider)
+    public function destroy(Rider $rider)
     {
         //
     }
