@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,800&display=swap');
+
+.container {
+    overflow-x: auto  !important; /* Añadimos scroll horizontal */   
+    max-width: calc(200px * 9 + 20px * 5) !important; /* Ancho máximo para mostrar 5 tarjetas */
+    white-space: nowrap !important; /* Para que las cartas no se envuelvan */
+    scrollbar-width: none !important; 
+}
+
+#cardContainer {
+    display: flex !important; /* Usamos flexbox */
+    flex-wrap: nowrap !important; /* Para que las cartas no se envuelvan */
+}
+
+.card {
+    width: 200px !important;
+    height: 300px !important;
+    background-color: #f0f0f0 !important;
+    border-radius: 10px !important;
+    margin: 10px !important;
+    flex: 0 0 auto !important; /* Para que las tarjetas no cambien de tamaño */
+    transition: transform 0.3s ease !important;
+}
+
+.card:hover {
+    transform: scale(1.05) !important;
+    cursor: pointer;
+}
+
+
+html {
+    scroll-snap-type: y mandatory !important;
+}
+
+body {
+    background-color: #FFFBE8 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0 !important;
+}
+
+.navbar-expand-lg {
+    height: 8vh !important;
+    position: fixed;
+    width: 100%;
+}
+
+#imageContainer{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 10%;
+}
+
+#imageContainer:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.card button {
+    margin-top: 5px; /* Espacio sobre el botón */
+}
