@@ -130,7 +130,7 @@
                     <button v-if="insert" type="button" class="btn btn-primary" @click="insertUser()">
                         <i class="bi bi-plus-circle"></i> Insert
                     </button>
-                    <button v-else type="button" class="btn btn-primary" @click="updateCicle()">
+                    <button v-else type="button" class="btn btn-primary" @click="updateUser()">
                         <i class="bi bi-pencil-square"></i> Modify
                     </button>
                 </div>
@@ -223,6 +223,22 @@ export default {
                 .post('rider', me.user)
                 .then(response => {
                     console.log('rider add')
+                })
+                .catch(error => {
+                    me.isError = true
+                    console.log(error)
+                    me.messageError = error.response.data.error
+                })
+        },
+        updateUser() 
+        {
+            const me = this
+            axios
+                .put('user/' + me.user.id, me.user)
+                .then(response => {
+                    // me.insertProvider()
+                    me.selectUsers()
+                    me.myModal.hide()
                 })
                 .catch(error => {
                     me.isError = true

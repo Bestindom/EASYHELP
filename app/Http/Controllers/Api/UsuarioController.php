@@ -37,22 +37,6 @@ class UsuarioController extends Controller
         $user->password = \bcrypt($request->input('password'));
         $user->type_id = $request->input('type');
 
-        // echo $user->id;
-        // switch ($user->id)
-        // {
-        //     case '2':
-        //         insertProvider($user);
-        //         break;
-        //     case '3':
-        //         insertProvider($user);
-        //         break;
-        //     case '4':
-        //         insertProvider($user);
-        //         break;
-        // }
-
-
-
         try
         {
             $user->save();
@@ -90,9 +74,28 @@ class UsuarioController extends Controller
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Usuario $user)
     {
-        //
+        $user->username = $request->input('username');
+        $user->password = \bcrypt($request->input('password'));
+        $user->type_id = $request->input('type');
+
+        try
+        {
+            $user->save();
+            // $request->session()->flash('mensaje', 'Resgistro agg correctamente');
+            $response = (new UsuarioResource($user))
+                        ->response()
+                        ->setStatusCode(201);
+        }
+        catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+        }
+
+        return $response;
     }
 
     /**
