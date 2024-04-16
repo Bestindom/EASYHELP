@@ -10,14 +10,13 @@
     </title>
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/csslanding.css') }}"> --}}
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">EASYHELP</a>
+            <a class="navbar-brand" href="{{ url('landing') }}">EASYHELP</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,6 +42,7 @@
             </div>
         </div>
     </nav>
+    
     @yield('contenido')
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
