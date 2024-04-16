@@ -11,10 +11,28 @@
         <h1>PROVIDERS</h1>
         <form>
           <div class="mb-3">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
+            <input type="text" class="form-control nombre" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            <input type="password" class="form-control paswd" placeholder="Contraseña">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control menu" placeholder="Menus">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control calle" placeholder="Calle">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control numero" placeholder="Numero">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control provincia" placeholder="Provincia">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control municipio" placeholder="Municipio">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control cp" placeholder="CP">
           </div>
           <img src="../../../public/img/provider.svg" alt="Provider_Icon">
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -24,10 +42,13 @@
         <h1>RIDERS</h1>
         <form>
           <div class="mb-3">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
+            <input type="text" class="form-control nombre" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            <input type="password" class="form-control paswd" placeholder="Contraseña">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control menu" placeholder="Menus">
           </div>
           <img src="../../../public/img/repartidor.png" alt="Rider_Icon">
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -37,10 +58,28 @@
         <h1>COMEDORES</h1>
         <form>
           <div class="mb-3">
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
+            <input type="text" class="form-control nombre" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            <input type="password" class="form-control paswd" placeholder="Contraseña">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control menu" placeholder="Menus">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control calle" placeholder="Calle">
+          </div>
+          <div class="mb-3">
+            <input type="number" class="form-control numero" placeholder="Numero">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control provincia" placeholder="Provincia">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control municipio" placeholder="Municipio">
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control cp" placeholder="CP">
           </div>
           <img src="../../../public/img/comedor.svg" alt="Comedor_Icon">
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -70,7 +109,7 @@ export default {
   margin-top:10%;
   margin-left:38%;
 }
-#exampleInputEmail1.form-control, #exampleInputPassword1.form-control{
+.nombre, .paswd, .menu, .calle, .numero, .provincia, .municipio, .cp{
   width: 100%;
   height: 50px;
   border-radius: 30px;
