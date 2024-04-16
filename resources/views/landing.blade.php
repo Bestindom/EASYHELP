@@ -11,7 +11,7 @@
             </div>
             <div class="landing-buttons">
                 <a href="{{ url('/login') }}" class="btn btn-primary landing-button">Iniciar Sesión</a>
-                <a href="{{ url('/register') }}" class="btn btn-primary landing-button">Registrarse</a>
+                <a href="{{ url('/registro') }}" class="btn btn-primary landing-button">Registrarse</a>
             </div>
         </div>
     </div>
