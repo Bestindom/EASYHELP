@@ -34,11 +34,8 @@ class ProviderController extends Controller
 
         $provider->user_id = $request->input('id');
         $provider->menus = 0;
+        $provider->name = $request->input('username');
         $provider->street = 'Via Laietana';
-        $provider->number = 13;
-        $provider->province = 'Barcelona';
-        $provider->municipality = 'Barcelona';
-        $provider->cp = '08001';
 
 
         try

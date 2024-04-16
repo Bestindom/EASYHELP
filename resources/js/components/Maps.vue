@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <form class="form-floating">
                         <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Nombre</label>
+                        <label for="floatingInputValue">Numero de Homeless</label>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -32,8 +32,8 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-floating">
-                        <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Numero de Manús</label>
+                        <input type="text" class="form-control" id="name">
+                        <label for="floatingInputValue">Menús a entregar</label>
                     </form>
                 </div>
                 <div class="modal-footer">

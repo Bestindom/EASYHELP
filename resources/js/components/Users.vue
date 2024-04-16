@@ -159,7 +159,6 @@ export default {
             messageError: '',
             isError: false,
             insert: false,
-            rider: false
         }
     },
     methods: {
