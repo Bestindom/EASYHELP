@@ -35,7 +35,7 @@
                             <div class="col-md-6 d-flex justify-content-center login-button">
                                 <img src="{{ asset('img/repartidor.png') }}">
                                 <button type="submit" class="btn btn-primary login">Log In</button>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </form>
