@@ -7,7 +7,7 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">  
+      <div class="carousel-item active">
         <h1>PROVIDERS</h1>
         <form>
           <div class="mb-3">
@@ -60,10 +60,10 @@
 </template>
 <script>
 export default {
-    
+
 }
 </script>
-<style lang="css">
+<style scoped>
 .carousel-inner{
   width:500px;
   height:600px;
@@ -113,7 +113,7 @@ export default {
   margin-right: 33%;
 }
 .carousel-control-next-icon,.carousel-control-prev-icon{
-  filter:invert(1)grayscale(100); 
+  filter:invert(1)grayscale(100);
 }
 placeholder{
   font-weight: bold;
