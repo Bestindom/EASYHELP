@@ -105,8 +105,7 @@ export default {
 <style lang="css">
 .carousel-inner{
   width:500px;
-  height:600px;
-  margin-top:10%;
+  height:850px;
   margin-left:38%;
 }
 .nombre, .paswd, .menu, .calle, .numero, .provincia, .municipio, .cp{
