@@ -54,6 +54,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/providers', function () {
         $user = Auth::user();
 
-        return view('user/providers');
+        return view('users/providers');
     })->name('providers');
 });
