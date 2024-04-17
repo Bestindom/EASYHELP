@@ -122,6 +122,7 @@ h5 {
 
 .card {
     width: 450px;
+    user-select: none;
 }
 
 .card-header {
