@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Rider extends Model
 {
@@ -17,5 +18,10 @@ class Rider extends Model
     public function usuarios(): HasMany
     {
         return $this->hasMany(Usuario::class, 'users_id');
+    }
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class, 'user_id');
     }
 }

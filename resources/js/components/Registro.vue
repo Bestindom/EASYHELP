@@ -77,7 +77,7 @@ export default {
   background-color: #FFFBE8;
   border: 2px solid #035177;
 }
-.btn{
+/* .btn{
     width: 300px;
     height: 55px;
     border-radius: 30px;
@@ -93,7 +93,7 @@ export default {
     align-items: center;
     justify-content: center;
     margin-left:18%;
-}
+} */
 .carousel-control-prev, .carousel-control-next {
   position: absolute;
   top: 0;

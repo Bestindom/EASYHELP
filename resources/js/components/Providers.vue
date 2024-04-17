@@ -5,10 +5,21 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">{{ provider.user_id + '. ' + provider.name }}</h5>
-                        <p class="card-text">{{ provider.menus }} menús</p>
+                        <form>
+                            <div class="form-floating row mb-3">
+                                <input class="form-control" id="menus" name="menus" autofocus
+                                    v-model="provider.menus">
+                                <label for="username">Menús</label>
+                            </div>
+                        </form>
                         <button @click="increment(index)">+</button>
                         <button @click="decrement(index)">-</button><br>
                         <h5 class="card-title">{{ provider.street }}</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" @click="updateMenus(provider)">
+                            <i class="bi bi-bag-check-fill"></i> Reservar
+                        </button>
                     </div>
                 </div>
             </div>
@@ -21,7 +32,9 @@ export default {
     data() {
         return {
             providers: [],
-            menus: []
+            provider: {},
+            menus: [],
+            messageError: ''
         };
     },
     methods: {
@@ -41,7 +54,20 @@ export default {
             if (this.providers[index].menus > 0) {
                 this.providers[index].menus--;
             }
-        }
+        },
+        updateMenus(provider) 
+        {
+            const me = this
+            axios
+                .put('provider/' + provider.user_id, provider)
+                .then(response => {
+                    me.selectProviders()
+                })
+                .catch(error => {
+                    console.log(error)
+                    me.messageError = error.response.data.error
+                })
+        },
     },
     created() {
         this.selectProviders();
