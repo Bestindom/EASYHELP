@@ -34,10 +34,14 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/riders', function() {
+        $user = Auth::user();
+    
+        return view('riders');
+    } );
+});
 
-Route::get('/riders', function() {
-    return view('riders');
-} );
 Route::middleware(['auth'])->group(function () {
     Route::get('/map', function () {
         $user = Auth::user();
