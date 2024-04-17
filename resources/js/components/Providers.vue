@@ -32,7 +32,9 @@ export default {
     data() {
         return {
             providers: [],
-            menus: []
+            provider: {},
+            menus: [],
+            messageError: ''
         };
     },
     methods: {
@@ -52,7 +54,20 @@ export default {
             if (this.providers[index].menus > 0) {
                 this.providers[index].menus--;
             }
-        }
+        },
+        updateMenus(provider) 
+        {
+            const me = this
+            axios
+                .put('provider/' + provider.user_id, provider)
+                .then(response => {
+                    me.selectProviders()
+                })
+                .catch(error => {
+                    console.log(error)
+                    me.messageError = error.response.data.error
+                })
+        },
     },
     created() {
         this.selectProviders();
