@@ -102,7 +102,7 @@ export default {
     
 }
 </script>
-<style lang="css">
+<style scoped>
 .carousel-inner{
   width:500px;
   height:850px;
