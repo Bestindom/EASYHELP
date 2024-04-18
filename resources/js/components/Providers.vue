@@ -1,151 +1,112 @@
 <template>
-    <div class="row row-cols-5" ref="cardContainer" @mousedown="startDragging($event)">
-        <div v-for="(provider, index) in providers" :key="index" class=" providers">
-            <div class="card h-100">
-                <div class="card-header" :style="{ 'background-image': 'url(' + provider.img + ')' }"></div>
-                <div class="card-body">
-                    <div class="provider-name">
-                        <h5 class="name">{{ provider.name }}</h5>
-                        <h5>-</h5>
-                        <h5 class="street">{{ provider.street }}</h5>
-                        <div class="menus-left">
-                            <h5>{{ provider.menus }} menús</h5>
-                        </div>
-                    </div>
-                    <div class="get-menus">
-                        <button class="btn btn-primary increment" @click="increment(index)"><i class="bi bi-plus"></i></button>
-                        <h5>0</h5>
-                        <button class="btn btn-primary decrement" @click="decrement(index)"><i class="bi bi-dash"></i></button>
-                    </div>
+    <div>
+      <div class="card-container" ref="cardContainer">
+        <div v-for="(provider, index) in providers" :key="index" class="providers">
+          <div class="card h-100">
+            <div class="card-header" :style="{ 'background-image': 'url(' + provider.img + ')' }"></div>
+            <div class="card-body">
+              <div class="provider-name">
+                <h5 class="name">{{ provider.name }}</h5>
+                <h5>-</h5>
+                <h5 class="street">{{ provider.street }}</h5>
+                <div class="menus-left">
+                  <h5>{{ provider.menus }} menús</h5>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-primary">Reservar</button>
-                </div>
+              </div>
+              <div class="get-menus">
+                <button class="btn btn-primary increment" @click="increment(index)"><i class="bi bi-plus"></i></button>
+                <h5>0</h5>
+                <button class="btn btn-primary decrement" @click="decrement(index)"><i class="bi bi-dash"></i></button>
+              </div>
             </div>
+            <div class="card-footer">
+              <button class="btn btn-primary">Reservar</button>
+            </div>
+          </div>
         </div>
+      </div>
+  
+      <!-- Mapa y botón -->
+      <div class="map-container">
+        <a href="{{ route('map') }}">
+          <img class="map-image" src="http://localhost:80/EASYHELP/public/img/mapa.jpg" alt="Descripción de la imagen">
+        </a>
+        <button class="btn btn-primary map-button">Ver Mapa</button>
+      </div>
     </div>
-</template>
-
-<script>
-export default {
+  </template>
+  
+  <script>
+  export default {
     data() {
-        return {
-            providers: [],
-            menus: [],
-            isDragging: false,
-            startX: 0,
-            currentX: 0,
-            translateX: 0
-        };
+      return {
+        providers: [],
+      };
     },
     methods: {
-        selectProviders() {
-            axios
-                .get('provider')
-                .then(response => {
-                    this.providers = response.data;
-                })
-                .catch(error => {
-                    console.error('Error fetching providers:', error);
-                });
-        },
-        increment(index) {
-            this.providers[index].menus++;
-        },
-        decrement(index) {
-            if (this.providers[index].menus > 0) {
-                this.providers[index].menus--;
-            }
-        },
-        startDragging(event) {
-            this.isDragging = true;
-            this.startX = event.clientX;
-            document.addEventListener('mousemove', this.drag);
-            document.addEventListener('mouseup', this.stopDragging);
-        },
-        drag(event) {
-            if (this.isDragging) {
-                this.currentX = event.clientX;
-                const deltaX = this.currentX - this.startX;
-                this.translateX += deltaX;
-                this.$refs.cardContainer.style.transform = `translateX(${this.translateX}px)`;
-                this.startX = this.currentX;
-            }
-        },
-        stopDragging() {
-            this.isDragging = false;
-            document.removeEventListener('mousemove', this.drag);
-            document.removeEventListener('mouseup', this.stopDragging);
-        },
-        checkBoundary() {
-        const cards = this.$refs.cardContainer.querySelectorAll('.providers');
-        const firstCardLeft = cards[0].getBoundingClientRect().left;
-        const lastCardRight = cards[cards.length - 1].getBoundingClientRect().right;
-
-        // Verificar si la primera tarjeta está fuera de la pantalla hacia la derecha
-        if (firstCardLeft > window.innerWidth) {
-            const lastCard = cards[cards.length - 1];
-            const clone = lastCard.cloneNode(true); // Clonar la última tarjeta
-            this.$refs.cardContainer.removeChild(lastCard); // Eliminar la última tarjeta original
-            this.$refs.cardContainer.insertBefore(clone, cards[0]); // Insertar el clon al principio
+      selectProviders() {
+        axios
+          .get('provider')
+          .then(response => {
+            this.providers = response.data;
+          })
+          .catch(error => {
+            console.error('Error fetching providers:', error);
+          });
+      },
+      increment(index) {
+        this.providers[index].menus++;
+      },
+      decrement(index) {
+        if (this.providers[index].menus > 0) {
+          this.providers[index].menus--;
         }
-    // Verificar si la última tarjeta está fuera de la pantalla hacia la izquierda
-        else if (lastCardRight < 0) {
-            const firstCard = cards[0];
-            const clone = firstCard.cloneNode(true); // Clonar la primera tarjeta
-            this.$refs.cardContainer.removeChild(firstCard); // Eliminar la primera tarjeta original
-            this.$refs.cardContainer.appendChild(clone); // Insertar el clon al final
-        }
-    },
-        loop() {
-            // Aquí puedes agregar lógica para comprobar los límites continuamente
-        }
+      },
     },
     mounted() {
-        this.selectProviders();
-        this.checkBoundary();
-        // this.loop(); // No se necesita para el arrastre de tarjetas
+      this.selectProviders();
     }
-}
-</script>
-
-<style scoped>
-h5 {
-    margin: 0;
-    padding: 0;
-}
-
-.providers {
+  }
+  </script>
+  
+  <style scoped>
+  /* Estilos para el contenedor de cartas */
+  .card-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor:grab;
-}
-
-.card {
-    width: 450px;
+    overflow-x: auto;
+    gap: 10px;
+    justify-content: flex-start;
+    padding-bottom: 20px; /* Ajuste para el espacio del botón del mapa */
+  }
+  
+  .providers {
+    flex: 0 0 auto;
+  }
+  
+  .card {
+    height: 100%;
     user-select: none;
-}
-
-.card-header {
+  }
+  
+  .card-header {
     height: 200px;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.card-body {
+  }
+  
+  .card-body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.provider-name {
+  }
+  
+  .provider-name {
     display: flex;
     gap: 5px;
     text-align: right;
-}
-
-.menus-left {
+  }
+  
+  .menus-left {
     background-color: #FB8500;
     border-radius: 50px;
     width: 100px;
@@ -154,24 +115,74 @@ h5 {
     justify-content: center;
     margin-left: auto;
     align-items: center;
-}
-
-.get-menus {
+  }
+  
+  .get-menus {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 15px;
-}
-
-.card-footer {
+  }
+  
+  .card-footer {
     display: flex;
     justify-content: right;
-}
-
-.increment, .decrement {
+  }
+  
+  .increment,
+  .decrement {
     border-radius: 50px;
     width: 50px;
-}
-
-</style>
+  }
+  
+  /* Estilos para la barra de desplazamiento horizontal */
+  .card-container::-webkit-scrollbar {
+    height: 12px;
+    background-color: transparent;
+  }
+  
+  .card-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+  }
+  
+  .card-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  
+  .card-container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  .card-container::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  
+  /* Estilos para el mapa y el botón */
+  .map-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .map-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .map-button {
+    margin-top: 10px;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .providers {
+      min-width: calc(100vw - 20px); /* Ancho igual al ancho de la pantalla menos el espacio para el margen */
+    }
+    .map-image {
+      max-width: 700px;
+      height: 500px;
+    }
+  }
+  </style>
+  
