@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <p>Proveedores Momentaneos</p>
     </div>
 </template>
 <script>
