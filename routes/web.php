@@ -48,3 +48,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/registro', function() {
     return view('register');
 });
+
+Route::get('/proveedor', function() {
+    return view('proveedor');
+});

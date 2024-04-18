@@ -101,21 +101,21 @@
             <div id="ticker-container">
                 <div id="ticker">
                     <div class="ticker-content">
-                        <span>Marca 1</span>
-                        <span>Marca 2</span>
-                        <span>Marca 3</span>
-                        <span>Marca 4</span>
-                        <span>Marca 5</span>
-                        <span>Marca 6</span>
-                        <span>Marca 7</span>
-                        <span>Marca 8</span>
-                        <span>Marca 9</span>
-                        <span>Marca 10</span>
-                        <span>Marca 11</span>
-                        <span>Marca 12</span>
-                        <span>Marca 13</span>
-                        <span>Marca 14</span>
-                        <span>Marca 15</span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
+                        <span><img src="{{ asset('img/foto-vision.jpeg') }}" alt="Domino's" class="marcaImg"></span>
                         <!-- Agrega más marcas según sea necesario -->
                     </div>
                 </div>
