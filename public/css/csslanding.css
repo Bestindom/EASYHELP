@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,800&display=swap');
-
+:root{
+    --Azul: #035177;
+    --AzulClaro: #219ebc;
+    --Ocre: #FFFBE8;
+}
 html {
     scroll-snap-type: y proximity;
 }
 
 body {
-    background-color: #FFFBE8;
+    background-color: var(--AzulClaro);
     display: flex;
     flex-direction: column;
 }
@@ -53,7 +57,7 @@ div[id^="contenedor"] {
 }
 
 #contenedor1 {
-    background-color: #8ecae6;
+    background-color: var(--Ocre);
 }
 
 .landing-text, .landing-buttons {
@@ -104,7 +108,7 @@ div[id^="contenedor"] {
 }
 
 #contenedor2{
-    background-color: #219ebc;
+    background-color: var(--AzulClaro);
 }
 
 .mision {
@@ -135,7 +139,7 @@ div[id^="contenedor"] {
 }
 
 #contenedor3 {
-    background-color: #FFFBE8;
+    background-color: var(--Ocre);
 }
 
 .vision {
@@ -166,7 +170,7 @@ div[id^="contenedor"] {
 }
 
 #contenedor4 {
-    background-color: #219ebc;
+    background-color: var(--AzulClaro);
 }
 
 .valores {
@@ -195,7 +199,10 @@ div[id^="contenedor"] {
 .valores img {
     width: 100%;
 }
-
+.marcaImg{
+    width: 50px;
+    height: 50px;
+}
 .estadisticasContainer .statistic {
     flex-basis: calc(33.33% - 20px);
     /* Establece el ancho de cada estadística */
@@ -211,7 +218,16 @@ div[id^="contenedor"] {
     /* Incluye el padding en el ancho total */
     background-color: #f0f0f0;
     /* Color de fondo */
-
+    border-radius: 5px;
+}
+.estadisticasContainer{
+    background-color: var(--Ocre);
+}
+.statistics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 /* Estilos específicos para dispositivos móviles */
@@ -267,7 +283,11 @@ div[id^="contenedor"] {
     margin: 0 auto; /* Centra la imagen horizontalmente dentro del carrusel */
 }
 .carousel-indicators [data-bs-target] {
-    background-color: #035177;
+    /* background-color: #035177; */
+    background-color: var(--Ocre);
+}
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    filter:invert(1)grayscale(100);
 }
 /* .registroUsuario .btn {
     margin-top: 20px;
@@ -313,7 +333,7 @@ div[id^="contenedor"] {
 
 #ticker {
     white-space: nowrap;
-    animation: ticker-slide 10s linear infinite; /* Controla la velocidad cambiando el valor de 20s */
+    animation: ticker-slide 20s linear infinite; /* Controla la velocidad cambiando el valor de 20s */
 }
 
 .ticker-content {
@@ -332,4 +352,5 @@ div[id^="contenedor"] {
     100% {
         transform: translateX(-100%);
     }
+
 }
