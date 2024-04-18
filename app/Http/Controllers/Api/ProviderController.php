@@ -33,13 +33,10 @@ class ProviderController extends Controller
         $provider = new Provider();
 
         $provider->user_id = $request->input('id');
+        $provider->name = $request->input('username');
         $provider->menus = 0;
         $provider->street = 'Via Laietana';
-        $provider->number = 13;
-        $provider->province = 'Barcelona';
-        $provider->municipality = 'Barcelona';
-        $provider->cp = '08001';
-
+        $provider->img = 'img/negocios/negocio1.png';
 
         try
         {

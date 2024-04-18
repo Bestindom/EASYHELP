@@ -2,7 +2,7 @@
 
 body {
     background-color: #FFFBE8;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .login {
@@ -101,7 +101,7 @@ label.form-check-label {
     margin-top: 50px;
 }
 
-.btn.btn-primary.login {
+.btn-primary.login {
     width: 300px;
     height: 55px;
     border-radius: 30px;
