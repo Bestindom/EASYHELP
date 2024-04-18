@@ -17,7 +17,8 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::all();
+        // $providers = Provider::with(['user', 'orders'])->get();
+        $providers = Provider::with(['user'])->get();
 
         return ProviderResource::collection($providers);
     }

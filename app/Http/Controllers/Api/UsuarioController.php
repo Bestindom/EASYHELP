@@ -121,4 +121,9 @@ class UsuarioController extends Controller
 
         return $response;
     }
+
+    public function getUser ()
+    {
+        
+    }
 }

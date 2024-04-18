@@ -17,7 +17,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['provider'])->get();
+        $orders = Order::with(['provider', 'rider'])->get();
+        // $orders = Order::with(['provider'])->get();
 
         return OrderResource::collection($orders);
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -16,13 +17,13 @@ class Order extends Model
     // protected $primaryKey = 'user_id';
     public $timestamps = false;
 
-    public function rider(): BelongsToMany
+    public function provider(): BelongsTo
     {
-        return $this->belongsToMany(Rider::class, 'user_id');
+        return $this->belongsTo(Provider::class, 'provider_id');
     }
 
-    public function provider(): BelongsToMany
+    public function rider(): BelongsTo
     {
-        return $this->belongsToMany(Provider::class, 'orders', 'user_id', 'user_id');
+        return $this->belongsTo(Rider::class, 'rider_id');
     }
 }

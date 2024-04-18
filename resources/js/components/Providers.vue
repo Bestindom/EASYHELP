@@ -18,7 +18,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" @click="updateMenus(provider)">
-                            <i class="bi bi-bag-check-fill"></i> Reservar
+                            <i class="bi bi-bag-check-fill"></i> Modificar
                         </button>
                     </div>
                 </div>
@@ -33,6 +33,8 @@ export default {
         return {
             providers: [],
             provider: {},
+            users: [],
+            user: {},
             menus: [],
             messageError: ''
         };
@@ -45,6 +47,15 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     me.providers = response.data
+                })
+        },
+        selectUsers() {
+            const me = this
+            axios
+                .get('user')
+                .then(response => {
+                    console.log(response.data);
+                    me.users = response.data
                 })
         },
         increment(index) {
@@ -71,6 +82,7 @@ export default {
     },
     created() {
         this.selectProviders();
+        this.selectUsers();
     }
 }
 </script>

@@ -24,26 +24,15 @@ Route::post('/login', [UsuarioController::class, 'login']);
 Route::get('/logout', [UsuarioController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('administracion', function () {
-
-        return view('Users.users');
+    Route::group(["middleware" => "type:1"], function () {
+        Route::get('administracion', function () { return view('Users.users'); });
     });
+    
+    Route::get('/providers', function() { return view('users/providers'); });
+    Route::get('/map', function () { return view('map'); })->name('map');
+    Route::get('/riders', function() { return view('riders'); });
 });
 
-Route::get('/providers', function() {
-    // return view('providers');
-    return view('users/providers');
-} );
-Route::get('/riders', function() {
-    return view('riders');
-} );
-Route::middleware(['auth'])->group(function () {
-    Route::get('/map', function () {
-        $user = Auth::user();
-
-        return view('map');
-    })->name('map');
-});
 
 Route::get('/registro', function() {
     return view('register');
