@@ -1,135 +1,113 @@
 <template>
-  <div>
-    <div id="carouselExampleIndicators" class="carousel slide">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-          aria-label="Slide 3"></button> -->
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <h1>PROVIDERS</h1>
-          <form>
-            <div class="mb-3">
-              <input type="text" class="form-control nombre" aria-describedby="emailHelp"
-                placeholder="Introduce nombre de usuario o email">
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control paswd" placeholder="Contraseña">
-            </div>
-            <div class="mb-3">
-              <input type="number" class="form-control menu" placeholder="Nombre">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control calle" placeholder="Calle">
-            </div>
-            <!-- <div class="mb-3">
-              <input type="number" class="form-control numero" placeholder="Numero">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control provincia" placeholder="Provincia">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control municipio" placeholder="Municipio">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control cp" placeholder="CP">
-            </div> -->
-            <img src="../../../public/img/provider.svg" alt="Provider_Icon">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+
+  <div class="register">
+    <div class="row">
+      <div class="col-6 image">
+        <div class="row background-images">
+          <div class="col-6"></div>
+          <div class="col-6"></div>
+          <div class="col-6"></div>
+          <div class="col-6"></div>
         </div>
-        <div class="carousel-item">
-          <h1>RIDERS</h1>
-          <form>
-            <div class="mb-3">
-              <input type="text" class="form-control nombre" aria-describedby="emailHelp"
-                placeholder="Introduce nombre de usuario o email">
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control paswd" placeholder="Contraseña">
-            </div>
-            <!-- <div class="mb-3">
-              <input type="number" class="form-control menu" placeholder="Menus">
-            </div> -->
-            <img src="../../../public/img/repartidor.png" alt="Rider_Icon">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-        <!-- <div class="carousel-item">
-          <h1>COMEDORES</h1>
-          <form>
-            <div class="mb-3">
-              <input type="text" class="form-control nombre" aria-describedby="emailHelp"
-                placeholder="Introduce nombre de usuario o email">
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control paswd" placeholder="Contraseña">
-            </div>
-            <div class="mb-3">
-              <input type="number" class="form-control menu" placeholder="Menus">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control calle" placeholder="Calle">
-            </div>
-            <div class="mb-3">
-              <input type="number" class="form-control numero" placeholder="Numero">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control provincia" placeholder="Provincia">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control municipio" placeholder="Municipio">
-            </div>
-            <div class="mb-3">
-              <input type="text" class="form-control cp" placeholder="CP">
-            </div>
-            <img src="../../../public/img/comedor.svg" alt="Comedor_Icon">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div> -->
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="col-6 register-form">
+        <div class="toggle-buttons">
+          <div class="buttons">
+            <button :class="{ active: activeOption === 'rider' }" @click="changeForm('rider')">Rider</button>
+            <button :class="{ active: activeOption === 'provider' }" @click="changeForm('provider')">Proveedor</button>
+          </div>
+        </div>
+
+        <div class="container-fluid provider" id="form1">
+          <div class="provider-register-container">
+            <h1>Registro Proveedores</h1>
+            <form class="provider-form">
+              <div class="mb-3">
+                <input type="text" class="form-control nombre" aria-describedby="emailHelp"
+                  placeholder="Introduce nombre de usuario o email">
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control paswd" placeholder="Contraseña">
+              </div>
+              <div class="mb-3">
+                <input type="number" class="form-control nombre" placeholder="Nombre">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control calle" placeholder="Calle">
+              </div>
+              <img src="../../../public/img/provider.svg" alt="Provider_Icon">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="container-fluid rider" id="form2">
+          <div class="provider-register-container">
+            <h1>Registro Riders</h1>
+            <form class="rider-form">
+              <div class="mb-3">
+                <input type="text" class="form-control nombre" aria-describedby="emailHelp"
+                  placeholder="Introduce nombre de usuario o email">
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control paswd" placeholder="Contraseña">
+              </div>
+              <img src="../../../public/img/repartidor.png" alt="Rider_Icon">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+
 </template>
 <script>
 export default {
+  data() {
+    return {
+      activeOption: 'rider'
+    };
+  },
+  methods: {
+    changeForm(option) {
+      const rider = document.getElementById("form2");
+      const provider = document.getElementById("form1");
+      this.activeOption = option === 'rider' ? 'rider' : 'provider';
 
-}
+      if (this.activeOption === 'rider') {
+        rider.style.display = "flex";
+        provider.style.display = "none";
+      } else {
+        rider.style.display = "none";
+        provider.style.display = "flex";
+      }
+    },
+  }
+};
 </script>
 <style scoped>
-.carousel-inner {
-  width: 500px;
-  height: 850px;
-  margin-left: 38%;
+body {
+  overflow: hidden;
 }
 
-.nombre,
-.paswd,
-.menu,
-.calle,
-.numero,
-.provincia,
-.municipio,
-.cp {
-  width: 100%;
+.register {
+  height: 100vh;
+}
+
+.container-fluid.provider {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  flex-direction: column;
+}
+
+input {
+  width: 400px;
   height: 50px;
-  border-radius: 30px;
-  background-color: #FFFBE8;
-  border: 2px solid #035177;
+  border-radius: 50px;
 }
 
 .btn {
@@ -147,43 +125,78 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 18%;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
+.provider-form {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 15%;
-  padding: 0;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-fluid.rider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.rider-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  border-radius: 50px;
+  gap: 15px;
+}
+
+.toggle-buttons button {
+  width: 150px;
+  height: 40px;
+  border-radius: 50px;
+  transition: background-color .6s;
+}
+
+.active {
+  background-color: #ffb703;
+  border-color: #fb8500;
+  color: white;
+}
+
+.provider-register-container,
+.rider-register-container {
   text-align: center;
-  border: 0;
-  height: 50px;
-  width: 30px;
-  margin-top: 10%;
-  margin-left: 32%;
-  margin-right: 24%;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  filter: invert(1)grayscale(100);
+.row  {
+  height: 100%;
 }
 
-placeholder {
-  font-weight: bold;
+.register-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: red;
 }
 
-.carousel-indicators [data-bs-target] {
-  background-color: #035177;
+.image {
+  background-color: aquamarine;
 }
 
-img {
-  margin-left: 35%;
+.col-6.background-images {
+  background-image: url(img/register.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
