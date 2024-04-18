@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <div class="card-header">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="..." class="card-img-top" alt="logo">
             </div>
             <div class="card-body">
                 <div class="seccion">
-                    <button class="btn btn-primary increment" @click="increment(index)"><i class="bi bi-plus"></i></button>
-                    <h5>0</h5>
-                    <button class="btn btn-primary decrement" @click="decrement(index)"><i class="bi bi-dash"></i></button>
+                    <h1>Contador: {{ counter }}</h1>
+                    <button @click="incrementCounter">Incrementar</button>
+                    <button @click="decrementCounter">Decrementar</button>
                 </div>
             </div>
         </div>
