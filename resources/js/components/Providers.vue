@@ -103,6 +103,7 @@ export default {
     },
     mounted() {
         this.selectProviders();
+        this.checkBoundary();
         // this.loop(); // No se necesita para el arrastre de tarjetas
     }
 }
@@ -118,6 +119,7 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor:grab;
 }
 
 .card {
