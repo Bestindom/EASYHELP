@@ -84,18 +84,17 @@ export default {
         provider.style.display = "none";
         riderButtons.style.display = "flex";
         providerButtons.style.display = "none";
-        providerCol.style.backgroundImage ="url(img/registro/rider.webp)";
-        riderCol.style.backgroundImage ="none";
+        providerCol.style.backgroundImage = "url(img/registro/rider.webp)";
+        riderCol.style.backgroundImage = "none";
       } else {
         rider.style.display = "none";
         provider.style.display = "flex";
         riderButtons.style.display = "none";
         providerButtons.style.display = "flex";
-        riderCol.style.backgroundImage ="url(img/registro/provider.jpg)";
-        providerCol.style.backgroundImage ="none";
+        riderCol.style.backgroundImage = "url(img/registro/provider.jpg)";
+        providerCol.style.backgroundImage = "none";
       }
-    }
-    ,
+    },
   }
 };
 </script>
