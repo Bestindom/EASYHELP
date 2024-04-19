@@ -109,6 +109,7 @@ div[id^="contenedor"] {
 
 #contenedor2{
     background-color: var(--AzulClaro);
+    color: var(--Ocre);
 }
 
 .mision {
@@ -140,6 +141,7 @@ div[id^="contenedor"] {
 
 #contenedor3 {
     background-color: var(--Ocre);
+    color: var(--AzulClaro);
 }
 
 .vision {
@@ -171,6 +173,7 @@ div[id^="contenedor"] {
 
 #contenedor4 {
     background-color: var(--AzulClaro);
+    color: var(--Ocre);
 }
 
 .valores {
