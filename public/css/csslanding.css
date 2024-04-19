@@ -3,6 +3,7 @@
     --Azul: #035177;
     --AzulClaro: #219ebc;
     --Ocre: #FFFBE8;
+    --Beige: #f9da9c;
 }
 html {
     scroll-snap-type: y proximity;
@@ -12,6 +13,7 @@ body {
     background-color: var(--AzulClaro);
     display: flex;
     flex-direction: column;
+    /* text-transform: uppercase; */
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -109,7 +111,7 @@ div[id^="contenedor"] {
 
 #contenedor2{
     background-color: var(--AzulClaro);
-    color: var(--Ocre);
+    color: var(--Beige);
 }
 
 .mision {
@@ -173,7 +175,7 @@ div[id^="contenedor"] {
 
 #contenedor4 {
     background-color: var(--AzulClaro);
-    color: var(--Ocre);
+    color: var(--Beige);
 }
 
 .valores {
