@@ -13,7 +13,6 @@ body {
     background-color: var(--AzulClaro);
     display: flex;
     flex-direction: column;
-    text-transform: uppercase;
 }
 
 h1,h2,h3,h4,h5,h6 {
