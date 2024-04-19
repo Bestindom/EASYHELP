@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\PointController;
 use App\Http\Controllers\Api\TypeController;
 use App\Http\Controllers\Api\ProviderController;
 use App\Http\Controllers\Api\RiderController;
+use App\Http\Controllers\Api\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ Route::apiResource('point', PointController::class);
 Route::apiResource('type', TypeController::class);
 Route::apiResource('provider', ProviderController::class);
 Route::apiResource('rider', RiderController::class);
+Route::apiResource('order', OrderController::class);

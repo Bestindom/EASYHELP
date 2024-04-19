@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\UsuarioResource;
 use Illuminate\Database\QueryException;
 
@@ -121,4 +122,13 @@ class UsuarioController extends Controller
 
         return $response;
     }
+
+    public function getUser ()
+    {
+        $user = Auth::user();
+        $response = \response()->json([$user], 200);
+
+        return $response;
+    }
+
 }

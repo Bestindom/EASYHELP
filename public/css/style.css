@@ -100,8 +100,7 @@ label.form-check-label {
     background-size: cover;
     margin-top: 50px;
 }
-
-.btn-primary.login {
+/* .btn.btn-primary.login {
     width: 300px;
     height: 55px;
     border-radius: 30px;
@@ -116,5 +115,5 @@ label.form-check-label {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
