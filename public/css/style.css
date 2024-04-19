@@ -2,6 +2,14 @@
 
 body {
     background-color: #FFFBE8;
+    height: 100vh;
+}
+
+.navbar-expand-lg {
+    height: 8vh;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 .login {
