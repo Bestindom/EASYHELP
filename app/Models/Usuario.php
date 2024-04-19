@@ -28,11 +28,6 @@ class Usuario extends Authenticatable
         return $this->hasOne(Provider::class, 'user_id');
     }
 
-    public function comedor(): HasOne
-    {
-        return $this->hasOne(Comedor::class, 'user_id');
-    }
-
     public function admin(): HasOne
     {
         return $this->hasOne(Admin::class, 'user_id');

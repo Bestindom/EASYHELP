@@ -35,7 +35,7 @@ class RiderController extends Controller
         $rider = new Rider();
 
         $rider->user_id = $request->input('id');
-        $rider->menus = 0;
+
 
         try
         {
