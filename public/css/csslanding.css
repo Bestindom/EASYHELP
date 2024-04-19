@@ -221,7 +221,7 @@ div[id^="contenedor"] {
     /* Incluye el padding en el ancho total */
     background-color: #f0f0f0;
     /* Color de fondo */
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .estadisticasContainer{
     background-color: var(--Ocre);

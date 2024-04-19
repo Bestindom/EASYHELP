@@ -93,7 +93,7 @@
                         <p>Aquí irá un número aleatorio</p>
                     </div>
                     <div class="statistic">
-                        <h2>Usuarios Totales</h2>
+                        <h2>Usuarios</h2>
                         <p>Aquí irá un número aleatorio</p>
                     </div>
                 </div>
