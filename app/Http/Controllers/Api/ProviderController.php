@@ -37,6 +37,10 @@ class ProviderController extends Controller
         $provider->menus = 0;
         $provider->name = $request->input('username');
         $provider->street = 'Via Laietana';
+<<<<<<< Updated upstream
+=======
+        $provider->img = 'img/negocios/negocio1.png';
+>>>>>>> Stashed changes
 
 
         try
