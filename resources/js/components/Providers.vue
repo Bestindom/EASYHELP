@@ -31,8 +31,8 @@
         <a href="{{ route('map') }}">
           <img class="map-image" src="http://localhost:80/EASYHELP/public/img/mapa.jpg" alt="Descripción de la imagen">
         </a>
-        <button class="btn btn-primary map-button">Ver Mapa</button>
       </div>
+      <button class="btn btn-primary map-button">Ver Mapa</button>
     </div>
   </template>
   
@@ -166,12 +166,16 @@
   }
   
   .map-image {
-    max-width: 100%;
-    height: auto;
-  }
+  max-width: 700px;
+  height: auto;
+  border: 2px solid #ccc; /* Añadir un borde sólido de 2px con color gris claro */
+  border-radius: 10px; /* Aplicar bordes curvos con un radio de 10px */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añadir una sombra suave */
+}
   
   .map-button {
     margin-top: 10px;
+    margin-left: 46%;
   }
   
   /* Estilos responsivos */
@@ -180,7 +184,7 @@
       min-width: calc(100vw - 20px); /* Ancho igual al ancho de la pantalla menos el espacio para el margen */
     }
     .map-image {
-      max-width: 700px;
+      max-width: 100%;
       height: 500px;
     }
   }
