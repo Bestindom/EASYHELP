@@ -105,6 +105,8 @@ body {
 
 .register {
   height: 100vh;
+  overflow-x:hidden; 
+  overflow-y: hidden;
 }
 
 .container-fluid.provider {
@@ -157,7 +159,7 @@ input {
   justify-content: center;
 }
 
-.provider-form {
+.provider-form, .rider-form {
   display: flex;
   justify-content: center;
   align-items: center;
