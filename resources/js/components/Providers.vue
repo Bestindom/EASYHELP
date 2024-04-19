@@ -71,6 +71,7 @@ export default {
             menus: [],
             messageError: '',
             userloged: {}
+
         };
     },
     methods: {
@@ -133,4 +134,68 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+
+h5 {
+    margin: 0;
+    padding: 0;
+}
+
+.providers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 450px;
+}
+
+.card-header {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.provider-name {
+    display: flex;
+    gap: 5px;
+    text-align: right;
+}
+
+.menus-left {
+    background-color: #FB8500;
+    border-radius: 50px;
+    width: 100px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    align-items: center;
+}
+
+.get-menus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: right;
+}
+
+.increment, .decrement {
+    border-radius: 50px;
+    width: 50px;
+}
+
+</style>

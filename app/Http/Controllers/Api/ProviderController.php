@@ -34,13 +34,11 @@ class ProviderController extends Controller
         $provider = new Provider();
 
         $provider->user_id = $request->input('id');
+        $provider->name = $request->input('username');
         $provider->menus = 0;
         $provider->name = $request->input('username');
         $provider->street = 'Via Laietana';
-<<<<<<< Updated upstream
-=======
         $provider->img = 'img/negocios/negocio1.png';
->>>>>>> Stashed changes
 
 
         try
