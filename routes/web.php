@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/providers', function() { return view('users/providers'); });
     Route::get('/map', function () { return view('map'); })->name('map');
     Route::get('/riders', function() { return view('riders'); });
+    Route::get('/getUser', [App\Http\Controllers\Api\UsuarioController::class, 'getUser']);
 });
 
 
