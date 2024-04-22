@@ -1,45 +1,61 @@
 <template>
-    <div class="card mt-2 mb-1">
-        <div class="card-header bg-secondary fs-4 fw-bold text-white">
-            Users
-            <button class="btn btn-primary float-end" @click="showForm()">
-                <i class="bi bi-plus-circle"></i> New User
-            </button>
-        </div>
-        <div class="card-body">
-            <table class="table mt-2">
-                <thead>
-                    <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Password</th>
-                        <th scope="col">type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="user in users">
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.password }}</td>
-                        <td>{{ user.type.name }}</td>
-                        <td>
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div class="container-fluid user-table">
+        <div class="card mt-5 mb-1 user-table-card">
+            <div class="card-header bg-secondary fs-4 fw-bold text-white">
+                Usuaris
+                <button class="btn btn-primary float-end" @click="showForm()" id="add-user">
+                    <i class="bi bi-plus-circle"></i> Nou Usuari
+                </button>
+            </div>
+            <div class="card-body">
+                <table class="table mt-2 users">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nom Usuari</th>
+                            <!-- <th scope="col">Password</th> -->
+                            <th scope="col">Tipus Usuari</th>
+                            <th>Acció</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="user in users">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.username }}</td>
+                            <!-- <td>{{ user.password }}</td> -->
+                            <td class="user-type">
+                                <p v-if="user.type.name == 'admin'" style="background-color: #219ebc;">
+                                    {{ user.type.name }}
+                                </p>
+
+                                <p v-else-if="user.type.name == 'rider'" style="background-color: #ffb703;">
+                                    {{ user.type.name }}
+                                </p>
+
+                                <p v-else-if="user.type.name == 'provider'" style="background-color: #fb8500;">
+                                    {{ user.type.name }}
+                                </p>
+                            </td>
+                            <td class="actions">
+                                <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end"> -->
                                 <!-- <button type="submit" class="btn btn-sm btn-primary" @click="selectType(user)">
                                     <i class="bi bi-person-fill"></i> Select Type
                                 </button> -->
-                                <button type="submit" class="btn btn-sm btn-secondary" @click="editUser(user)">
-                                    <i class="bi bi-pencil-square"></i> Edit
+                                <button type="submit" class="btn btn-sm btn-secondary me-2" @click="editUser(user)">
+                                    <i class="bi bi-pencil-square"></i> Modificar
                                 </button>
                                 <button type="submit" class="btn btn-sm btn-danger" @click="confirmDelete(user)">
-                                    <i class="bi bi-trash"></i> Delete
+                                    <i class="bi bi-trash"></i> Esborrar
                                 </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                                <!-- </div> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
 
     <!-- Type Modal -->
 
@@ -67,7 +83,7 @@
     <!-- Delete Modal -->
 
     <div class="modal" tabindex="-1" id="deleteModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Delete User</h5>
@@ -91,7 +107,7 @@
     <!-- Insert/Update Modal -->
 
     <div class="modal" tabindex="-1" id="userModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 v-if="insert" class="modal-title">User</h5>
@@ -111,13 +127,15 @@
                             <label for="password">Password</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="type1" v-model="user.type" value="2">
+                            <input class="form-check-input" type="radio" name="type" id="type1" v-model="user.type"
+                                value="2">
                             <label class="form-check-label" for="type1">
                                 Rider
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="type2" v-model="user.type" value="3">
+                            <input class="form-check-input" type="radio" name="type" id="type2" v-model="user.type"
+                                value="3">
                             <label class="form-check-label" for="type2">
                                 Provider
                             </label>
@@ -188,7 +206,7 @@ export default {
                 .post('user', me.user)
                 .then(response => {
                     me.user.id = response.data.id; // Asigna el ID del usuario creado
-                    
+
                     if (me.user.type == '2') {
                         me.insertRider();
                     } else {
@@ -230,8 +248,7 @@ export default {
                     me.messageError = error.response.data.error
                 })
         },
-        updateUser() 
-        {
+        updateUser() {
             const me = this
             axios
                 .put('user/' + me.user.id, me.user)
@@ -291,4 +308,46 @@ export default {
     },
 }
 </script>
-<style></style>
+<style scoped>
+p {
+    margin: 0;
+}
+
+.user-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-table-card {
+    width: 70%;
+    margin-top: 100px !important;
+    border-radius: 0px;
+}
+
+.card-header {
+    border-radius: 0px;
+    background-color: #219EBC !important;
+}
+
+tr {
+    text-align: center;
+}
+
+#add-user {
+    background-color: #035177;
+    border-color: #035177;
+}
+
+.user-type {
+    width: 110px;
+}
+
+.user-type p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    height: 25px;
+    }
+</style>
