@@ -58,7 +58,7 @@ div[id^="contenedor"] {
 }
 
 #contenedor1 {
-    background-color: var(--Ocre);
+    background-color: var(--Beige);
 }
 
 .landing-text, .landing-buttons {
