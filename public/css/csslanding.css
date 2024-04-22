@@ -56,13 +56,18 @@ div[id^="contenedor"] {
 .container-fluid.show {
     transform: translateX(0);
 }
-
+#contenedor1 p{
+    color: #50b7e0;
+    margin-left: 30%;
+    margin-bottom: 20%;
+}
 #contenedor1 {
     background-color: var(--Ocre);
     background-image: url('../img/background.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    
 }
 
 .landing-text, .landing-buttons {
