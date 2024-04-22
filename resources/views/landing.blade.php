@@ -21,8 +21,8 @@
             <div class="row">
                 <div class="col-7 mision">
                     <div class="mision-text">
-                        <h5><strong>EASYHELP</strong> empodera a las personas para que 
-                            <strong>AYUDEN REPARTIENDO</strong> comida y <strong>MEJOREN VIDAS</strong>.
+                        <h5><strong class="naranja">EASYHELP</strong> empodera a las personas para que 
+                            <strong class="naranja">AYUDEN REPARTIENDO</strong> comida y <strong class="naranja">MEJOREN VIDAS</strong>.
                         </h5><br>
                     </div>
                 </div>
@@ -61,9 +61,9 @@
                     <div class="col-7 valores">
                         <div class="valores-text">
                             <h5>
-                                Nuestros <strong>VALORES</strong> clave son <strong>SOLIDARIDAD</strong>, 
-                                <strong>EMPATÍA</strong>, <strong>INNOVACIÓN</strong> 
-                                y <strong>RESILIENCIA</strong>, impulsando un impacto <strong>POSITIVO</strong> 
+                                Nuestros <strong class="naranja">VALORES</strong> clave son <strong class="naranja">SOLIDARIDAD</strong>, 
+                                <strong class="naranja">EMPATÍA</strong>, <strong class="naranja">INNOVACIÓN</strong> 
+                                y <strong class="naranja">RESILIENCIA</strong>, impulsando un impacto <strong class="naranja">POSITIVO</strong> 
                                 en la comunidad.
                             </h5>
                             {{-- <h5>¿Por qué nosotros? En EasyHelp, ofrecemos una plataforma para que cada individuo experimente la

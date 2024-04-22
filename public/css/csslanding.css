@@ -4,6 +4,7 @@
     --AzulClaro: #219ebc;
     --Ocre: #FFFBE8;
     --Beige: #f9da9c;
+    --Orange: #be3605;
 }
 html {
     scroll-snap-type: y proximity;
@@ -440,6 +441,9 @@ html, body {
   }
   strong{
     color: var(--Azul);
+  }
+  .naranja{
+    color: var(--Orange);
   }
   
   
