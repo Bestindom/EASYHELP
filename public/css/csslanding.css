@@ -58,7 +58,11 @@ div[id^="contenedor"] {
 }
 
 #contenedor1 {
-    background-color: var(--Beige);
+    background-color: var(--Ocre);
+    background-image: url('../img/background.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .landing-text, .landing-buttons {
