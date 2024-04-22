@@ -21,11 +21,9 @@
             <div class="row">
                 <div class="col-7 mision">
                     <div class="mision-text">
-                        <h5>En EasyHelp, nos dedicamos a empoderar a las personas para que dediquen su tiempo a repartir
-                            comida y
-                            marcar
-                            la
-                            diferencia en la vida de quienes más lo necesitan.</h5><br>
+                        <h5><strong>EASYHELP</strong> empodera a las personas para que 
+                            <strong>AYUDEN REPARTIENDO</strong> comida y <strong>MEJOREN VIDAS</strong>.
+                        </h5><br>
                     </div>
                 </div>
                 <div class="col-5 mision">
@@ -46,8 +44,11 @@
                     </div>
                     <div class="col-7 vision">
                         <div class="vision-text">
-                            <h5>Visualizamos un mundo donde la solidaridad sea una parte esencial de la vida diaria, generando un ciclo de ayuda
-                                mutua que fortalezca nuestra sociedad.</h5><br>
+                            <h5>
+                                Queremos un mundo <strong>SOLIDARIO</strong> donde 
+                                <strong>AYUDARNOS</strong> mutuamente <strong>FORTALEZCA</strong> 
+                                la sociedad.
+                            </h5><br>
                         </div>
                     </div>
                 </div>
@@ -59,10 +60,12 @@
                 <div class="row">
                     <div class="col-7 valores">
                         <div class="valores-text">
-                            <h5>Nuestros valores fundamentales son la solidaridad, la empatía, la innovación y la resiliencia. Creemos
-                                en el
-                                poder de estos valores para impulsar nuestro trabajo y crear un impacto positivo en la comunidad.
-                                </h5>
+                            <h5>
+                                Nuestros <strong>VALORES</strong> clave son <strong>SOLIDARIDAD</strong>, 
+                                <strong>EMPATÍA</strong>, <strong>INNOVACIÓN</strong> 
+                                y <strong>RESILIENCIA</strong>, impulsando un impacto <strong>POSITIVO</strong> 
+                                en la comunidad.
+                            </h5>
                             {{-- <h5>¿Por qué nosotros? En EasyHelp, ofrecemos una plataforma para que cada individuo experimente la
                                 satisfacción
                                 de
