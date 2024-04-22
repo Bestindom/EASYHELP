@@ -3,7 +3,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div v-for="(provider, index) in providers" :key="index" class="col">
 
-                <!-- Provider Card-->
+                <!-- PROVIDERS CARDS-->
 
                 <div v-if="userloged.id == provider.user_id" class="card h-100">
                     <div class="card-body">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <!-- Riders Cards -->
+                <!-- RIDER CARDS -->
 
                 <div v-else class="card h-100">
                     <div class="card-body">
@@ -40,21 +40,21 @@
                                     v-model="order.menus">
                                 <label for="menus">Menús</label>
                             </div>
-                            <div class="form-floating">
+                            <div class="form-floating" style="display: none;">
                                 <input class="form-control" id="rider_id" name="rider_id"
                                     v-model="order.rider_id">
                             </div>
-                            <div class="form-floating">
+                            <div class="form-floating" style="display: none;">
                                 <input class="form-control" id="provider_id" name="provider_id"
                                     v-model="provider.user_id">
                             </div>
                         </form>
                         <button @click="increment(index)">+</button>
                         <button @click="decrement(index)">-</button><br>
-                        <h5 class="card-title">{{ provider.street }}</h5>
+                        <h5 class="card-title">Menus Disponibles {{ provider.menus }}</h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" @click="insertOrder(provider)">
+                        <button type="button" class="btn btn-primary" @click="insertOrder(provider); ">
                             <i class="bi bi-bag-check-fill"></i> Reservar
                         </button>
                     </div>
@@ -76,6 +76,7 @@ export default {
             messageError: '',
             userloged: {},
             order: {},
+            updateProvider_menus: ''
         };
     },
     methods: {
@@ -111,11 +112,11 @@ export default {
             this.providers[index].menus++;
         },
         decrement(index) {
-            if (this.providers[index].menus > 0) {
-                this.providers[index].menus--;
+            if (this.order[index].menus > 0) {
+                this.order[index].menus--;
             }
         },
-        updateMenus(provider) 
+        updateMenus(provider)
         {
             const me = this
             axios
@@ -133,10 +134,12 @@ export default {
             const me = this
             me.order.rider_id = me.userloged.id;
             me.order.provider_id = provider.user_id
+            provider.menus -= me.order.menus
             console.log(me.order);
             axios
                 .post('order', me.order)
                 .then(response => {
+                    me.updateMenus(provider)
                     me.selectProviders()
                 })
                 .catch(error => {

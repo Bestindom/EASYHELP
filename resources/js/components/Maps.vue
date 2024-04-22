@@ -1,4 +1,7 @@
 <template>
+
+    <!-- INSERT PUA -->
+
     <div class="modal" tabindex="-1" id="infoModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -9,12 +12,24 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-floating">
-                        <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Nombre</label>
+                        <div class="form-floating row mb-3 mx-3">
+                            <input class="form-control" id="amount" name="amount"
+                                v-model="customer.amount">
+                            <label for="amount">Cantidad</label>
+                        </div>
+                        <div class="form-floating row mb-3 mx-3" style="display: none;">
+                            <input class="form-control" id="latitud" name="latitud"
+                                v-model="customer.latitud">
+                            <label for="latitud">Cantidad</label>
+                        </div>
+                        <div class="form-floating row mb-3 mx-3" style="display: none;">
+                            <input class="form-control" id="longitud" name="longitud"
+                                v-model="customer.longitud">
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addMark">Aceptar</button>
+                    <button type="button" class="btn btn-primary" id="addMark">Agg Pua</button>
                 </div>
             </div>
         </div>
@@ -22,6 +37,7 @@
 
 
     <!-- delete modal -->
+    
     <div class="modal" tabindex="-1" id="deleteModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -33,7 +49,7 @@
                 <div class="modal-body">
                     <form class="form-floating">
                         <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Numero de Manús</label>
+                        <label for="floatingInputValue">Numero de Menús</label>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -56,8 +72,11 @@ export default {
         return {
             points: [],
             point: {},
+            customers: [],
+            customer: {},
             myModal: {},
-            latitud: 'hola',
+            amount: '',
+            latitud: '',
             longitud: '',
             map: null
         }
@@ -118,7 +137,8 @@ export default {
                 const latitud = lngLat.lat;
                 const longitud = lngLat.lng;
 
-                this.insertPoint();
+                // this.insertPoint();
+                this.insertCustomer();
 
                 console.log('mis lat y long: ' + this.latitud + ' ' + this.longitud);
 
@@ -162,6 +182,26 @@ export default {
                     me.selectPoints()
                 })
         },
+        insertCustomer()
+        {
+            const me = this
+            me.amount = me.customer.amount
+            me.customer =
+            {
+                amount: me.amount,
+                latitud: me.latitud,
+                longitud: me.longitud
+            }
+            axios
+                .post('customer', me.customer)
+                .then(response => {
+                    me.selectCustomers()
+                })
+                .catch(error => {
+                    console.log(error)
+                    // me.messageError = error.response.data.error
+                })
+        },
         selectPoints() {
             const me = this
             axios
@@ -185,10 +225,34 @@ export default {
                     }
                 })
         },
+        selectCustomers() {
+            const me = this
+            axios
+                .get('customer')
+                .then(response => {
+                    me.customers = response.data
+                    console.log('mis customers: ' + me.customers);
+                    for (let i = 0; i < me.customers.length; i++) {
+                        const marker = new mapboxgl.Marker()
+                            .setLngLat([me.customers[i].longitud, me.customers[i].latitud])
+                            .addTo(me.map); // Añadir el marcador al mapa
+
+                        // Agg Evente Listener
+                        marker.getElement().addEventListener('click', () => {
+                            // Abre el deleteModal
+                            const deleteModal = document.getElementById('deleteModal');
+                            const deleteModalInstance = new bootstrap.Modal(deleteModal);
+                            deleteModalInstance.show();
+                        });
+
+                    }
+                })
+        },
     },
     created() {
         this.showMap()
-        this.selectPoints()
+        // this.selectPoints()
+        this.selectCustomers()
     },
 
 };
