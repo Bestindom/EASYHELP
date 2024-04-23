@@ -297,7 +297,8 @@ div[id^="contenedor"] {
     }
 
     .carousel {
-        max-width: 50%;
+        width: 100%;
+        max-width: 350px;
         /* Ajusta el ancho máximo del carrusel al 100% */
     }
 }
