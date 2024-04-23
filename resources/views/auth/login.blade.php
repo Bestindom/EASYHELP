@@ -5,13 +5,13 @@
 
 @section('contenido')
     <div class="col-lg-12 col-md-6 login">
-        <div class="login-title">
-            <h1 class="logo"><span class="logo1">Easy</span><span class="logo2">Help</span></h1>
-        </div>
-
-        <div class="row justify-content-center login-form">
+        <div class="row justify-content-center login-form-row">
             <div class="col-lg-12 col-md-6 login-container">
-                <form action="{{ action([App\Http\Controllers\UsuarioController::class, 'login']) }}" method="POST" class="form-login">
+                <div class="login-title">
+                    <h1 class="logo"><span class="logo1">Easy</span><span class="logo2">Help</span></h1>
+                </div>
+                <form class="login-form" action="{{ action([App\Http\Controllers\UsuarioController::class, 'login']) }}" method="POST"
+                    class="form-login">
                     @csrf
                     <div class="col-md-6 form-container">
                         <div class="form row mb-3 justify-content-center input-container">
