@@ -1,4 +1,7 @@
 <template>
+
+    <!-- INSERT PUA -->
+
     <div class="modal" tabindex="-1" id="infoModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -9,12 +12,24 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-floating">
-                        <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Nombre</label>
+                        <div class="form-floating row mb-3 mx-3">
+                            <input class="form-control" id="amount" name="amount"
+                                v-model="customer.amount">
+                            <label for="amount">Cantidad</label>
+                        </div>
+                        <div class="form-floating row mb-3 mx-3" style="display: none;">
+                            <input class="form-control" id="latitud" name="latitud"
+                                v-model="customer.latitud">
+                            <label for="latitud">Cantidad</label>
+                        </div>
+                        <div class="form-floating row mb-3 mx-3" style="display: none;">
+                            <input class="form-control" id="longitud" name="longitud"
+                                v-model="customer.longitud">
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addMark">Aceptar</button>
+                    <button type="button" class="btn btn-primary" id="addMark">Agg Pua</button>
                 </div>
             </div>
         </div>
@@ -22,22 +37,23 @@
 
 
     <!-- delete modal -->
+    
     <div class="modal" tabindex="-1" id="deleteModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete point</h5>
+                    <h5 class="modal-title">Realizar Entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         id="closeModal"></button>
                 </div>
                 <div class="modal-body">
                     <form class="form-floating">
                         <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Numero de Manús</label>
+                        <label for="floatingInputValue">Numero de Menús</label>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addMark">Aceptar</button>
+                    <button type="button" class="btn btn-primary" id="addMark">Entregar  </button>
                 </div>
             </div>
         </div>
@@ -56,8 +72,11 @@ export default {
         return {
             points: [],
             point: {},
+            customers: [],
+            customer: {},
             myModal: {},
-            latitud: 'hola',
+            amount: '',
+            latitud: '',
             longitud: '',
             map: null
         }
@@ -105,20 +124,22 @@ export default {
                 const inputName = document.getElementById("name");
                 const name = inputName.value;
 
-                const popupContent = this.addPopupContent(name);
+                // const popupContent = this.addPopupContent(name);
 
-                const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
+                const popup = new mapboxgl.Popup({ offset: 25 });
+                // const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
 
                 marker.setPopup(popup);
 
-                this.deletePopup(popup, marker);
+                // this.deletePopup(popup, marker);
 
                 this.latitud = lngLat.lat;
                 this.longitud = lngLat.lng;
                 const latitud = lngLat.lat;
                 const longitud = lngLat.lng;
 
-                this.insertPoint();
+                // this.insertPoint();
+                this.insertCustomer();
 
                 console.log('mis lat y long: ' + this.latitud + ' ' + this.longitud);
 
@@ -129,52 +150,55 @@ export default {
             addMarkButton.removeEventListener("click", confirmAddMark);
             addMarkButton.addEventListener("click", confirmAddMark);
         },
-        addPopupContent(name) {
-            const popupContent = `
-                <h1>${name}</h1>
-                <img src="img/repartidor.png" alt="Imagen">
-                <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
-            `;
-            return popupContent;
-        },
-        deletePopup(popup, marker) {
-            popup.on("open", function () {
-                const deleteButton = document.getElementById("remove");
-                deleteButton.addEventListener("click", function () {
-                    marker.remove();
-                    popup.remove();
-                });
-            });
-        },
-        insertPoint() {
+        // addPopupContent(name) {
+        //     const popupContent = `
+        //         <h1>${name}</h1>
+        //         <img src="img/repartidor.png" alt="Imagen">
+        //         <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
+        //     `;
+        //     return popupContent;
+        // },
+        // deletePopup(popup, marker) {
+        //     popup.on("open", function () {
+        //         const deleteButton = document.getElementById("remove");
+        //         deleteButton.addEventListener("click", function () {
+        //             marker.remove();
+        //             popup.remove();
+        //         });
+        //     });
+        // },
+        insertCustomer()
+        {
             const me = this
-
-            me.point =
+            me.amount = me.customer.amount
+            me.customer =
             {
+                amount: me.amount,
                 latitud: me.latitud,
                 longitud: me.longitud
             }
-            console.log('INSERT: ' + me.point.longitud)
-            console.log('longitud: ' + me.longitud)
             axios
-                .post('point', me.point)
+                .post('customer', me.customer)
                 .then(response => {
-                    me.selectPoints()
+                    me.selectCustomers()
+                })
+                .catch(error => {
+                    console.log(error)
                 })
         },
-        selectPoints() {
+        selectCustomers() {
             const me = this
             axios
-                .get('point')
+                .get('customer')
                 .then(response => {
-                    me.points = response.data
-                    console.log('mis puas: ' + me.points);
-                    for (let i = 0; i < me.points.length; i++) {
+                    me.customers = response.data
+                    console.log('mis customers: ' + me.customers);
+                    for (let i = 0; i < me.customers.length; i++) {
                         const marker = new mapboxgl.Marker()
-                            .setLngLat([me.points[i].longitud, me.points[i].latitud]) // Establecer la posición del marcador
+                            .setLngLat([me.customers[i].longitud, me.customers[i].latitud])
                             .addTo(me.map); // Añadir el marcador al mapa
 
-                        // Agrega un evento de clic a cada marcador
+                        // Agg Evente Listener
                         marker.getElement().addEventListener('click', () => {
                             // Abre el deleteModal
                             const deleteModal = document.getElementById('deleteModal');
@@ -188,7 +212,7 @@ export default {
     },
     created() {
         this.showMap()
-        this.selectPoints()
+        this.selectCustomers()
     },
 
 };

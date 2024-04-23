@@ -1,4 +1,7 @@
 <template>
+    <div id="providers" class="h-50">
+        hola
+    </div>
     <div class="card mt-2 mb-1">
         <div class="card-header bg-secondary fs-4 fw-bold text-white">
             Users
@@ -146,6 +149,7 @@
 
 import * as bootstrap from 'bootstrap'
 import axios from 'axios';
+import providers from './Providers.vue';
 
 export default {
     data() {

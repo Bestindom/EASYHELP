@@ -7,6 +7,7 @@ use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
+use App\Http\Resources\ProviderResource;
 
 class OrderController extends Controller
 {
@@ -31,7 +32,25 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order();
+
+        $order->menus = $request->input('menus');
+        $order->rider_id = $request->input('rider_id');
+        $order->provider_id = $request->input('provider_id');
+
+        try
+        {
+            $order->save();
+            $response = $response = response()->json($order, 201);
+        }
+        catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+        }
+
+        return $response;
     }
 
     /**
