@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin-top: 70px;">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div v-for="(provider, index) in providers" :key="index" class="col">
 

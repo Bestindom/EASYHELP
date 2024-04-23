@@ -15,10 +15,16 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .navbar-expand-lg {
-    height: 8vh;
+    height: 10vh;
     position: fixed;
     width: 100%;
     z-index: 1000;
+}
+
+.navbar img {
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;    
 }
 
 footer {
