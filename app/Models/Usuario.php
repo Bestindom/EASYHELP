@@ -37,4 +37,19 @@ class Usuario extends Authenticatable
     {
         return $this->belongsTo(Type::class, 'type_id');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($usuario) {
+            if ($usuario->rider) {
+                $usuario->rider->delete();
+            }
+
+            if ($usuario->provider) {
+                $usuario->provider->delete();
+            }
+        });
+    }
 }
