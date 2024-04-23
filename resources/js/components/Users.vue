@@ -82,19 +82,19 @@
     <!-- Delete Modal -->
     <div class="modal" tabindex="-1" id="deleteModal">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content delete-modal">
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete User</h5>
+                    <h5 class="modal-title">Esborrar Usuari</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to delete <strong>{{ user.username }}</strong>?</p>
+                    <p>Estàs segur que vols eliminar l'usuari <strong>{{ user.username }}</strong>?</p>
                     <span v-if="isError" class="badge text-bg-danger">{{ messageError }}</span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tancar</button>
                     <button type="button" class="btn btn-danger" @click="deleteUser()">
-                        <i class="bi bi-trash"></i> Accept
+                        <i class="bi bi-trash"></i> Acceptar
                     </button>
                 </div>
             </div>
@@ -330,7 +330,7 @@ p {
 
 .user-table-card {
     width: 70%;
-    margin-top: 100px !important;
+    margin-top: 120px !important;
     border-radius: 0px;
 }
 
@@ -378,5 +378,15 @@ tr {
     align-items: center;
     gap: 30px;
     margin-top: 60px;
+}
+
+.delete-modal {
+    height: 250px;
+}
+
+.delete-modal .modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>

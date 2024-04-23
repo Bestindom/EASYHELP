@@ -116,8 +116,8 @@ export default {
             this.providers[index].menus++;
         },
         decrement(index) {
-            if (this.order[index].menus > 0) {
-                this.order[index].menus--;
+            if (this.providers[index].menus > 0) {
+                this.providers[index].menus--;
             }
         },
         updateMenus(provider)

@@ -14,11 +14,17 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
+.container.nav {
+    background-color: #219EBC;
+    height: auto;
+}
+
 .navbar-expand-lg {
     height: 10vh;
     position: fixed;
     width: 100%;
     z-index: 1000;
+    background-color: #219EBC !important;
 }
 
 .navbar img {

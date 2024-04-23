@@ -5,11 +5,26 @@ body {
     height: 100vh;
 }
 
+.container-fluid.nav {
+    background-color: #219EBC;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar-expand-lg {
     height: 10vh;
     position: fixed;
     width: 100%;
     z-index: 1000;
+    background-color: #219EBC !important;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar img {
@@ -18,9 +33,6 @@ body {
     border-radius: 100%;
 }
 
-#users {
-    margin-top: -10px;
-}
 
 .login {
     display: flex;
