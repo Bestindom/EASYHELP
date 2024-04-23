@@ -88,15 +88,24 @@
                 <h1>AHORA MISMO CONTAMOS CON:</h1>
                 <div class="statistics">
                     <div class="statistic">
-                        <img src="{{ asset('img/repartidor.png') }}" alt="Repartidor">
+                        <div class="imagenes">
+                            <img src="{{ asset('img/repartidor.png') }}" alt="Repartidor">
+                            <h2 class="numTitulo">2.503</h2>
+                        </div>
                         <p>Aquí irá un número aleatorio</p>
                     </div>
                     <div class="statistic">
-                        <img src="{{ asset('img/provider.svg') }}" alt="Proveedor">
+                        <div class="imagenes">
+                            <img src="{{ asset('img/provider.svg') }}" alt="Proveedor">
+                            <h2 class="numTitulo">12,7K</h2>
+                        </div>
                         <p>Aquí irá un número aleatorio</p>
                     </div>
                     <div class="statistic">
-                        <img src="{{ asset('img/comedor.svg') }}" alt="">
+                        <div class="imagenes">
+                            <img src="{{ asset('img/comedor.svg') }}" alt="">
+                            <h2 class="numTitulo">857</h2>
+                        </div>
                         <p>Aquí irá un número aleatorio</p>
                     </div>
                 </div>

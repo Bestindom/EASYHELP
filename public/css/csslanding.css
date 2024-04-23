@@ -248,6 +248,10 @@ div[id^="contenedor"] {
     align-items: center;
     gap: 20px;
 }
+.imagenes{
+    display: flex;
+    flex-direction: column;
+}
 
 /* Estilos específicos para dispositivos móviles */
 @media only screen and (max-width: 767px) {
