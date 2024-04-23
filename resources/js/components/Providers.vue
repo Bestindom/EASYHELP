@@ -70,94 +70,94 @@ import * as bootstrap from 'bootstrap'
 import axios from 'axios';
 
 export default {
-  data() {
-      return {
-          providers: [],
-          provider: {},
-          users: [],
-          user: {},
-          menus: [],
-          messageError: '',
-          userloged: {},
-          order: {},
-          updateProvider_menus: ''
-      };
-  },
-  methods: {
-      selectProviders() {
-          const me = this
-          axios
-              .get('provider')
-              .then(response => {
-                  console.log(response.data);
-                  me.providers = response.data
-              })
-      },
-      selectUsers() {
-          const me = this
-          axios
-              .get('user')
-              .then(response => {
-                  console.log(response.data);
-                  me.users = response.data
-              })
-      },
-      getUser(){
-          const me = this
-          axios
-              .get("http://localhost/EASYHELP/public/getUser")
-              .then(response => {
-                  console.log(response.data);
-                  me.userloged = response.data[0];
-                  console.log('username: ' + me.userloged.username);
-              })
-      },
-      increment(index) {
-          this.providers[index].menus++;
-      },
-      decrement(index) {
-          if (this.order[index].menus > 0) {
-              this.order[index].menus--;
-          }
-      },
-      updateMenus(provider)
-      {
-          const me = this
-          axios
-              .put('provider/' + provider.user_id, provider)
-              .then(response => {
-                  me.selectProviders()
-              })
-              .catch(error => {
-                  console.log(error)
-                  me.messageError = error.response.data.error
-              })
-      },
-      insertOrder(provider)
-      {
-          const me = this
-          me.order.rider_id = me.userloged.id;
-          me.order.provider_id = provider.user_id
-          provider.menus -= me.order.menus
-          console.log(me.order);
-          axios
-              .post('order', me.order)
-              .then(response => {
-                  me.updateMenus(provider)
-                  me.selectProviders()
-              })
-              .catch(error => {
-                  console.log(error)
-                  me.messageError = error.response.data.error
-              })
-      },
-  },
-  created() {
-      this.selectProviders();
-      this.selectUsers();
-      this.getUser();
-  },
-  
+
+    data() {
+        return {
+            providers: [],
+            provider: {},
+            users: [],
+            user: {},
+            menus: [],
+            messageError: '',
+            userloged: {},
+            order: {},
+            updateProvider_menus: ''
+        };
+    },
+    methods: {
+        selectProviders() {
+            const me = this
+            axios
+                .get('provider')
+                .then(response => {
+                    console.log(response.data);
+                    me.providers = response.data
+                })
+        },
+        selectUsers() {
+            const me = this
+            axios
+                .get('user')
+                .then(response => {
+                    console.log(response.data);
+                    me.users = response.data
+                })
+        },
+        getUser(){
+            const me = this
+            axios
+                .get("http://localhost/EASYHELP/public/getUser")
+                .then(response => {
+                    console.log(response.data);
+                    me.userloged = response.data[0];
+                    console.log('username: ' + me.userloged.username);
+                })
+        },
+        increment(index) {
+            this.providers[index].menus++;
+        },
+        decrement(index) {
+            if (this.providers[index].menus > 0) {
+                this.providers[index].menus--;
+            }
+        },
+        updateMenus(provider)
+        {
+            const me = this
+            axios
+                .put('provider/' + provider.user_id, provider)
+                .then(response => {
+                    me.selectProviders()
+                })
+                .catch(error => {
+                    console.log(error)
+                    me.messageError = error.response.data.error
+                })
+        },
+        insertOrder(provider)
+        {
+            const me = this
+            me.order.rider_id = me.userloged.id;
+            me.order.provider_id = provider.user_id
+            provider.menus -= me.order.menus
+            console.log(me.order);
+            axios
+                .post('order', me.order)
+                .then(response => {
+                    me.updateMenus(provider)
+                    me.selectProviders()
+                })
+                .catch(error => {
+                    console.log(error)
+                    me.messageError = error.response.data.error
+                })
+        },
+    },
+    created() {
+        this.selectProviders();
+        this.selectUsers();
+        this.getUser();
+    },
 }
 </script>
 
