@@ -126,16 +126,17 @@
                         <div class="choose-user">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="type" id="type1" v-model="user.type"
-                                    value="2">
-                                <label class="form-check-label" for="type1">
-                                    Rider
+                                    value="2" hidden>
+                                <label class="form-check-label rider-label" for="type1">
+                                    <!-- <p>Rider</p> -->
+                                    <img src="/public/img/repartidor.png">
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="type" id="type2" v-model="user.type"
-                                    value="3">
-                                <label class="form-check-label" for="type2">
-                                    Provider
+                                    value="3" hidden>
+                                <label class="form-check-label provider-label" for="type2">
+                                    <img src="/public/img/provider.svg">
                                 </label>
                             </div>
                         </div>
@@ -154,8 +155,6 @@
             </div>
         </div>
     </div>
-
-
 
 </template>
 
@@ -308,6 +307,15 @@ export default {
 }
 </script>
 <style scoped>
+
+.form-check-input:checked + .provider-label img {
+    box-shadow: 0 0 15px 0 #fb8500;
+}
+
+.form-check-input:checked + .rider-label img {
+    box-shadow: 0 0 15px 0 #ffb703;
+}
+
 p {
     margin: 0;
 }
@@ -369,5 +377,4 @@ tr {
     gap: 30px;
     margin-top: 60px;
 }
-
 </style>
