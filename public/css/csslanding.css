@@ -2,10 +2,10 @@
 :root{
     --Azul: #035177;
     --AzulClaro: #219ebc;
+    --AzulClaro50:rgba(33, 157, 188, 0.514);
     --Ocre: #FFFBE8;
     --Beige: #f9da9c;
     --Orange: #e67b18;
-    --AzulClaro50:rgba(33, 157, 188, 0.514);
    
 }
 html {
@@ -296,6 +296,10 @@ div[id^="contenedor"] {
         margin-left: 40px;
     }
 
+    .carousel {
+        max-width: 50%;
+        /* Ajusta el ancho máximo del carrusel al 100% */
+    }
 }
 
 .carousel {
