@@ -42,7 +42,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete point</h5>
+                    <h5 class="modal-title">Realizar Entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         id="closeModal"></button>
                 </div>
@@ -53,7 +53,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addMark">Aceptar</button>
+                    <button type="button" class="btn btn-primary" id="addMark">Entregar  </button>
                 </div>
             </div>
         </div>
@@ -124,13 +124,14 @@ export default {
                 const inputName = document.getElementById("name");
                 const name = inputName.value;
 
-                const popupContent = this.addPopupContent(name);
+                // const popupContent = this.addPopupContent(name);
 
-                const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
+                const popup = new mapboxgl.Popup({ offset: 25 });
+                // const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(popupContent);
 
                 marker.setPopup(popup);
 
-                this.deletePopup(popup, marker);
+                // this.deletePopup(popup, marker);
 
                 this.latitud = lngLat.lat;
                 this.longitud = lngLat.lng;
@@ -149,39 +150,23 @@ export default {
             addMarkButton.removeEventListener("click", confirmAddMark);
             addMarkButton.addEventListener("click", confirmAddMark);
         },
-        addPopupContent(name) {
-            const popupContent = `
-                <h1>${name}</h1>
-                <img src="img/repartidor.png" alt="Imagen">
-                <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
-            `;
-            return popupContent;
-        },
-        deletePopup(popup, marker) {
-            popup.on("open", function () {
-                const deleteButton = document.getElementById("remove");
-                deleteButton.addEventListener("click", function () {
-                    marker.remove();
-                    popup.remove();
-                });
-            });
-        },
-        insertPoint() {
-            const me = this
-
-            me.point =
-            {
-                latitud: me.latitud,
-                longitud: me.longitud
-            }
-            console.log('INSERT: ' + me.point.longitud)
-            console.log('longitud: ' + me.longitud)
-            axios
-                .post('point', me.point)
-                .then(response => {
-                    me.selectPoints()
-                })
-        },
+        // addPopupContent(name) {
+        //     const popupContent = `
+        //         <h1>${name}</h1>
+        //         <img src="img/repartidor.png" alt="Imagen">
+        //         <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
+        //     `;
+        //     return popupContent;
+        // },
+        // deletePopup(popup, marker) {
+        //     popup.on("open", function () {
+        //         const deleteButton = document.getElementById("remove");
+        //         deleteButton.addEventListener("click", function () {
+        //             marker.remove();
+        //             popup.remove();
+        //         });
+        //     });
+        // },
         insertCustomer()
         {
             const me = this
@@ -199,30 +184,6 @@ export default {
                 })
                 .catch(error => {
                     console.log(error)
-                    // me.messageError = error.response.data.error
-                })
-        },
-        selectPoints() {
-            const me = this
-            axios
-                .get('point')
-                .then(response => {
-                    me.points = response.data
-                    console.log('mis puas: ' + me.points);
-                    for (let i = 0; i < me.points.length; i++) {
-                        const marker = new mapboxgl.Marker()
-                            .setLngLat([me.points[i].longitud, me.points[i].latitud]) // Establecer la posición del marcador
-                            .addTo(me.map); // Añadir el marcador al mapa
-
-                        // Agrega un evento de clic a cada marcador
-                        marker.getElement().addEventListener('click', () => {
-                            // Abre el deleteModal
-                            const deleteModal = document.getElementById('deleteModal');
-                            const deleteModalInstance = new bootstrap.Modal(deleteModal);
-                            deleteModalInstance.show();
-                        });
-
-                    }
                 })
         },
         selectCustomers() {
@@ -251,7 +212,6 @@ export default {
     },
     created() {
         this.showMap()
-        // this.selectPoints()
         this.selectCustomers()
     },
 
