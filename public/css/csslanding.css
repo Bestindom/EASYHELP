@@ -253,10 +253,14 @@ div[id^="contenedor"] {
 @media only screen and (max-width: 767px) {
 
     .registroUsuario,
-    .queEsContainer,
-    .estadisticasContainer {
+    .mision-container,
+    .vision-container,
+    .valores-container,
+    .estadisticasContainer,
+    .carousel {
         font-size: 0.8em;
         /* Letra más pequeña en dispositivos móviles */
+        
     }
 
     .registroUsuario {
@@ -287,7 +291,9 @@ div[id^="contenedor"] {
     .estadisticasContainer h1 {
         margin-left: 40px;
     }
+
 }
+
 .carousel {
     width: 100%;
     max-width: 700px; /* Ajusta el ancho máximo del carrusel según sea necesario */
@@ -452,8 +458,6 @@ html, body {
   strong{
     color: var(--Azul);
   }
-  
-  
   
   .naranja{
     color: var(--Orange);
