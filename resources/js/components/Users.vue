@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table mt-2 users">
+                <table class="table mt-2">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -42,10 +42,10 @@
                                     <i class="bi bi-person-fill"></i> Select Type
                                 </button> -->
                                 <button type="submit" class="btn btn-sm btn-secondary me-2" @click="editUser(user)">
-                                    <i class="bi bi-pencil-square"></i> Modificar
+                                    <i class="bi bi-pencil-square"></i>
                                 </button>
                                 <button type="submit" class="btn btn-sm btn-danger" @click="confirmDelete(user)">
-                                    <i class="bi bi-trash"></i> Esborrar
+                                    <i class="bi bi-trash"></i>
                                 </button>
                                 <!-- </div> -->
                             </td>
@@ -56,9 +56,7 @@
         </div>
     </div>
 
-
     <!-- Type Modal -->
-
     <div class="modal" tabindex="-1" id="typeModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -81,7 +79,6 @@
     </div>
 
     <!-- Delete Modal -->
-
     <div class="modal" tabindex="-1" id="deleteModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -110,8 +107,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 v-if="insert" class="modal-title">User</h5>
-                    <h5 v-else class="modal-title">Modify User</h5>
+                    <h5 v-if="insert" class="modal-title">Afegeix Un Usuari</h5>
+                    <h5 v-else class="modal-title">Modifica Un Usuari</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -119,37 +116,39 @@
                         <div class="form-floating row mb-3">
                             <input type="text" class="form-control" id="username" name="username" autofocus
                                 v-model="user.username">
-                            <label for="username">Username</label>
+                            <label for="username">Nom d'Usuari</label>
                         </div>
                         <div class="form-floating row mb-3">
                             <input type="password" class="form-control" id="password" name="password"
                                 v-model="user.password">
-                            <label for="password">Password</label>
+                            <label for="password">Contrasenya</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="type1" v-model="user.type"
-                                value="2">
-                            <label class="form-check-label" for="type1">
-                                Rider
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="type" id="type2" v-model="user.type"
-                                value="3">
-                            <label class="form-check-label" for="type2">
-                                Provider
-                            </label>
+                        <div class="choose-user">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" id="type1" v-model="user.type"
+                                    value="2">
+                                <label class="form-check-label" for="type1">
+                                    Rider
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" id="type2" v-model="user.type"
+                                    value="3">
+                                <label class="form-check-label" for="type2">
+                                    Provider
+                                </label>
+                            </div>
                         </div>
                     </form>
                     <span v-if="isError" class="badge text-bg-danger">{{ messageError }}</span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button v-if="insert" type="button" class="btn btn-primary" @click="insertUser()">
-                        <i class="bi bi-plus-circle"></i> Insert
+                    <button type="button" class="btn btn-secondary close-button" data-bs-dismiss="modal">Tanca</button>
+                    <button v-if="insert" type="button" class="btn btn-primary insert-user" @click="insertUser()">
+                        <i class="bi bi-plus-circle"></i> Afegir
                     </button>
-                    <button v-else type="button" class="btn btn-primary" @click="updateUser()">
-                        <i class="bi bi-pencil-square"></i> Modify
+                    <button v-else type="button" class="btn btn-primary update-user" @click="updateUser()">
+                        <i class="bi bi-pencil-square"></i> Modificar
                     </button>
                 </div>
             </div>
@@ -325,7 +324,8 @@ p {
     border-radius: 0px;
 }
 
-.card-header {
+.card-header,
+.modal-header {
     border-radius: 0px;
     background-color: #219EBC !important;
 }
@@ -334,9 +334,16 @@ tr {
     text-align: center;
 }
 
-#add-user {
+#add-user,
+.insert-user,
+.update-user {
     background-color: #035177;
     border-color: #035177;
+}
+
+.close-button {
+    background-color: #fb8500;
+    border-color: #fb8500;
 }
 
 .user-type {
@@ -349,5 +356,18 @@ tr {
     align-items: center;
     border-radius: 50px;
     height: 25px;
-    }
+}
+
+.modal-content {
+    border-radius: 0px;
+}
+
+.choose-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 60px;
+}
+
 </style>
