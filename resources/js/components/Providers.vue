@@ -1,5 +1,5 @@
 <template>
-    <div>
+   
       <div class="row row-cols-1 row-cols-md-3 g-0 card-container">
             <div v-for="(provider, index) in providers" :key="index" class="col">
 
@@ -61,7 +61,8 @@
               </div>
           </div>
       </div>
-  </div>
+     
+
 </template>
 
 <script>

@@ -1,6 +1,11 @@
 <template>
-
+<div>
+    <button style="margin: 5%;" display="block;">hola</button>
+</div>
     <!-- INSERT PUA -->
+<div id="providers" style="display: block;">
+
+</div>
 
     <div class="modal" tabindex="-1" id="infoModal">
         <div class="modal-dialog">
@@ -66,6 +71,7 @@
 
 import * as bootstrap from 'bootstrap'
 import axios from 'axios';
+import providers from './Providers.vue';
 
 export default {
     data() {
@@ -225,6 +231,7 @@ export default {
     flex-direction: column;
     width: 300px;
     height: 400px;
+
 }
 
 .modal {
@@ -240,4 +247,5 @@ export default {
 .modal-content {
     height: 500px;
 }
+
 </style>
