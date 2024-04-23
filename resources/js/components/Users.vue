@@ -1,4 +1,5 @@
 <template>
+
     <div class="container-fluid user-table">
         <div class="card mt-5 mb-1 user-table-card">
             <div class="card-header bg-secondary fs-4 fw-bold text-white">
@@ -162,6 +163,7 @@
 
 import * as bootstrap from 'bootstrap'
 import axios from 'axios';
+import providers from './Providers.vue';
 
 export default {
     data() {
