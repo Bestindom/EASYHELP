@@ -1,19 +1,5 @@
 <template>
 
-    <div>
-        <div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <h1>PROVIDERS</h1>
-        <form>
-          <div class="mb-3">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce nombre de usuario o email">
-
   <!-- RIDER -->
 
   <div class="register">
@@ -91,6 +77,7 @@
 
 
 </template>
+
 <script>
 
 import * as bootstrap from 'bootstrap'
@@ -98,19 +85,6 @@ import axios from 'axios';
 import { provide } from 'vue';
 
 export default {
-
-}
-</script>
-<style scoped>
-.carousel-inner{
-  width:500px;
-  height:600px;
-  margin-top:10%;
-  margin-left:38%;
-}
-#exampleInputEmail1.form-control, #exampleInputPassword1.form-control{
-  width: 100%;
-=======
   data() {
     return {
       activeOption: 'rider',
@@ -198,7 +172,19 @@ export default {
   }
 };
 </script>
+
 <style scoped>
+.carousel-inner{
+  width:500px;
+  height:600px;
+  margin-top:10%;
+  margin-left:38%;
+}
+#exampleInputEmail1.form-control, #exampleInputPassword1.form-control{
+  width: 100%;
+
+}
+
 body {
   overflow: hidden;
 }
@@ -299,6 +285,7 @@ input {
 
 .carousel-control-next-icon,.carousel-control-prev-icon{
   filter:invert(1)grayscale(100);
+}
 
 .cosas{
   margin-top: 100px;
@@ -319,4 +306,5 @@ input {
 .image {
   background-color: aquamarine;
 }
+
 </style>

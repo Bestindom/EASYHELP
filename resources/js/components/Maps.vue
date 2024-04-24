@@ -1,11 +1,11 @@
 <template>
-<div>
-    <button style="margin: 5%;" display="block;">hola</button>
-</div>
+    <div>
+        <button style="margin: 5%;" display="block;">hola</button>
+    </div>
     <!-- INSERT PUA -->
-<div id="providers" style="display: block;">
+    <div id="providers" style="display: block;">
 
-</div>
+    </div>
 
     <div class="modal" tabindex="-1" id="infoModal">
         <div class="modal-dialog">
@@ -29,6 +29,7 @@
                         </div>
                         <div class="form-floating row mb-3 mx-3" style="display: none;">
                             <input class="form-control" id="longitud" name="longitud" v-model="customer.longitud">
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
