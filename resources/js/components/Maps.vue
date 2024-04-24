@@ -1,13 +1,5 @@
 <template>
-    <div>
-        <button style="margin: 5%;" display="block;">hola</button>
-    </div>
-    <!-- INSERT PUA -->
-    <div id="providers" style="display: block;">
-
-    </div>
-
-    <div class="modal" tabindex="-1" id="infoModal">
+<div class="modal" tabindex="-1" id="infoModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
