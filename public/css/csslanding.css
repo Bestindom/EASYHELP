@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,800&display=swap');
 
+:root{
+    --Azul: #035177;
+    --AzulClaro: #219ebc;
+    --AzulClaro50:rgba(33, 157, 188, 0.514);
+    --Ocre: #FFFBE8;
+    --Beige: #f9da9c;
+    --Orange: #e67b18;
+   
+}
+
 html {
     scroll-snap-type: y proximity;
 }
@@ -14,11 +24,23 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
+.container.nav {
+    background-color: #219EBC;
+    height: auto;
+}
+
 .navbar-expand-lg {
-    height: 8vh;
+    height: 10vh;
     position: fixed;
     width: 100%;
     z-index: 1000;
+    background-color: #219EBC !important;
+}
+
+.navbar img {
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;    
 }
 
 footer {
@@ -52,8 +74,17 @@ div[id^="contenedor"] {
     transform: translateX(0);
 }
 
+#contenedor1 p{
+    color: #50b7e0;
+    margin-left: 30%;
+    margin-bottom: 20%;
+}
+
 #contenedor1 {
-    background-color: #8ecae6;
+    background-color: var(--Ocre);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .landing-text, .landing-buttons {
@@ -81,11 +112,11 @@ div[id^="contenedor"] {
     gap: 20px;
 }
 
-/* .btn.landing-button {
+.btn.landing-button {
     width: 300px;
     height: 55px;
     border-radius: 30px;
-    background-color: #219EBC;
+    background-color: var(--AzulClaro);
     color: #FFFDFD;
     border: 1px solid #000000;
     font-weight: bold;
@@ -96,8 +127,8 @@ div[id^="contenedor"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px; 
-} */
+    margin-top: 60px;
+}
 
 .btn.landing-button:hover {
     background-color: #0056b3;
