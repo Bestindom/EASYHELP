@@ -18,18 +18,15 @@
                 <div class="modal-body">
                     <form class="form-floating">
                         <div class="form-floating row mb-3 mx-3">
-                            <input class="form-control" id="amount" name="amount"
-                                v-model="customer.amount">
+                            <input class="form-control" id="amount" name="amount" v-model="customer.amount">
                             <label for="amount">Cantidad</label>
                         </div>
                         <div class="form-floating row mb-3 mx-3" style="display: none;">
-                            <input class="form-control" id="latitud" name="latitud"
-                                v-model="customer.latitud">
+                            <input class="form-control" id="latitud" name="latitud" v-model="customer.latitud">
                             <label for="latitud">Cantidad</label>
                         </div>
                         <div class="form-floating row mb-3 mx-3" style="display: none;">
-                            <input class="form-control" id="longitud" name="longitud"
-                                v-model="customer.longitud">
+                            <input class="form-control" id="longitud" name="longitud" v-model="customer.longitud">
                         </div>
                     </form>
                 </div>
@@ -42,23 +39,37 @@
 
 
     <!-- delete modal -->
-    
+
     <div class="modal" tabindex="-1" id="deleteModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Realizar Entrega</h5>
+                    <h5 class="modal-title">Selecciona la order que quieras entregar</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         id="closeModal"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="container-cards">
                     <form class="form-floating">
-                        <input type="text" class="form-control" id="name" placeholder="McDonald's">
-                        <label for="floatingInputValue">Numero de Menús</label>
+                        <div v-for="(order, index) in orders" :key="index" class="col">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/public/img/negocios/negocio1.png" class="img-fluid rounded-start"
+                                            alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ order.provider.name }}</h5>
+                                            <p class="card-text"><strong>{{ order.menus }}</strong> Menús</p>
+                                        </div>
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-primary">Entregar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="addMark">Entregar  </button>
                 </div>
             </div>
         </div>
@@ -76,14 +87,15 @@ import providers from './Providers.vue';
 export default {
     data() {
         return {
-            points: [],
-            point: {},
             customers: [],
             customer: {},
+            orders: [],
+            order: {},
             myModal: {},
             amount: '',
             latitud: '',
             longitud: '',
+            userloged: {},
             map: null
         }
     },
@@ -156,25 +168,17 @@ export default {
             addMarkButton.removeEventListener("click", confirmAddMark);
             addMarkButton.addEventListener("click", confirmAddMark);
         },
-        // addPopupContent(name) {
-        //     const popupContent = `
-        //         <h1>${name}</h1>
-        //         <img src="img/repartidor.png" alt="Imagen">
-        //         <button type="button" class="btn btn-light" id="remove"><i class="bi bi-trash"></i>Delete</button>
-        //     `;
-        //     return popupContent;
-        // },
-        // deletePopup(popup, marker) {
-        //     popup.on("open", function () {
-        //         const deleteButton = document.getElementById("remove");
-        //         deleteButton.addEventListener("click", function () {
-        //             marker.remove();
-        //             popup.remove();
-        //         });
-        //     });
-        // },
-        insertCustomer()
-        {
+        getUser() {
+            const me = this
+            axios
+                .get("http://localhost/EASYHELP/public/getUser")
+                .then(response => {
+                    console.log(response.data);
+                    me.userloged = response.data[0];
+                    console.log('username: ' + me.userloged.username);
+                })
+        },
+        insertCustomer() {
             const me = this
             me.amount = me.customer.amount
             me.customer =
@@ -215,10 +219,21 @@ export default {
                     }
                 })
         },
+        selectOrders() {
+            const me = this
+            axios
+                .get('order')
+                .then(response => {
+                    console.log(response.data);
+                    me.orders = response.data
+                })
+        }
     },
     created() {
-        this.showMap()
-        this.selectCustomers()
+        this.showMap();
+        this.selectCustomers();
+        this.selectOrders();
+        this.getUser();
     },
 
 };
@@ -247,5 +262,4 @@ export default {
 .modal-content {
     height: 500px;
 }
-
 </style>
