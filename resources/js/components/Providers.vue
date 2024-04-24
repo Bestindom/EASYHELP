@@ -82,13 +82,16 @@ export default {
   },
   methods: {
     selectProviders() {
-      const me = this
+      const me = this;
       axios
         .get('provider')
         .then(response => {
           console.log(response.data);
-          me.providers = response.data
-        })
+          me.providers = response.data.map(provider => ({
+            ...provider,
+            order: { menus: 0 }
+          }));
+        });
     },
     selectUsers() {
       const me = this
