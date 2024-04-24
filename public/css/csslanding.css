@@ -6,7 +6,7 @@
     --Ocre: #FFFBE8;
     --Beige: #f9da9c;
     --Orange: #e67b18;
-   
+    --OrangeBlack: #ac5d13;
 }
 html {
     scroll-snap-type: y proximity;
@@ -105,14 +105,14 @@ div[id^="contenedor"] {
     width: 300px;
     height: 55px;
     border-radius: 30px;
-    background-color: var(--AzulClaro);
+    background-color: var(--Orange);
     color: #FFFDFD;
     border: 1px solid #000000;
     font-weight: bold;
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    box-shadow: 2px 2px 0px 0px #035177;
+    box-shadow: 2px 2px 0px 0px #f27f21;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,7 +120,7 @@ div[id^="contenedor"] {
 }
 
 .btn.landing-button:hover {
-    background-color: #0056b3;
+    background-color: var(--OrangeBlack);
 }
 
 #contenedor2{
