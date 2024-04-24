@@ -105,7 +105,7 @@ div[id^="contenedor"] {
     width: 300px;
     height: 55px;
     border-radius: 30px;
-    background-color: #219EBC;
+    background-color: var(--AzulClaro);
     color: #FFFDFD;
     border: 1px solid #000000;
     font-weight: bold;
