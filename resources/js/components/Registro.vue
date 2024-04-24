@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="container-fluid provider" id="form1">
-          <div class="provider-register-container">
+          <div class="provider-register-container cosas">
             <h1>Registro Proveedores</h1>
             <form class="provider-form">
               <div class="mb-3">
@@ -196,6 +196,9 @@ input {
   text-align: center;
 }
 
+.cosas{
+  margin-top: 100px;
+}
 .row {
   height: 100%;
 }
