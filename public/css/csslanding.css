@@ -166,7 +166,7 @@ div[id^="contenedor"] {
 }
 
 .btn.landing-button:hover {
-    background-color: var(--OrangeBlack);
+    background-color: var(--Azul);
 }
 
 #contenedor2{
