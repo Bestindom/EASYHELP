@@ -312,7 +312,6 @@ div[id^="contenedor"] {
         /* Letra más pequeña en dispositivos móviles */
         
     }
-
     .registroUsuario {
         display: flex;
         flex-direction: column;

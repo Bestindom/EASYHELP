@@ -1,6 +1,6 @@
 <template>
-   
-    <div class="row row-cols-1 row-cols-md-3 g-0 card-container">
+   <button @click="toggleProveedores" class="ver-proveedores">VER PROVEEDORES</button>
+    <div class="row row-cols-1 row-cols-md-3 g-0 card-container divProveedores" :style="{ display: showProveedores ? 'flex' : 'none' }">
           <div v-for="(provider, index) in providers" :key="index" class="col">
 
             <!-- PROVIDERS CARDS-->
@@ -81,10 +81,15 @@ data() {
         messageError: '',
         userloged: {},
         order: {},
-        updateProvider_menus: ''
+        updateProvider_menus: '',
+        showProveedores: false
     };
 },
 methods: {
+    toggleProveedores() {
+      this.showProveedores = !this.showProveedores;
+    },
+
     selectProviders() {
         const me = this
         axios
@@ -184,4 +189,36 @@ margin-right: 0; /* Eliminar el margen entre las cartas */
       width: 33.33333333%;
       margin-top: 5%;
   }
-</style>
+
+/* Estilo para el botón "VER PROVEEDORES" */
+.ver-proveedores {
+  background-color: #4CAF50; /* Color de fondo */
+  border: none; /* Sin borde */
+  color: white; /* Color de texto */
+  padding: 10px 20px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px; /* Espacio inferior */
+  cursor: pointer; /* Cambio de cursor al pasar el ratón */
+  border-radius: 5px; /* Borde redondeado */
+}
+
+/* Estilo para la barra de desplazamiento */
+.card-container::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra */
+}
+
+.card-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo de la barra */
+}
+
+.card-container::-webkit-scrollbar-thumb {
+  background: #888; /* Color del pulgar */
+}
+
+.card-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del pulgar al pasar el ratón */
+}
+</style> 
