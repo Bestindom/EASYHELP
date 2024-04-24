@@ -1,5 +1,7 @@
 <template>
 
+  <!-- RIDER -->
+
   <div class="register">
     <div class="row">
       <div class="col-6 rider-col">
@@ -15,17 +17,28 @@
             <form class="rider-form">
               <div class="mb-3">
                 <input type="text" class="form-control nombre" aria-describedby="emailHelp"
-                  placeholder="Introduce nombre de usuario o email">
+                  placeholder="Introduce nombre de usuario o email" name="username" id="username"
+                  v-model="user.username">
               </div>
               <div class="mb-3">
-                <input type="password" class="form-control paswd" placeholder="Contraseña">
+                <input type="password" class="form-control" placeholder="Contraseña" name="password" id="password"
+                  v-model="user.password">
+              </div>
+              <div class="form-check mb-3" style="display: none;">
+                <input class="form-check-input" type="radio" value="2" id="type" name="type" v-model="user.type"
+                  checked>
+                <label class="form-check-label" for="actiu">Actiu</label>
               </div>
               <img src="../../../public/img/repartidor.png" alt="Rider_Icon">
-              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <button type="button" class="btn btn-primary" @click="insertUser(user)">
+              Submit
+            </button>
           </div>
         </div>
       </div>
+
+      <!-- PROVIDER -->
 
       <div class="col-6 provider-col">
         <div class="toggle-buttons" id="providerButtons">
@@ -40,20 +53,22 @@
             <form class="provider-form">
               <div class="mb-3">
                 <input type="text" class="form-control nombre" aria-describedby="emailHelp"
-                  placeholder="Introduce nombre de usuario o email">
+                  placeholder="Introduce nombre de usuario o email" v-model="user.username">
               </div>
               <div class="mb-3">
-                <input type="password" class="form-control paswd" placeholder="Contraseña">
+                <input type="password" class="form-control paswd" placeholder="Contraseña" v-model="user.password">
               </div>
               <div class="mb-3">
-                <input type="number" class="form-control nombre" placeholder="Nombre">
+                <input type="text" class="form-control nombre" placeholder="Nombre" v-model="provider.name">
               </div>
               <div class="mb-3">
                 <input type="text" class="form-control calle" placeholder="Calle">
               </div>
               <img src="../../../public/img/provider.svg" alt="Provider_Icon">
-              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <button type="submit" class="btn btn-primary" @click="insertUser(user)">
+              Submit
+            </button>
           </div>
         </div>
       </div>
@@ -63,10 +78,17 @@
 
 </template>
 <script>
+
+import * as bootstrap from 'bootstrap'
+import axios from 'axios';
+import { provide } from 'vue';
+
 export default {
   data() {
     return {
-      activeOption: 'rider'
+      activeOption: 'rider',
+      user: {},
+      provider: {},
     };
   },
   methods: {
@@ -95,6 +117,57 @@ export default {
         providerCol.style.backgroundImage = "none";
       }
     },
+    insertUser(user) {
+      const me = this
+      me.user = {
+        username: user.username,
+        password: user.password,
+        type: 2
+      }
+      console.log(me.user)
+      axios
+        .post('user', me.user)
+        .then(response => {
+          me.user.id = response.data.id; // Asigna el ID del usuario creado
+
+          if (me.user.type == '2') {
+            me.insertRider();
+          } else {
+            me.insertProvider();
+          }
+          window.open('/EASYHELP/public/login');
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    insertRider() {
+      const me = this
+      console.log('ESTE ES MI USER ID: ' + me.user.id)
+      axios
+        .post('rider', me.user)
+        .then(response => {
+          console.log('rider add')
+        })
+        .catch(error => {
+          me.isError = true
+          console.log(error)
+          me.messageError = error.response.data.error
+        })
+    },
+    insertProvider() {
+      const me = this
+      axios
+        .post('provider', me.user)
+        .then(response => {
+          console.log('provider add')
+        })
+        .catch(error => {
+          me.isError = true
+          console.log(error)
+          me.messageError = error.response.data.error
+        })
+    },
   }
 };
 </script>
@@ -105,7 +178,7 @@ body {
 
 .register {
   height: 100vh;
-  overflow-x:hidden; 
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 
@@ -129,7 +202,8 @@ input {
   border-radius: 30px;
 }
 
-.provider-form, .rider-form {
+.provider-form,
+.rider-form {
   display: flex;
   justify-content: center;
   align-items: center;

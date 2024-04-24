@@ -1,9 +1,6 @@
 <template>
-    <div id="providers" class="h-50">
-        hola
-    </div>
     <div class="card mt-2 mb-1">
-        <div class="card-header bg-secondary fs-4 fw-bold text-white">
+        <div class="card-header bg-secondary fs-4 fw-bold text-white mt-5">
             Users
             <button class="btn btn-primary float-end" @click="showForm()">
                 <i class="bi bi-plus-circle"></i> New User
