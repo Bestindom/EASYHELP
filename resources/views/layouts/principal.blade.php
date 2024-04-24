@@ -10,6 +10,7 @@
     </title>
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
+    <link rel="shortcut icon" href="{{ asset('img/EASYHELP.jpg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/csslanding.css') }}">
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
