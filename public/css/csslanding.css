@@ -113,11 +113,11 @@ div[id^="contenedor"] {
     gap: 20px;
 }
 
-/* .btn.landing-button {
+.btn.landing-button {
     width: 300px;
     height: 55px;
     border-radius: 30px;
-    background-color: #219EBC;
+    background-color: var(--AzulClaro);
     color: #FFFDFD;
     border: 1px solid #000000;
     font-weight: bold;
@@ -128,8 +128,8 @@ div[id^="contenedor"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px; 
-} */
+    margin-top: 60px;
+}
 
 .btn.landing-button:hover {
     background-color: #0056b3;
