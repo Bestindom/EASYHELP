@@ -10,19 +10,22 @@
     </title>
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
+    <link rel="shortcut icon" href="{{ asset('img/EASYHELP.jpg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/csslanding.css') }}">
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('landing') }}">EASYHELP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        <div class="container nav">
+            <div class="logo-container">
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('img/EASYHELP.jpg') }}"></a>
+            </div>
+            {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> --}}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     @if (Auth::check())

@@ -2,29 +2,28 @@
 
 namespace App\Models;
 
-use App\Models\Usuario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Provider extends Model
+
+class Order extends Model
 {
     use HasFactory;
 
-    protected $table = 'providers';
-    protected $primaryKey = 'user_id';
+    protected $table = 'orders';
+    // protected $primaryKey = 'user_id';
     public $timestamps = false;
 
-
-    public function user(): BelongsTo
+    public function provider(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Provider::class, 'provider_id');
     }
 
-    // public function orders(): HasMany
-    // {
-    //     return $this->hasMany(Order::class, 'provider_id');
-    // }
+    public function rider(): BelongsTo
+    {
+        return $this->belongsTo(Rider::class, 'rider_id');
+    }
 }

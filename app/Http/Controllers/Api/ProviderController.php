@@ -17,7 +17,8 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::all();
+        // $providers = Provider::with(['user', 'orders'])->get();
+        $providers = Provider::with(['user'])->get();
 
         return ProviderResource::collection($providers);
     }
@@ -33,10 +34,11 @@ class ProviderController extends Controller
         $provider = new Provider();
 
         $provider->user_id = $request->input('id');
+        $provider->name = $request->input('username');
         $provider->menus = 0;
         $provider->name = $request->input('username');
         $provider->street = 'Via Laietana';
-
+        $provider->img = 'img/negocios/negocio1.png';
 
         try
         {
@@ -64,7 +66,8 @@ class ProviderController extends Controller
      */
     public function show(Provider $provider)
     {
-        //
+        $provider = Provider::find($provider->user_id);
+        return new ProviderResource($provider);
     }
 
     /**
@@ -76,7 +79,24 @@ class ProviderController extends Controller
      */
     public function update(Request $request, Provider $provider)
     {
-        //
+        $provider->menus = $request->input('menus');
+
+        try
+        {
+            $provider->save();
+            // $request->session()->flash('mensaje', 'Resgistro agg correctamente');
+            $response = (new ProviderResource($provider))
+                        ->response()
+                        ->setStatusCode(201);
+        }
+        catch (QueryException $ex)
+        {
+            $mensaje = Utilitat::errorMessage($ex);
+            $response = \response()
+                        ->json(['error' => $mensaje], 400);
+        }
+
+        return $response;
     }
 
     /**

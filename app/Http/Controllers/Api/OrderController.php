@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Rider;
+use App\Models\Order;
 use App\Clases\Utilitat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\RiderResource;
-use Illuminate\Database\QueryException;
-use App\Models\Usuario;
+use App\Http\Resources\OrderResource;
+use App\Http\Resources\ProviderResource;
 
-class RiderController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +18,10 @@ class RiderController extends Controller
      */
     public function index()
     {
-        $riders = Rider::all();
+        $orders = Order::with(['provider', 'rider'])->get();
+        // $orders = Order::with(['provider'])->get();
 
-        return RiderResource::collection($riders);
+        return OrderResource::collection($orders);
     }
 
     /**
@@ -32,17 +32,16 @@ class RiderController extends Controller
      */
     public function store(Request $request)
     {
-        $rider = new Rider();
+        $order = new Order();
 
-        $rider->user_id = $request->input('id');
-
+        $order->menus = $request->input('menus');
+        $order->rider_id = $request->input('rider_id');
+        $order->provider_id = $request->input('provider_id');
 
         try
         {
-            $rider->save();
-            $response = (new RiderResource($rider))
-                        ->response()
-                        ->setStatusCode(201);
+            $order->save();
+            $response = $response = response()->json($order, 201);
         }
         catch (QueryException $ex)
         {
@@ -57,10 +56,10 @@ class RiderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rider  $rider
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Rider $rider)
+    public function show(Order $order)
     {
         //
     }
@@ -69,10 +68,10 @@ class RiderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rider  $rider
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rider $rider)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -80,10 +79,10 @@ class RiderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rider  $rider
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rider $rider)
+    public function destroy(Order $order)
     {
         //
     }

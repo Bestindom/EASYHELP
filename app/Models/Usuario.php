@@ -28,11 +28,6 @@ class Usuario extends Authenticatable
         return $this->hasOne(Provider::class, 'user_id');
     }
 
-    public function comedor(): HasOne
-    {
-        return $this->hasOne(Comedor::class, 'user_id');
-    }
-
     public function admin(): HasOne
     {
         return $this->hasOne(Admin::class, 'user_id');
@@ -41,5 +36,20 @@ class Usuario extends Authenticatable
     public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class, 'type_id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($usuario) {
+            if ($usuario->rider) {
+                $usuario->rider->delete();
+            }
+
+            if ($usuario->provider) {
+                $usuario->provider->delete();
+            }
+        });
     }
 }

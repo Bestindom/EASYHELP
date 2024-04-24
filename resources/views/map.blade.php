@@ -4,6 +4,6 @@
 
 @section('contenido')
     <div id='maps'>
-        <div id="map" style="width: 100%; height: 100vh"></div>
+        <div id="map" style="width: 100%; height: 100vh; margin-top:7%;"></div>
     </div>
 @endsection
