@@ -42,6 +42,32 @@ div[id^="contenedor"] {
     padding: 0;
 }
 
+.login-title {
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.logo {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 70px;
+}
+
+.logo1 {
+    color: #FB8500;
+}
+
+.logo2 {
+    color: #FFB703;
+}
+
+
 .container {
     width: 100%;
     max-width: 100vw;

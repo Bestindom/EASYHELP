@@ -5,8 +5,11 @@
 @section('contenido')
     <div class="registroUsuario" id="contenedor1">
         <div class="container-fluid show">
+            <div class="login-title">
+                <h1 class="logo"><span class="logo1">Easy</span><span class="logo2">Help</span></h1>
+            </div>
             <div class="landing-text">
-                <h3>Ayudemos Facil y rapido</h3>
+                <h3 class="azuloscuro">Ayudemos Fácil y Rápido</h3>
                 <p>Con EasyHelp podrás encontrar la mejor solución a tus problemas de forma rápida y sencilla</p>
             </div>
             <div class="landing-buttons">
