@@ -40,7 +40,6 @@ class ProviderController extends Controller
         $provider->street = 'Via Laietana';
         $provider->img = 'img/negocios/negocio1.png';
 
-
         try
         {
             $provider->save();

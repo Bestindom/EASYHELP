@@ -17,6 +17,8 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-floating">
+                        <input type="text" class="form-control" id="name" placeholder="McDonald's">
+                        <label for="floatingInputValue">Numero de Homeless</label>
                         <div class="form-floating row mb-3 mx-3">
                             <input class="form-control" id="amount" name="amount" v-model="customer.amount">
                             <label for="amount">Cantidad</label>
@@ -27,7 +29,6 @@
                         </div>
                         <div class="form-floating row mb-3 mx-3" style="display: none;">
                             <input class="form-control" id="longitud" name="longitud" v-model="customer.longitud">
-                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -50,6 +51,8 @@
                 </div>
                 <div class="modal-body" id="container-cards">
                     <form class="form-floating">
+                        <input type="text" class="form-control" id="name">
+                        <label for="floatingInputValue">Menús a entregar</label>
                         <div v-for="(order, index) in orders" :key="index" class="col">
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="row g-0">

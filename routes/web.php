@@ -55,6 +55,12 @@ Route::middleware(['auth'])->group(function () {
     })->name('map');
 });
 
+Route::get('/registro', function() {
+    return view('register');
+});
+
+Route::get('/proveedor', function() {
+    return view('proveedor');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/providers', function () {

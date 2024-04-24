@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,800;1,800&display=swap');
 
 .container {
-    overflow-x: auto  !important; /* Añadimos scroll horizontal */   
+    overflow-x: auto  !important; /* Añadimos scroll horizontal */
     max-width: calc(200px * 9 + 20px * 5) !important; /* Ancho máximo para mostrar 5 tarjetas */
     white-space: nowrap !important; /* Para que las cartas no se envuelvan */
-    scrollbar-width: none !important; 
+    scrollbar-width: none !important;
 }
 
 #cardContainer {
