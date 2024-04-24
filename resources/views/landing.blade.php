@@ -9,8 +9,8 @@
                 <h1 class="logo"><span class="logo1">Easy</span><span class="logo2">Help</span></h1>
             </div>
             <div class="landing-text">
-                <h3 class="azuloscuro">Ayudemos Fácil y Rápido</h3>
-                <p>Con EasyHelp podrás encontrar la mejor solución a tus problemas de forma rápida y sencilla</p>
+                <h3>Ayudamos <strong class="raya">Fácil</strong> y Rápido</h3>
+                <p>Con EasyHelp encontrarás la mejor solución <br> a tus problemas de forma rápida y sencilla</p>
             </div>
             <div class="landing-buttons">
                 <a href="{{ url('/login') }}" class="btn btn-primary landing-button">Iniciar Sesión</a>

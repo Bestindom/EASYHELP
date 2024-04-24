@@ -44,7 +44,7 @@ div[id^="contenedor"] {
 
 .login-title {
     width: 100%;
-    margin-top: 80px;
+    margin-top: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +56,7 @@ div[id^="contenedor"] {
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
-    font-size: 70px;
+    font-size: 120px;
 }
 
 .logo1 {
@@ -89,12 +89,12 @@ div[id^="contenedor"] {
     transform: translateX(0);
 }
 #contenedor1 p{
-    color: #FFB703;
-    margin-left: 30%;
-    margin-bottom: 20%;
+    color: black;
+    font-family: "Nunito", sans-serif;
+    margin-bottom: 10%;
 }
 #contenedor1 {
-    background-color: var(--Azul);
+    background-color: var(--Ocre);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -111,15 +111,20 @@ div[id^="contenedor"] {
     flex-direction: column;
     gap: 30px;
 }
-
+.raya{
+    color: #FB8500;
+    text-decoration: underline;
+}
 .landing-text h3 {
     margin: 0;
-    font-size: 50px;
+    font-family: "Nunito", sans-serif;
+    font-size: 35px;
+    color: #FB8500;
 }
 
 .landing-text p {
     margin: 0;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .landing-buttons {
@@ -130,14 +135,14 @@ div[id^="contenedor"] {
     width: 300px;
     height: 55px;
     border-radius: 30px;
-    background-color: var(--Orange);
+    background-color: var(--AzulClaro);
     color: #FFFDFD;
     border: 1px solid #000000;
     font-weight: bold;
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    box-shadow: 2px 2px 0px 0px #f27f21;
+    box-shadow: 2px 2px 0px 0px var(--Azul);
     display: flex;
     align-items: center;
     justify-content: center;
