@@ -66,7 +66,6 @@
  </template>
  
  <script>
- import * as bootstrap from 'bootstrap'
  import axios from 'axios';
  
  export default {
@@ -191,7 +190,7 @@
  
  /* Estilo para el botón "VER PROVEEDORES" */
  .ver-proveedores-btn {
-   background-color: #4CAF50; /* Color de fondo */
+   background-color: #e09448; /* Color de fondo */
    border: none; /* Sin borde */
    color: white; /* Color de texto */
    padding: 10px 20px; /* Espaciado interno */
@@ -202,6 +201,8 @@
    margin-bottom: 10px; /* Espacio inferior */
    cursor: pointer; /* Cambio de cursor al pasar el ratón */
    border-radius: 5px; /* Borde redondeado */
+   height: 35px;
+   margin-left: 40%;
  }
  
  /* Estilo para la barra de desplazamiento */
